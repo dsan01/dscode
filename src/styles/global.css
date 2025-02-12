@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  /* Color definition */
+  /* Primary (Emerald) */
+  --color-primary-300: #85f0b5;
+  --color-primary-400: #42df88;
+  --color-primary-500: #20c76b;
+  --color-primary-600: #14a555;
+  --color-primary-700: #148146;
+  --color-primary-800: #15663b;
+
+  /* Secondary (Violet Eggplant) */
+  --color-secondary-300: #f3b1f6;
+  --color-secondary-400: #ec83ef;
+  --color-secondary-500: #de53e2;
+  --color-secondary-600: #c533c6;
+  --color-secondary-700: #a427a2;
+  --color-secondary-800: #8a2387;
+
+  /* Neutral */
+
+  --color-neutral-300: #f0fdf5;
+  --color-neutral-400: #dcfcea;
+  --color-neutral-500: #90b8a3;
+  --color-neutral-600: #47755d;
+  --color-neutral-700: #135432;
+  --color-neutral-800: #042f19;
+  --color-neutral-b: #000;
+  --color-neutral-w: #fff;
+
+  --color-alert-d-300: #ffebeb;
+  --color-alert-d-400: #ff9a9a;
+  --color-alert-d-500: #ff3434;
+  --color-alert-d-600: #d10d0d;
+
+  --color-alert-s-300: #ecfdf2;
+  --color-alert-s-400: #9ff5be;
+  --color-alert-s-500: #3eea7d;
+  --color-alert-s-600: #1f753f;
+
+  --color-alert-w-300: #fffae8;
+  --color-alert-w-400: #fde68a;
+  --color-alert-w-500: #ffdb49;
+  --color-alert-w-600: #ffcd09;
+
+  --color-alert-i-300: #ebf2ff;
+  --color-alert-i-400: #99c0ff;
+  --color-alert-i-500: #3280ff;
+  --color-alert-i-600: #194080;
+
+  --font-title: "outfit", sans-serif;
+  --font-body: "urbanist", sans-serif;
+
+  --animate-infinite-scroll: infinite-scroll 35s linear infinite;
+
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Gradients */
+}
+
+@utility container {
+  padding-inline: 24px;
+  margin-inline: auto;
+
+  @variant sm {
+    padding-inline: 32px;
+  }
+  @variant md {
+    padding-inline: 32px;
+  }
+
+  @variant lg {
+    padding-inline: 80px;
+  }
+
+  @variant xl {
+    padding-inline: 80px;
+  }
+}

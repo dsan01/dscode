@@ -6,6 +6,12 @@
       "name": "Development server",
       "request": "launch",
       "type": "node-terminal"
+    },
+    {
+      "command": "./node_modules/.bin/astro dev --host",
+      "name": "Development Local server",
+      "request": "launch",
+      "type": "node-terminal"
     }
   ]
 }
