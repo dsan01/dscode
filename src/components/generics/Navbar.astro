@@ -1,0 +1,38 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<nav class='container flex h-20 items-center justify-between align-middle'>
+  <div>holi</div>
+  <div
+    class='bg-primary-400 font-body flex gap-8 rounded-full px-10 py-3 text-base font-medium text-neutral-800 shadow-md *:hover:text-neutral-700'
+  >
+    <a href='/'> {t('nav.projects')} </a>
+    <a href='/'>{t('nav.about')}</a>
+    <a href='/'>{t('nav.blog')}</a>
+  </div>
+
+  <button
+    class='flex align-middle'
+    popovertarget='my-popover'
+  >
+    <Icon
+      name='tabler:language-hiragana'
+      class='text-xl'
+    />
+    <Icon
+      name='tabler:caret-down-filled'
+      class='text-xl'
+    />
+  </button>
+  <div
+    class='absolute'
+    popover
+    id='my-popover'
+  >
+    Greetings, one and all!
+  </div>
+</nav>
