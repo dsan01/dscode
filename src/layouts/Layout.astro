@@ -1,5 +1,11 @@
+---
+import Navbar from '@generics/navbar.astro'
+import './src/styles/global.css'
+const currentLang = Astro.currentLocale
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={currentLang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -8,15 +14,8 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<Navbar/>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
