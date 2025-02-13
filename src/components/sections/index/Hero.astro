@@ -1,0 +1,24 @@
+---
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import BentoHero from './BentoHero.astro'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class='container py-2'>
+  <div class='text-alert-s-600 flex flex-col gap-4 text-xs'>
+    <div
+      class='bg-alert-s-400 flex w-min items-center gap-1 rounded-full px-2 py-1'
+    >
+      <div class='bg-alert-s-500 size-2.5 rounded-full transition-colors'></div>
+      {t('hero.avalibe')}
+    </div>
+    <h1
+      class='font-title from-primary-700 via-primary-500 to-primary-300 bg-gradient-to-r bg-clip-text pb-1 text-5xl font-medium text-transparent md:text-6xl'
+    >
+      {t('hero.title')}
+    </h1>
+    <p class='font-body text-lg/snug text-neutral-800'>{t('hero.desc')}</p>
+  </div>
+  <BentoHero />
+</section>

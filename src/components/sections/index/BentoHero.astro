@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+
+const ExperienceYears = new Date().getFullYear() - 2023
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<div class='grid grid-cols-1 gap-4 py-6'>
+  <div class='flex gap-1.5'>
+    <div
+      class='flex basis-3/4 flex-col justify-center gap-4 rounded-xl bg-[url(/img/bg/BG_T3.png)] bg-cover bg-center px-3.5 py-8 shadow-md'
+    >
+      <h4 class='font-title text-center text-2xl font-medium text-neutral-300'>
+        {t('hero.bento.Tagline')}
+      </h4>
+      <p class='font-body text-center text-neutral-300'>
+        {t('hero.bento.Description')}
+      </p>
+    </div>
+    <div
+      class='*:bg-primary-800 flex basis-1/4 flex-col justify-between gap-4 *:aspect-square *:rounded-xl *:shadow-md'
+    >
+      <div class='flex items-center justify-center align-middle'>demo</div>
+      <div class='flex items-center justify-center align-middle'>demp</div>
+      <div class='flex items-center justify-center align-middle'>demo</div>
+    </div>
+  </div>
+  <div
+    class='bg-alert-d-300 relative flex aspect-square justify-end rounded-xl'
+  >
+    <span
+      class='from-primary-700/70 absolute inset-x-0 bottom-0 h-[50%] w-full rounded-xl bg-gradient-to-t to-transparent'
+    ></span>
+    <div
+      class='relative m-5 flex flex-col items-end justify-end *:text-neutral-300'
+    >
+      <h6 class='font-title relative text-3xl font-medium'>David</h6>
+      <p class='font-body relative flex items-center gap-0.5'>
+        <Icon
+          name='tabler:map-pin'
+          class='text-primary-300 animate-wiggle relative text-sm'
+        />
+        Cali, Colombia
+      </p>
+    </div>
+  </div>
+  <div
+    class='bg-primary-500 flex items-center justify-between gap-2 rounded-xl p-6 text-neutral-300 shadow-md'
+  >
+    <span class='font-title basis-1/3 text-6xl font-medium'
+      >+ {ExperienceYears}</span
+    >
+    <span class='font-body basis-2/3 text-2xl font-medium'
+      >{t('hero.bento.ExperienceYears')}</span
+    >
+  </div>
+  <div class='bg-primary-500'>holi</div>
+</div>
