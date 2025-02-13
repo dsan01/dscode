@@ -1,0 +1,109 @@
+---
+import Foundations from '@generics/Foundations.astro'
+import { FoundationType } from 'src/types/enums'
+
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class='container py-2.5'>
+  <div
+    class='bg-primary-300 font-title inline-flex w-full flex-nowrap overflow-hidden rounded-lg py-3 text-xl font-medium text-neutral-800 uppercase shadow-md'
+  >
+    <ul
+      class='animate-infinite-scroll flex items-center whitespace-nowrap *:mx-2'
+    >
+      <li>{t('service.develop')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Develop}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.desing')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Desing}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.managment')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Managment}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.develop')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Develop}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.desing')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Desing}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.managment')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Managment}
+          ClassSize='size-5'
+        />
+      </li>
+    </ul>
+
+    <ul
+      class='animate-infinite-scroll flex items-center gap-4 whitespace-nowrap'
+      aria-hidden='true'
+    >
+      <li>{t('service.develop')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Develop}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.desing')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Desing}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.managment')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Managment}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.develop')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Develop}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.desing')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Desing}
+          ClassSize='size-5'
+        />
+      </li>
+      <li>{t('service.managment')}</li>
+      <li>
+        <Foundations
+          Foundation={FoundationType.Managment}
+          ClassSize='size-5'
+        />
+      </li>
+    </ul>
+  </div>
+</section>
