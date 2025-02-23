@@ -1,38 +1,262 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from 'src/i18n/utils'
+import { languages } from 'src/i18n/ui'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
 ---
 
-<nav class='container flex h-20 items-center justify-between align-middle'>
-  <div>holi</div>
+<nav
+  class='sticky top-0 z-50 container flex flex-col items-center bg-transparent py-2.5 transition-[top] duration-300 md:bg-white/30 md:backdrop-blur-sm'
+  id='navbar'
+>
   <div
-    class='bg-primary-400 font-body flex gap-8 rounded-full px-10 py-3 text-base font-medium text-neutral-800 shadow-md *:hover:text-neutral-700'
+    class='bg-primary-400 flex w-full items-center justify-between rounded-full p-2.5 align-middle shadow-md sm:px-10 md:bg-transparent md:p-0 md:shadow-none'
   >
-    <a href='/'> {t('nav.projects')} </a>
-    <a href='/'>{t('nav.about')}</a>
-    <a href='/'>{t('nav.blog')}</a>
-  </div>
+    <div>
+      <a href={translatePath('/')}>
+        <!-- SVG para pantallas pequeñas (hasta md) -->
+        <svg
+          class='block md:hidden'
+          width='30'
+          height='26'
+          viewBox='0 0 30 26'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            d='M12.4999 0.5C12.4999 0.5 13.2596 7.57231 15.5935 9.90624C16.066 10.3787 16.7369 10.7841 17.4998 11.1343C20.5053 12.514 24.9997 13 24.9997 13C24.9997 13 20.5053 13.486 17.4998 14.8657C16.7369 15.2159 16.066 15.6213 15.5935 16.0937C13.2596 18.4277 12.4999 25.5 12.4999 25.5H17.4998C21.9655 25.5 26.0925 23.1175 28.3253 19.25C30.5582 15.3825 30.5582 10.6175 28.3253 6.75C26.0925 2.88255 21.9655 0.500047 17.4998 0.5H12.4999ZM12.4999 0.5C12.4999 0.5 11.7401 7.5723 9.40614 9.90624C7.07225 12.2402 0 13 0 13C0 13 7.07225 13.7598 9.40614 16.0937C11.7401 18.4277 12.4999 25.5 12.4999 25.5V0.5Z'
+            fill='#042F19'
+          ></path>
+        </svg>
 
-  <button
-    class='flex align-middle'
-    popovertarget='my-popover'
-  >
-    <Icon
-      name='tabler:language-hiragana'
-      class='text-xl'
-    />
-    <Icon
-      name='tabler:caret-down-filled'
-      class='text-xl'
-    />
-  </button>
+        <!-- SVG para pantallas medianas en adelante (md y más grandes) -->
+        <svg
+          class='hidden md:block'
+          width='44'
+          height='36'
+          viewBox='0 0 44 36'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            d='M18.3331 0C18.3331 0 19.4475 10.1841 22.8706 13.545C23.5635 14.2254 24.5475 14.8091 25.6664 15.3134C30.0744 17.3002 36.6662 18 36.6662 18C36.6662 18 30.0744 18.6998 25.6664 20.6866C24.5475 21.1909 23.5635 21.7746 22.8706 22.455C19.4475 25.8159 18.3331 36 18.3331 36H25.6664C32.2161 35.9999 38.269 32.5691 41.5438 27C44.8187 21.4308 44.8187 14.5692 41.5438 9C38.269 3.43087 32.2161 6.80315e-05 25.6664 0H18.3331ZM18.3331 0C18.3331 0 17.2188 10.1841 13.7957 13.545C10.3726 16.9059 0 18 0 18C0 18 10.3726 19.0941 13.7957 22.455C17.2188 25.8159 18.3331 36 18.3331 36V0Z'
+            fill='url(#paint0_linear_486_406)'
+          ></path>
+          <defs>
+            <linearGradient
+              id='paint0_linear_486_406'
+              x1='0'
+              y1='18'
+              x2='44'
+              y2='18'
+              gradientUnits='userSpaceOnUse'
+            >
+              <stop stop-color='#19624D'></stop>
+              <stop
+                offset='0.5'
+                stop-color='#47C197'
+              ></stop>
+              <stop
+                offset='0.895'
+                stop-color='#42DF88'
+              ></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div
+      class='bg-primary-400 font-body hidden gap-8 rounded-full px-10 py-3 text-base font-medium text-neutral-800 shadow-md *:hover:text-neutral-700 md:flex'
+    >
+      <a href={translatePath('/projects')}> {t('nav.projects')} </a>
+      <a href={translatePath('/about')}>{t('nav.about')}</a>
+      <a href={translatePath('/blog')}>{t('nav.blog')}</a>
+    </div>
+    <div
+      class='text-primary-700 hidden text-2xl md:flex'
+      id='lang-selector'
+    >
+      <Icon name='tabler:language-hiragana' />
+      <Icon name='tabler:caret-down-filled' />
+    </div>
+    <div
+      class='top-full right-16 z-100 hidden flex-col rounded-sm bg-transparent px-4 py-3 text-left transition-discrete md:absolute md:bg-neutral-400 md:shadow'
+      id='lang-menu'
+    >
+      <ul class='font-body space-y-4 pt-2 pb-3 md:w-max md:text-neutral-800'>
+        {
+          Object.entries(languages).map(([lang, label]) => (
+            <li>
+              <a href={translatePath('/', lang)}>{label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <button
+      class='md:hidden'
+      id='menu-button'
+    >
+      <Icon
+        name='tabler:menu-2'
+        class='text-xl'
+      />
+    </button>
+    <button
+      class='hidden md:hidden'
+      id='close-menu-button'
+    >
+      <Icon
+        name='tabler:x'
+        class='text-xl'
+      />
+    </button>
+  </div>
   <div
-    class='absolute'
-    popover
-    id='my-popover'
+    id='menu-container'
+    class='mt-4 hidden w-full flex-col gap-4'
   >
-    Greetings, one and all!
+    <div class='bg-primary-400 font-body flex w-full flex-col rounded-2xl p-4'>
+      <ul class='font-body space-y-4 text-neutral-800'>
+        <li>
+          <a href={translatePath('/projects')}> {t('nav.projects')} </a>
+        </li>
+        <li>
+          <a href={translatePath('/about')}>{t('nav.about')}</a>
+        </li>
+        <li>
+          <a href={translatePath('/blog')}>{t('nav.blog')}</a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class='bg-primary-400 font-body flex w-full flex-col rounded-2xl p-4 text-neutral-800'
+    >
+      <ul class='font-body space-y-4 text-neutral-800'>
+        {
+          Object.entries(languages).map(([lang, label]) => (
+            <li>
+              <a href={translatePath('/', lang)}>{label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </nav>
+
+<script>
+  import { getElement } from 'src/lib/dom-selector'
+
+  const Nabar = getElement('#navbar') as HTMLElement
+  const LangSelector = getElement('#lang-selector') as HTMLDivElement
+  const LangMenu = getElement('#lang-menu') as HTMLDivElement
+  const MenuButton = getElement('#menu-button') as HTMLDivElement
+  const CloseMenuButton = getElement('#close-menu-button') as HTMLButtonElement
+  const Menu = getElement('#menu-container') as HTMLButtonElement
+
+  let isMenuOpen = false
+
+  const closeMenuOnClickOutside = (event) => {
+    if (!Menu.contains(event.target) && !MenuButton.contains(event.target)) {
+      hideMobileMenu()
+    }
+  }
+
+  const showMobileMenu = () => {
+    isMenuOpen = true
+    Nabar.style.top = '0' // Mantener visible mientras el menú está abierto
+
+    Menu.classList.remove('hidden')
+    Menu.classList.add('flex')
+    CloseMenuButton.classList.remove('hidden')
+    CloseMenuButton.classList.add('flex')
+    MenuButton.classList.remove('block')
+    MenuButton.classList.add('hidden')
+    document.addEventListener('click', closeMenuOnClickOutside)
+  }
+
+  const hideMobileMenu = () => {
+    if (isMenuOpen) {
+      Menu.classList.remove('flex')
+      Menu.classList.add('hidden')
+      MenuButton.classList.remove('hidden')
+      MenuButton.classList.add('flex')
+      CloseMenuButton.classList.remove('block')
+      CloseMenuButton.classList.add('hidden')
+
+      isMenuOpen = false
+      document.removeEventListener('click', closeMenuOnClickOutside)
+    }
+  }
+
+  MenuButton.addEventListener('click', showMobileMenu)
+
+  CloseMenuButton.addEventListener('click', hideMobileMenu)
+
+  document.querySelectorAll('button').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation() // Evita que el evento se propague y cause scroll
+    })
+  })
+
+  if (LangSelector && LangMenu) {
+    let isHovering = false
+
+    const showMenu = () => {
+      isHovering = true
+      LangMenu.classList.remove('hidden')
+      LangMenu.classList.add('flex')
+    }
+
+    const hideMenu = () => {
+      setTimeout(() => {
+        if (!isHovering) {
+          LangMenu.classList.remove('flex')
+          LangMenu.classList.add('hidden')
+        }
+      }, 300)
+    }
+
+    LangSelector.addEventListener('mouseenter', showMenu)
+    LangMenu.addEventListener('mouseenter', showMenu)
+
+    LangSelector.addEventListener('mouseleave', () => {
+      isHovering = false
+      hideMenu()
+    })
+
+    LangMenu.addEventListener('mouseleave', () => {
+      isHovering = false
+      hideMenu()
+    })
+  }
+
+  let prevScrollpos = window.scrollY
+  let isScrolling = false
+
+  window.addEventListener('scroll', () => {
+    if (isMenuOpen) return // Si el menú está abierto, no hacer nada
+
+    if (!isScrolling) {
+      isScrolling = true
+      setTimeout(() => {
+        let currentScrollPos = window.scrollY
+        if (prevScrollpos > currentScrollPos) {
+          Nabar.style.top = '0' // Mostrar navbar si sube
+        } else {
+          Nabar.style.top = '-80px' // Ocultar navbar si baja
+        }
+        prevScrollpos = currentScrollPos
+        isScrolling = false
+      }, 150)
+    }
+  })
+</script>
