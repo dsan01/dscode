@@ -1,0 +1,33 @@
+---
+import Foundations from '@generics/Foundations.astro'
+import { FoundationType } from 'src/types/enums'
+
+interface Props {
+  Foundation: FoundationType
+  Title: string
+  Description: string
+}
+const { Foundation, Title, Description } = Astro.props
+---
+
+<div
+  class='flex flex-col justify-between gap-5 rounded-xl bg-[url(/img/bg/BG_T3.png)] bg-cover bg-center px-3 py-3.5 shadow-md'
+>
+  <div class='flex items-center gap-3.5'>
+    <Foundations
+      Foundation={Foundation}
+      ClassSize='size-10'
+      ClassColor='fill-neutral-300'
+    />
+    <h6 class='font-title text-2xl font-semibold text-neutral-300'>
+      {Title}
+    </h6>
+  </div>
+  <div
+    class='font-body flex items-center rounded-md bg-neutral-400 p-1.5 text-neutral-800'
+  >
+    <p>
+      {Description}
+    </p>
+  </div>
+</div>
