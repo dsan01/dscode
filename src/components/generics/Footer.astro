@@ -1,0 +1,91 @@
+---
+import { FoundationType } from 'src/types/enums'
+import Foundations from './Foundations.astro'
+import { Icon } from 'astro-icon/components'
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<footer
+  class='rounded-t-3xl bg-neutral-800 py-7 text-neutral-300 md:rounded-t-[80px]'
+>
+  <div class='container flex flex-col gap-3.5'>
+    <div class='flex w-full justify-between'>
+      <div class='space-y-3'>
+        <svg
+          viewBox='0 0 120 100'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+          class='h-11 md:h-16'
+        >
+          <path
+            d='M50.0001 0C50.0001 0 53.0392 28.2892 62.3749 37.6249C64.2648 39.5148 66.9486 41.1363 69.9999 42.537C82.0221 48.056 99.9999 50 99.9999 50C99.9999 50 82.0221 51.9439 69.9999 57.4629C66.9485 58.8636 64.2648 60.4851 62.3749 62.375C53.0392 71.7107 50.0001 100 50.0001 100H69.9999C87.863 99.9998 104.371 90.4698 113.303 74.9999C122.234 59.53 122.234 40.47 113.303 25C104.371 9.53019 87.863 0.000188976 69.9999 0H50.0001ZM50.0001 0C50.0001 0 46.9608 28.2892 37.625 37.6249C28.2893 46.9607 0 50 0 50C0 50 28.2893 53.0392 37.625 62.375C46.9608 71.7107 50.0001 100 50.0001 100V0Z'
+            fill='#F0FDF5'
+          ></path>
+        </svg>
+        <span class='font-title text-sm font-medium md:text-xl'
+          >DSCode (David)</span
+        >
+      </div>
+      <div class='grid grid-cols-3 gap-3 md:gap-6'>
+        <Foundations
+          Foundation={FoundationType.Managment}
+          ClassSize='size-5 md:size-9'
+          ClassColor='fill-neutral-300'
+        />
+        <Foundations
+          Foundation={FoundationType.Develop}
+          ClassSize='size-5 md:size-9'
+          ClassColor='fill-neutral-300'
+        />
+        <Foundations
+          Foundation={FoundationType.Desing}
+          ClassSize='size-5 md:size-9'
+          ClassColor='fill-neutral-300'
+        />
+      </div>
+    </div>
+    <div class='font-body flex gap-4 text-xs md:text-sm'>
+      <a href='/'>{t('footer.link.home')}</a>
+      <a href='/'>{t('footer.link.projets')}</a>
+      <a href='/'>{t('footer.link.about')}</a>
+      <a href='/'>{t('footer.link.blog')}</a>
+      <a href='/'>{t('footer.link.contact')}</a>
+    </div>
+    <hr />
+    <div class='flex justify-between'>
+      <div class='font-body flex items-center gap-0.5 text-xs md:text-sm'>
+        <span>{t('footer.tagline.start')}</span>
+        <Icon name='tabler:heart' />
+        <span>{t('footer.tagline.middle')}</span>
+        <Icon name='tabler:coffee' />
+        <span>{t('footer.tagline.end')}</span>
+      </div>
+      <div class='flex gap-2'>
+        <a
+          class='flex aspect-square items-center justify-center rounded-full bg-neutral-300 p-0.5 align-middle transition-colors hover:bg-neutral-400'
+          href='https://github.com/dsan01'
+          title='Github'
+          target='_blank'
+        >
+          <Icon
+            name='tabler:brand-github'
+            class='text-2xl text-neutral-800'
+          />
+        </a>
+        <a
+          class='flex aspect-square items-center justify-center rounded-full bg-neutral-300 p-0.5 align-middle transition-colors hover:bg-neutral-400'
+          href='https://www.linkedin.com/in/dsanchez01/'
+          title='LinkedIn'
+          target='_blank'
+        >
+          <Icon
+            name='tabler:brand-linkedin'
+            class='text-2xl text-neutral-800'
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

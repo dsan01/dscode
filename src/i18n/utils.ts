@@ -17,3 +17,5 @@ export function useTranslatedPath(lang: keyof typeof labels) {
     return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`;
   };
 }
+
+
