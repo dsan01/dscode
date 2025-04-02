@@ -153,7 +153,7 @@ const translatePath = useTranslatedPath(lang)
 </nav>
 
 <script>
-  import { getElement } from 'src/lib/dom-selector'
+  import { getElement } from '@lib/dom-selector'
 
   const Nabar = getElement('#navbar') as HTMLElement
   const LangSelector = getElement('#lang-selector') as HTMLDivElement
@@ -164,7 +164,7 @@ const translatePath = useTranslatedPath(lang)
 
   let isMenuOpen = false
 
-  const closeMenuOnClickOutside = (event) => {
+  const closeMenuOnClickOutside = (event: any) => {
     if (!Menu.contains(event.target) && !MenuButton.contains(event.target)) {
       hideMobileMenu()
     }
