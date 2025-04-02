@@ -32,6 +32,7 @@ export const labels = {
     "projectHelp.title": "¿Cómo Puedo Ayudarte a Impulsar tu Proyecto?",
     "projectHelp.Description":
       "Descubre cómo puedo ayudarte a impulsar tu transformación digital y llevar tu proyecto al siguiente nivel con servicios de Gestión, Diseño y Desarrollo a la medida.",
+
     "footer.link.home": "Inicio",
     "footer.link.projets": "Proyectos",
     "footer.link.about": "Sobre mi",
@@ -40,6 +41,21 @@ export const labels = {
     "footer.tagline.start": "Hecho con ",
     "footer.tagline.middle": "y mucho ",
     "footer.tagline.end": "en Colombia",
+
+    "contactBanner.title.default":
+      "Conecta y lleva tu proyecto al siguiente nivel",
+    "contactBanner.description.default":
+      "Contáctame y hagamos que tu proyecto se vuelva realidad. Nos encargaremos de todo lo necesario para que todo salga de acuerdo a tus necesidades.",
+    "contactBanner.button.default": "Contactame",
+
+    "index.contactBanner.title": "¿Listo para Trabajar Juntos? ¡Contáctame!",
+
+    "enum.TrajectoryType.Experience": "Experiencia",
+    "enum.TrajectoryType.Studies": "Estudios",
+    "enum.TrajectoryType.Certificates": "Certificados",
+
+    "trajectory.card.currently": "Actualidad",
+    "trajectory,title": "Mi Trayectoria y Experiencia",
   },
   en: {
     "nav.projects": "Projects",
@@ -73,5 +89,20 @@ export const labels = {
     "footer.tagline.start": "Made with ",
     "footer.tagline.middle": "and a lot of ",
     "footer.tagline.end": "in Colombia",
+
+    "contactBanner.title.default":
+      "Connect and take your project to the next level",
+    "contactBanner.description.default":
+      "Contact me and let's make your project a reality. We will take care of everything so that everything goes according to your needs.",
+    "contactBanner.button.default": "Contact me",
+
+    "index.contactBanner.title": "Ready to Work Together? Contact me!",
+
+    "enum.TrajectoryType.Experience": "Experience",
+    "enum.TrajectoryType.Studies": "Studies",
+    "enum.TrajectoryType.Certificates": "Certificates",
+
+    "trajectory.card.currently": "Present",
+    "trajectory,title": "My Career and Experience",
   },
 } as const;
