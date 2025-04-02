@@ -1,0 +1,48 @@
+---
+import { Icon } from 'astro-icon/components'
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from 'src/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+
+interface Props {
+  Title?: string
+  Description?: string
+  ShowDesc?: boolean
+}
+
+const { Title, Description, ShowDesc = false } = Astro.props
+---
+
+<div class='container py-6'>
+  <a
+    class='group flex cursor-pointer flex-col gap-4 rounded-2xl bg-[url(/img/bg/BG_T3.png)] bg-cover bg-center px-4 py-8 text-center text-neutral-300 shadow-lg md:px-10 xl:px-24'
+    href={translatePath('/contact')}
+  >
+    <h6 class='font-title text-4xl font-semibold md:text-5xl'>
+      {Title ?? t('hero.avalibe')}
+    </h6>
+    {
+      ShowDesc ? (
+        <span class='font-body text-sm'>
+          {Description ?? t('hero.avalibe')}
+        </span>
+      ) : null
+    }
+
+    <span
+      class='font-title flex items-center justify-center gap-3 text-xl group-hover:underline'
+    >
+      {t('contactBanner.button.default')}
+      <Icon
+        name='tabler:arrow-narrow-right'
+        class='text-2xl transition-transform group-hover:-rotate-45'
+      />
+    </span>
+  </a>
+</div>
