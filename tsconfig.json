@@ -7,7 +7,10 @@
     "paths": {
       "@sections/*": ["src/components/sections/*"],
       "@generics/*": ["src/components/generics/*"],
-      "@primitives/*": ["src/components/primitives/*"]
-    }
+      "@primitives/*": ["src/components/primitives/*"],
+      "@lib/*": ["src/lib/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
