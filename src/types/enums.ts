@@ -1,5 +1,11 @@
 export enum FoundationType {
-    Desing,
-    Develop,
-    Managment,
-  }
+  Desing,
+  Develop,
+  Managment,
+}
+
+export enum TrajectoryType {
+  Experience,
+  Studies,
+  Certificates,
+}
