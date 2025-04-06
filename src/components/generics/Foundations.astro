@@ -1,11 +1,8 @@
 ---
 import { FoundationType } from 'src/types/enums'
 
-interface Props {
-  Foundation: FoundationType
-  ClassSize?: string
-  ClassColor?: string
-}
+import { type FoundationProps as Props } from 'src/types/props'
+
 const {
   Foundation,
   ClassSize = 'size-4',
@@ -55,7 +52,7 @@ const {
         </clipPath>
       </defs>
     </svg>
-  ) : Astro.props.Foundation === FoundationType.Develop ? (
+  ) : Foundation === FoundationType.Develop ? (
     <svg
       class={ClassSize}
       viewBox='0 0 200 200'
@@ -94,7 +91,7 @@ const {
         </clipPath>
       </defs>
     </svg>
-  ) : Astro.props.Foundation === FoundationType.Managment ? (
+  ) : Foundation === FoundationType.Managment ? (
     <svg
       viewBox='0 0 200 200'
       fill='none'

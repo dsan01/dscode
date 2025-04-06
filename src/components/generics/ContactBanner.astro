@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { type ContactBannerProps as Props } from 'src/types/props'
 import {
   getLangFromUrl,
   useTranslations,
@@ -10,13 +11,7 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 
-interface Props {
-  Title?: string
-  Description?: string
-  ShowDesc?: boolean
-}
-
-const { Title, Description, ShowDesc = false } = Astro.props
+const { title, description, showDesc = false } = Astro.props
 ---
 
 <div class='container py-6'>
@@ -25,12 +20,12 @@ const { Title, Description, ShowDesc = false } = Astro.props
     href={translatePath('/contact')}
   >
     <h6 class='font-title text-4xl font-semibold md:text-5xl'>
-      {Title ?? t('hero.avalibe')}
+      {t(title) ?? t('hero.avalibe')}
     </h6>
     {
-      ShowDesc ? (
+      showDesc ? (
         <span class='font-body text-sm'>
-          {Description ?? t('hero.avalibe')}
+          {t(description) ?? t('hero.avalibe')}
         </span>
       ) : null
     }
