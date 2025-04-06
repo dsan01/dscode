@@ -9,6 +9,7 @@ import { languages } from 'src/i18n/ui'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
+console.log(lang)
 ---
 
 <nav
@@ -74,9 +75,30 @@ const translatePath = useTranslatedPath(lang)
     <div
       class='bg-primary-400 font-body hidden gap-8 rounded-full px-10 py-3 text-base font-medium text-neutral-800 shadow-md *:hover:text-neutral-700 md:flex'
     >
-      <a href={translatePath('/projects')}> {t('nav.projects')} </a>
-      <a href={translatePath('/about')}>{t('nav.about')}</a>
-      <a href={translatePath('/blog')}>{t('nav.blog')}</a>
+      <a
+        href={translatePath('/projects')}
+        class:list={[
+          Astro.url.toString().includes('/projects')
+            ? 'font-bold underline'
+            : '',
+        ]}
+      >
+        {t('nav.projects')}
+      </a>
+      <a
+        href={translatePath('/about')}
+        class:list={[
+          Astro.url.toString().includes('/about') ? 'font-bold underline' : '',
+        ]}
+        >{t('nav.about')}</a
+      >
+      <a
+        href={translatePath('/blog')}
+        class:list={[
+          Astro.url.toString().includes('/blog') ? 'font-bold underline' : '',
+        ]}
+        >{t('nav.blog')}</a
+      >
     </div>
     <div
       class='text-primary-700 hidden text-2xl md:flex'
@@ -91,9 +113,14 @@ const translatePath = useTranslatedPath(lang)
     >
       <ul class='font-body space-y-4 pt-2 pb-3 md:w-max md:text-neutral-800'>
         {
-          Object.entries(languages).map(([lang, label]) => (
+          Object.entries(languages).map(([language, label]) => (
             <li>
-              <a href={translatePath('/', lang)}>{label}</a>
+              <a
+                href={translatePath('/', language)}
+                class:list={[language == lang ? 'font-bold underline' : '']}
+              >
+                {label}
+              </a>
             </li>
           ))
         }
@@ -126,13 +153,38 @@ const translatePath = useTranslatedPath(lang)
     <div class='bg-primary-400 font-body flex w-full flex-col rounded-2xl p-4'>
       <ul class='font-body space-y-4 text-neutral-800'>
         <li>
-          <a href={translatePath('/projects')}> {t('nav.projects')} </a>
+          <a
+            href={translatePath('/projects')}
+            class:list={[
+              Astro.url.toString().includes('/projects')
+                ? 'font-bold underline'
+                : '',
+            ]}
+          >
+            {t('nav.projects')}
+          </a>
         </li>
         <li>
-          <a href={translatePath('/about')}>{t('nav.about')}</a>
+          <a
+            href={translatePath('/about')}
+            class:list={[
+              Astro.url.toString().includes('/about')
+                ? 'font-bold underline'
+                : '',
+            ]}
+            >{t('nav.about')}</a
+          >
         </li>
         <li>
-          <a href={translatePath('/blog')}>{t('nav.blog')}</a>
+          <a
+            href={translatePath('/blog')}
+            class:list={[
+              Astro.url.toString().includes('/blog')
+                ? 'font-bold underline'
+                : '',
+            ]}
+            >{t('nav.blog')}</a
+          >
         </li>
       </ul>
     </div>
@@ -141,9 +193,14 @@ const translatePath = useTranslatedPath(lang)
     >
       <ul class='font-body space-y-4 text-neutral-800'>
         {
-          Object.entries(languages).map(([lang, label]) => (
+          Object.entries(languages).map(([language, label]) => (
             <li>
-              <a href={translatePath('/', lang)}>{label}</a>
+              <a
+                href={translatePath('/', language)}
+                class:list={[language == lang ? 'font-bold underline' : '']}
+              >
+                {label}
+              </a>
             </li>
           ))
         }
