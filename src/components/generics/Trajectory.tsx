@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ButtonGroup } from "@primitives/ButtonGroup";
-import { Trajectories } from "src/data/TrajectoryData";
+import { Trajectories } from "src/data/static/TrajectoryData";
 import type { TrajectoryModel } from "src/types/data";
 import { TrajectoryType } from "src/types/enums";
 import type {
@@ -66,7 +66,7 @@ const ServiceSection: React.FC<BasicTranslateComponentProps> = ({ url }) => {
           resources={filterOptionsResources}
         />
       </div>
-      <div className="grid lg:grid-cols-2 gap-x-4 gap-y-10">
+      <div className="grid gap-x-4 gap-y-10 lg:grid-cols-2">
         {filteredTrajectories.map((trajectory, index) => (
           <TrajectoryCard trajectory={trajectory} key={index} url={url} />
         ))}
