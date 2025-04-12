@@ -8,6 +8,8 @@ export const showDefaultLang = false;
 
 export const labels = {
   es: {
+    demo: "demo", //Solo para pruebas
+
     "nav.projects": "Proyectos",
     "nav.about": "Sobre Mi",
     "nav.blog": "Blog",
@@ -56,8 +58,25 @@ export const labels = {
 
     "trajectory.card.currently": "Actualidad",
     "trajectory,title": "Mi Trayectoria y Experiencia",
+
+    "enum.ProjectProcess.Discover": "Descubro",
+    "enum.ProjectProcess.Desing": "Diseño",
+    "enum.ProjectProcess.Develop": "Desarrollo",
+    "enum.ProjectProcess.Deploy": "despliego",
+
+    "projectCard.img.alt": "Imagen del proyecto ",
+    "projectCard.project.seeMore": "Ver proyecto",
+
+    "projectList.title": "Algunos de mis proyectos recientes",
+
+    "projects.page.title": "Mi trabajo y proyectos destacados",
+    "projects.page.desc":
+      "Explora algunos de los proyectos en los que he trabajado, desde diseño y desarrollo web hasta la gestión de soluciones digitales. Cada uno refleja mi pasión por crear experiencias funcionales y atractivas.",
+    "projects.filter.all": "Todos",
   },
   en: {
+    demo: "demo",
+
     "nav.projects": "Projects",
     "nav.about": "About Me",
 
@@ -104,5 +123,20 @@ export const labels = {
 
     "trajectory.card.currently": "Present",
     "trajectory,title": "My Career and Experience",
+
+    "enum.ProjectProcess.Discover": "Discover",
+    "enum.ProjectProcess.Desing": "Desing",
+    "enum.ProjectProcess.Develop": "Develop",
+    "enum.ProjectProcess.Deploy": "Deploy",
+
+    "projectCard.img.alt": "Project image ",
+    "projectCard.project.seeMore": "See Project",
+
+    "projectList.title": "Some of my recent projects",
+
+    "projects.page.title": "My work and featured projects",
+    "projects.page.desc": "My work and featured projects",
+
+    "projects.filter.all": "All",
   },
 } as const;
