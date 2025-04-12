@@ -5,6 +5,24 @@ import { FoundationType } from 'src/types/enums'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+const serviceCardData = [
+  {
+    FoundationCategory: FoundationType.Develop,
+    titleKey: 'service.long.develop',
+    description: 'demo',
+  },
+  {
+    FoundationCategory: FoundationType.Desing,
+    titleKey: 'service.long.desing',
+    description: 'demo',
+  },
+  {
+    FoundationCategory: FoundationType.Managment,
+    titleKey: 'service.long.managment',
+    description: 'demo',
+  },
+]
 ---
 
 <section class='container py-10'>
@@ -19,20 +37,15 @@ const t = useTranslations(lang)
   <div
     class='grid grid-cols-1 grid-rows-3 gap-5 py-3.5 md:grid-cols-3 md:grid-rows-1 lg:gap-20'
   >
-    <ServiceCard
-      Foundation={FoundationType.Develop}
-      Title={t('service.long.develop')}
-      Description='Demo'
-    />
-    <ServiceCard
-      Foundation={FoundationType.Desing}
-      Title={t('service.long.desing')}
-      Description='Demo'
-    />
-    <ServiceCard
-      Foundation={FoundationType.Managment}
-      Title={t('service.long.managment')}
-      Description='Demo'
-    />
+    {
+      serviceCardData.map((cardData) => (
+        <ServiceCard
+          FoundationCategory={cardData.FoundationCategory}
+          title={cardData.titleKey}
+          description={cardData.description}
+          key={cardData.FoundationCategory}
+        />
+      ))
+    }
   </div>
 </section>
