@@ -1,0 +1,18 @@
+---
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import { type PageTitleProps as Props } from 'src/types/props'
+
+const { title, description } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class='container space-y-8 py-6'>
+  <h1 class='font-title text-primary-700 text-center text-4xl font-medium'>
+    {t(title)}
+  </h1>
+  <div class='font-body text-center text-lg text-neutral-800'>
+    {description ? <p> {t(description)} </p> : <slot />}
+  </div>
+</section>

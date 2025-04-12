@@ -1,0 +1,33 @@
+---
+import Foundations from '@generics/Foundations.astro'
+import { FoundationType } from 'src/types/enums'
+import { type CategoryFoundationProps as Props } from 'src/types/props'
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const { category } = Astro.props
+
+const Trasnlation = (type: FoundationType) => {
+  switch (type) {
+    case FoundationType.Desing:
+      return t('service.desing')
+    case FoundationType.Develop:
+      return t('service.develop')
+    case FoundationType.Managment:
+      return t('service.managment')
+  }
+}
+---
+
+<div
+  class='bg-primary-300 group flex items-center gap-2.5 rounded-full px-3 py-1 transition-all'
+>
+  <Foundations
+    Foundation={category}
+    ClassSize='size-4'
+  />
+  <span class='font-body hidden text-xs group-hover:block'>
+    {Trasnlation(category)}
+  </span>
+</div>

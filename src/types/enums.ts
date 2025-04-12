@@ -9,3 +9,10 @@ export enum TrajectoryType {
   Studies,
   Certificates,
 }
+
+export enum CategoryFilterType {
+  Desing,
+  Develop,
+  Managment,
+  All,
+}

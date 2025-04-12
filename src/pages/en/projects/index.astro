@@ -1,0 +1,15 @@
+---
+import PageTitle from '@generics/PageTitle.astro'
+import ProjectListFilter from '@sections/projects/ProjectListFilter.astro'
+import FeaturedProject from 'src/components/sections/projects/FeaturedProject.astro'
+import Layout from 'src/layouts/Layout.astro'
+---
+
+<Layout>
+  <PageTitle
+    title='projects.page.title'
+    description='projects.page.desc'
+  />
+  <FeaturedProject />
+  <ProjectListFilter />
+</Layout>

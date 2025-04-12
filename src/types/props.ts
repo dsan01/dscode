@@ -1,6 +1,7 @@
 import type { defaultLang, labels } from "src/i18n/ui";
 import type { TrajectoryModel } from "./data";
-import type { FoundationType } from "./enums";
+import type { CategoryFilterType, FoundationType } from "./enums";
+import type { CollectionEntry } from "astro:content";
 
 type TranslationKey = keyof (typeof labels)[typeof defaultLang];
 
@@ -38,13 +39,7 @@ export interface ContactBannerProps {
 }
 
 export interface ProjectCardProps {
-  title: string;
-  description: string;
-  company: string;
-  pubDate?: Date;
-  categories: FoundationType[];
-  url: string;
-  id: string;
+  project: CollectionEntry<"projects">;
 }
 
 export interface CategoryFoundationProps {
@@ -60,4 +55,14 @@ export interface FoundationProps {
 export interface PageTitleProps {
   title: TranslationKey;
   description?: TranslationKey;
+}
+
+export interface CategoryFilterFoundationProps {
+  category: CategoryFilterType;
+}
+
+export interface ServiceCardProps {
+  FoundationCategory: FoundationType;
+  title: TranslationKey;
+  description: TranslationKey;
 }

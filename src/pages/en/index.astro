@@ -4,20 +4,21 @@ import Layout from '../../layouts/Layout.astro'
 import ServicesSlider from '@sections/index/ServicesSlider.astro'
 import ProjectHelp from '@sections/index/ProjectHelp.astro'
 import ContactBanner from '@generics/ContactBanner.astro'
-import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
 import ServiceSection from '@generics/Trajectory'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+import ProjectsList from '@sections/index/ProjectsList.astro'
 ---
 
 <Layout>
   <Hero />
   <ServicesSlider />
   <ProjectHelp />
-  <ContactBanner
-    Title={t('index.contactBanner.title')}
-    ShowDesc={false}
+  <ProjectsList />
+  <ServiceSection
+    client:only='react'
+    url={Astro.url}
   />
-  <ServiceSection client:only="react" url={Astro.url} />
+  <ContactBanner
+    title={'index.contactBanner.title'}
+    showDesc={false}
+  />
 </Layout>
