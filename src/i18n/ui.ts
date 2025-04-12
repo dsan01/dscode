@@ -68,10 +68,15 @@ export const labels = {
     "projectCard.project.seeMore": "Ver proyecto",
 
     "projectList.title": "Algunos de mis proyectos recientes",
+    "projectList.seeMore": "Ver mas",
 
     "projects.page.title": "Mi trabajo y proyectos destacados",
     "projects.page.desc":
       "Explora algunos de los proyectos en los que he trabajado, desde diseño y desarrollo web hasta la gestión de soluciones digitales. Cada uno refleja mi pasión por crear experiencias funcionales y atractivas.",
+
+    "projects.page.allProjetcsList": "Todos mis proyectos",
+    "projects.page.futureProjects": "Más adelante habrá más, lo prometo.",
+
     "projects.filter.all": "Todos",
   },
   en: {
@@ -133,9 +138,14 @@ export const labels = {
     "projectCard.project.seeMore": "See Project",
 
     "projectList.title": "Some of my recent projects",
+    "projectList.seeMore": "See more",
 
     "projects.page.title": "My work and featured projects",
-    "projects.page.desc": "My work and featured projects",
+    "projects.page.desc":
+      "Explore some of the projects I've worked on, from web design and development to digital solutions management. Each one reflects my passion for creating functional and engaging experiences.",
+
+    "projects.page.allProjetcsList": "All my projects",
+    "projects.page.futureProjects": "More to come, I promise.",
 
     "projects.filter.all": "All",
   },
