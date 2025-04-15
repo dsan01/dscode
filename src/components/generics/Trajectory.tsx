@@ -21,11 +21,17 @@ const ServiceSection: React.FC<BasicTranslateComponentProps> = ({ url }) => {
   const [filter, setFilter] = useState<TrajectoryType>(initialFilter);
 
   useEffect(() => {
-    setFilteredTrajectories(
-      Trajectories.filter((trajectory) => trajectory.Type === filter).sort(
-        (a, b) => b.StartDate.valueOf() - a.StartDate.valueOf(),
-      ),
+    const translateTrajectories = Trajectories.filter(
+      (collection) => collection.lang == lang,
     );
+    const filtered = translateTrajectories
+      .map((colllection) => {
+        return colllection.Trajectories.filter(
+          (trajectory) => trajectory.Type === filter,
+        ).sort((a, b) => b.StartDate.valueOf() - a.StartDate.valueOf());
+      })
+      .flat();
+    setFilteredTrajectories(filtered);
   }, [filter]);
 
   const handleFilterChange = (newFilter: TrajectoryType) => {
