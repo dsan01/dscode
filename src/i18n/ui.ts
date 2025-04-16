@@ -31,6 +31,27 @@ export const labels = {
     "service.long.desing": "Diseño UI/UX",
     "service.long.managment": "Gerencia de proyectos",
 
+    "service.desc.develop.title": "Desarrollo Web Escalable y Eficiente",
+    "service.desc.desing.title": "Experiencias Digitales que Conectan",
+    "service.desc.managment.title":
+      "Gestión de Proyectos con Enfoque Estratégico",
+
+    "service.desc.develop.subtitle":
+      "Creo soluciones digitales sólidas, del frontend al backend, aplicando buenas prácticas y tecnologías modernas.",
+    "service.desc.desing.subtitle":
+      "Diseño interfaces a medida que mejoran la experiencia del usuario y optimizan cada paso del proceso digital.",
+    "service.desc.managment.subtitle":
+      "Planifico, organizo y coordino proyectos digitales con herramientas modernas y visión integral.",
+
+    "service.desc.develop.description":
+      "Desarrollo aplicaciones web completas, desde la interfaz hasta el servidor, utilizando tecnologías como JavaScript, C#, React, .NET, MongoDB y PostgreSQL. Aplico principios de Clean Code y SOLID para asegurar un código limpio, mantenible y escalable. Cada proyecto está orientado al rendimiento, la seguridad y la facilidad de evolución, permitiendo soluciones robustas que crecen con tu negocio.",
+    "service.desc.desing.description":
+      "Ofrezco diseños UI/UX personalizados, creados con las últimas tendencias, altos estándares de calidad y enfoque total en la usabilidad. Cada interfaz está pensada para ser funcional, atractiva y fácil de mantener, lo que garantiza una experiencia coherente a lo largo del tiempo. Trabajo de la mano contigo para asegurar que el diseño se alinee con tus objetivos y potencie tu producto digital.",
+    "service.desc.managment.description":
+      "Me especializo en la gestión de proyectos tecnológicos, asegurando su éxito desde la planificación hasta la entrega. Utilizo herramientas como Jira y MS Project para organizar tareas, controlar tiempos y optimizar recursos. Coordino cronogramas, presupuestos, requerimientos e interesados, anticipando riesgos y adaptándome a los cambios. Mi enfoque combina claridad, eficiencia y comunicación constante para que cada proyecto avance con propósito y dirección.",
+
+    "service.tech.title": "Tecnologías y herramientas",
+
     "projectHelp.title": "¿Cómo Puedo Ayudarte a Impulsar tu Proyecto?",
     "projectHelp.Description":
       "Descubre cómo puedo ayudarte a impulsar tu transformación digital y llevar tu proyecto al siguiente nivel con servicios de Gestión, Diseño y Desarrollo a la medida.",
@@ -78,6 +99,8 @@ export const labels = {
     "projects.page.futureProjects": "Más adelante habrá más, lo prometo.",
 
     "projects.filter.all": "Todos",
+
+    "modal.close": "Cerrar modal",
   },
   en: {
     demo: "demo",
@@ -101,6 +124,26 @@ export const labels = {
     "service.long.develop": "Front - Back Develop",
     "service.long.desing": "UI/UX Desing",
     "service.long.managment": "Project Managment",
+
+    "service.desc.develop.title": "Scalable and Efficient Web Development",
+    "service.desc.desing.title": "Digital Experiences that Connect",
+    "service.desc.managment.title": "Strategic Project Management",
+
+    "service.desc.develop.subtitle":
+      "I build solid digital solutions from frontend to backend using best practices and modern technologies.",
+    "service.desc.desing.subtitle":
+      "I design custom interfaces that enhance user experience and streamline digital processes.",
+    "service.desc.managment.subtitle":
+      "I plan, organize, and coordinate digital projects with modern tools and a strategic vision.",
+
+    "service.desc.develop.description":
+      "I develop full-stack web applications, from user interface to backend, using technologies like JavaScript, C#, React, .NET, MongoDB, and PostgreSQL. I follow Clean Code and SOLID principles to deliver clean, maintainable, and scalable code. My focus is on performance, security, and long-term flexibility, ensuring robust solutions that grow with your business.",
+    "service.desc.desing.description":
+      "I offer tailor-made UI/UX designs, built with the latest trends, high standards of quality, and a strong focus on usability. Every interface is crafted to be functional, visually appealing, and easy to maintain. I work closely with you to ensure the design aligns with your goals and enhances your digital product.",
+    "service.desc.managment.description":
+      "I specialize in managing tech projects, ensuring success from planning to delivery. I use tools like Jira and MS Project to track progress, manage timelines, and optimize resources. I handle schedules, budgets, requirements, and stakeholders, anticipating risks and adapting to changes. My approach combines clarity, efficiency, and consistent communication to keep every project moving with purpose.",
+
+    "service.tech.title": "Technologies and tools",
 
     "projectHelp.title": "How Can I Help You to Boost Your Project?",
     "projectHelp.Description":
@@ -148,5 +191,6 @@ export const labels = {
     "projects.page.futureProjects": "More to come, I promise.",
 
     "projects.filter.all": "All",
+    "modal.close": "Close modal",
   },
 } as const;
