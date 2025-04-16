@@ -1,0 +1,128 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import { type ModalProps as Props } from 'src/types/props'
+
+const {
+  id,
+  title,
+  showCloseButton = true,
+  showDefaultFooter = false,
+  showDefaultHeader = false,
+} = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<dialog
+  class='container m-auto space-y-8 overscroll-contain rounded-lg py-8 shadow backdrop:bg-neutral-400/20 backdrop:backdrop-blur-sm'
+  id={`modal-${id}`}
+  is={`modal-component-${id}`}
+>
+  {
+    showDefaultHeader && (
+      <div class='flex flex-grow items-center justify-between'>
+        <h4 class='font-title text-2xl font-medium text-pretty'>
+          {title ? t(title) : ''}
+        </h4>
+
+        {showCloseButton && (
+          <button
+            class='cursor-pointer text-xl font-bold text-neutral-800 outline-0 hover:text-neutral-700'
+            id={`close-button-${id}`}
+            title={t('modal.close')}
+          >
+            <Icon
+              aria-hidden='true'
+              name='tabler:x'
+            />
+            <span class='sr-only'>{t('modal.close')}</span>
+          </button>
+        )}
+      </div>
+    )
+  }
+  <slot />
+  {
+    showDefaultFooter && (
+      <footer>
+        <slot name='footer' />
+      </footer>
+    )
+  }
+</dialog>
+
+<script is:inline define:vars={{ id }}>
+  class Modal extends HTMLDialogElement {
+    constructor() {
+      super()
+      const CloseButon = this.querySelector(`#close-button-${id}`)
+      CloseButon.addEventListener('click', () => {
+        this.close()
+      })
+    }
+  }
+
+  customElements.define(`modal-component-${id}`, Modal, {
+    extends: 'dialog',
+  })
+</script>
+
+<style is:global>
+  dialog::backdrop {
+    animation: show-dimmer 0.2s ease-in-out;
+  }
+
+  dialog.hide::backdrop {
+    animation: hide-dimmer 0.2s ease-in-out;
+  }
+
+  dialog[open] {
+    animation: show-modal 0.2s ease-in-out;
+  }
+
+  dialog.hide {
+    animation: hide-modal 0.2s ease-in-out;
+  }
+
+  @keyframes show-modal {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes show-dimmer {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hide-modal {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+  }
+
+  @keyframes hide-dimmer {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+</style>
