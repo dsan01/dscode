@@ -2,31 +2,39 @@
 import type { ServiceCardProps as Props } from 'src/types/props'
 import Foundations from '@generics/Foundations.astro'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import { Icon } from 'astro-icon/components'
 
-const { FoundationCategory, title, description } = Astro.props
+const { FoundationCategory, title, img = '/img/bg/BG_T3.png' } = Astro.props
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
 <div
-  class='flex flex-col justify-between gap-5 rounded-xl bg-[url(/img/bg/BG_T4.png)] bg-cover bg-center px-3 py-3.5 shadow-md'
+  class='group flex min-h-[320px] flex-col justify-between gap-5 rounded-xl bg-cover bg-center px-3 py-3.5 shadow-md'
+  style={`background-image: url(${img});`}
 >
-  <div class='flex items-center gap-3.5'>
-    <Foundations
-      Foundation={FoundationCategory}
-      ClassSize='size-10'
-      ClassColor='fill-neutral-300'
-    />
-    <h6 class='font-title text-2xl font-semibold text-neutral-300'>
+  <div
+    class='bg-primary-300/10 flex items-center justify-between rounded-md p-1.5 backdrop-blur-xs'
+  >
+    <div class='basis-1/4'>
+      <Foundations
+        Foundation={FoundationCategory}
+        ClassSize='size-10'
+        ClassColor='fill-neutral-300'
+      />
+    </div>
+    <h6
+      class='font-title basis-3/4 text-right text-2xl font-semibold text-neutral-300'
+    >
       {t(title)}
     </h6>
   </div>
-  <div
-    class='font-body flex items-center rounded-md bg-neutral-400 p-1.5 text-neutral-800'
+  <button
+    class='show-modal flex cursor-pointer items-center justify-between rounded-md bg-neutral-400/40 px-4 py-1.5 backdrop-blur-xs transition-opacity duration-200 group-hover:opacity-100 md:opacity-0'
+    data-category={FoundationCategory}
   >
-    <p>
-      {t(description)}
-    </p>
-  </div>
+    <span>{t('projectList.seeMore')}</span>
+    <Icon name='tabler:plus' />
+  </button>
 </div>

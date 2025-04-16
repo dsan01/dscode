@@ -1,5 +1,5 @@
 import type { defaultLang, labels } from "src/i18n/ui";
-import type { TrajectoryModel } from "./data";
+import type { ServiceInfo, TrajectoryModel } from "./data";
 import type { CategoryFilterType, FoundationType } from "./enums";
 import type { CollectionEntry } from "astro:content";
 
@@ -64,5 +64,17 @@ export interface CategoryFilterFoundationProps {
 export interface ServiceCardProps {
   FoundationCategory: FoundationType;
   title: TranslationKey;
-  description: TranslationKey;
+  img?: string;
+}
+
+export interface ModalProps {
+  id: string;
+  title?: TranslationKey;
+  showCloseButton: boolean;
+  showDefaultHeader: boolean;
+  showDefaultFooter: boolean;
+}
+
+export interface ProjectServiceProps {
+  Service: ServiceInfo;
 }
