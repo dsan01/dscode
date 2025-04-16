@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.1",
+    "@iconify-json/logos": "^1.2.4",
     "@iconify-json/tabler": "^1.2.16",
     "@tailwindcss/vite": "^4.0.5",
     "@types/react": "^19.0.10",
