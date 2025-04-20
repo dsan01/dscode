@@ -101,6 +101,13 @@ export const labels = {
     "projects.filter.all": "Todos",
 
     "modal.close": "Cerrar modal",
+
+    "projects.contact.title": "¿Quieres Ver Tu Proyecto Aquí? ¡Hablemos!",
+    "projects.contact.desc":
+      "Tu idea puede ser el próximo gran proyecto en esta lista. Contáctame y hagámoslo realidad juntos.",
+
+    "projects.header.summary": "Resumen",
+    "projects.content.contentsTable": "Tabla de contenidos",
   },
   en: {
     demo: "demo",
@@ -191,6 +198,14 @@ export const labels = {
     "projects.page.futureProjects": "More to come, I promise.",
 
     "projects.filter.all": "All",
+
+    "projects.contact.title": "Want to See Your Project Here? Let's Talk!",
+    "projects.contact.desc":
+      "Your idea can be the next big project on this list. Contact me and let's make it happen together.",
+
     "modal.close": "Close modal",
+
+    "projects.header.summary": "Summary",
+    "projects.content.contentsTable": "Table of contents",
   },
 } as const;
