@@ -2,9 +2,14 @@
 import { FoundationType } from 'src/types/enums'
 import Foundations from './Foundations.astro'
 import { Icon } from 'astro-icon/components'
-import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from 'src/i18n/utils'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
 ---
 
 <footer
@@ -47,11 +52,11 @@ const t = useTranslations(lang)
       </div>
     </div>
     <div class='font-body flex gap-4 text-xs md:text-sm'>
-      <a href='/'>{t('footer.link.home')}</a>
-      <a href='/'>{t('footer.link.projets')}</a>
-      <a href='/'>{t('footer.link.about')}</a>
-      <a href='/'>{t('footer.link.blog')}</a>
-      <a href='/'>{t('footer.link.contact')}</a>
+      <a href={translatePath('/')}>{t('footer.link.home')}</a>
+      <a href={translatePath('/projects')}>{t('footer.link.projets')}</a>
+      <a href={translatePath('/about')}>{t('footer.link.about')}</a>
+      <a href={translatePath('/blog')}>{t('footer.link.blog')}</a>
+      <a href={translatePath('/contact')}>{t('footer.link.contact')}</a>
     </div>
     <hr />
     <div class='flex justify-between'>
