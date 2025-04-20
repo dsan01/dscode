@@ -2,6 +2,9 @@ import type { defaultLang, labels } from "src/i18n/ui";
 import type { ServiceInfo, TrajectoryModel } from "./data";
 import type { CategoryFilterType, FoundationType } from "./enums";
 import type { CollectionEntry } from "astro:content";
+import type { ButtonHTMLAttributes } from "react";
+import type { VariantProps } from "class-variance-authority";
+import type { buttonVariants } from "@primitives/Button";
 
 type TranslationKey = keyof (typeof labels)[typeof defaultLang];
 
@@ -81,4 +84,11 @@ export interface ProjectServiceProps {
 
 export interface ProjectContentProps {
   Headers?: Array<any>;
+}
+
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  variant?: "default" | "outlined";
+  ref: string;
 }
