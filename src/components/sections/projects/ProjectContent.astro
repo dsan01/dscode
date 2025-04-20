@@ -1,0 +1,40 @@
+---
+import Prose from '@primitives/Prose.astro'
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import { type ProjectContentProps as Props } from 'src/types/props'
+
+const { Headers } = Astro.props
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+console.log(Headers)
+---
+
+<div class='container flex flex-col gap-8 py-8 md:flex-row'>
+  {
+    Headers && Headers.length > 0 && (
+      <aside class='relative basis-1/3'>
+        <div class='sticky top-[70px] space-y-4'>
+          <h3 class='font-title text-primary-500 text-xl font-medium'>
+            {t('projects.content.contentsTable')}
+          </h3>
+          <div class='font-body flex flex-col gap-2 text-neutral-800 hover:text-neutral-700'>
+            {Headers.map((link) => (
+              <a
+                href={`#${link.slug}`}
+                class='hover:underline'
+                style={`padding-left: ${link.depth > 1 ? (link.depth - 1) * 10 : 0}px;`}
+              >
+                {link.text}
+              </a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    )
+  }
+  <div class={Headers && Headers.length > 0 ? 'basis-1/3' : 'm-auto'}>
+    <Prose>
+      <slot />
+    </Prose>
+  </div>
+</div>

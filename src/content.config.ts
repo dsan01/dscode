@@ -12,6 +12,8 @@ const projects = defineCollection({
     pubDate: z.string().transform((str) => new Date(str)),
     categories: z.array(z.nativeEnum(FoundationType)),
     featured: z.boolean().optional().default(false),
+    location: z.string(),
+    technologies: z.array(z.string()),
   }),
 });
 
