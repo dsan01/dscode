@@ -8,9 +8,9 @@ import { CategoryFilterType } from 'src/types/enums'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
-const projects = (await getCollection('projects')).filter(
-  (post) => post.id.split('/')[0] === lang
-)
+const projects = (await getCollection('projects'))
+  .filter((post) => post.id.split('/')[0] === lang)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
 
 const filterOptions = [
   CategoryFilterType.All,
