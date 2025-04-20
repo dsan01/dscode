@@ -38,7 +38,7 @@ export interface ContactBannerProps {
   showDesc?: boolean;
 }
 
-export interface ProjectCardProps {
+export interface ProjectBasicProps {
   project: CollectionEntry<"projects">;
 }
 
@@ -77,4 +77,8 @@ export interface ModalProps {
 
 export interface ProjectServiceProps {
   Service: ServiceInfo;
+}
+
+export interface ProjectContentProps {
+  Headers?: Array<any>;
 }

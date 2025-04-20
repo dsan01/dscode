@@ -11,7 +11,11 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 
-const { title, description, showDesc = false } = Astro.props
+const {
+  title = 'hero.avalibe',
+  description = 'hero.avalibe',
+  showDesc = false,
+} = Astro.props
 ---
 
 <div class='container py-6'>
@@ -20,14 +24,12 @@ const { title, description, showDesc = false } = Astro.props
     href={translatePath('/contact')}
   >
     <h6 class='font-title text-4xl font-semibold md:text-5xl'>
-      {t(title) ?? t('hero.avalibe')}
+      {t(title)}
     </h6>
     {
-      showDesc ? (
-        <span class='font-body text-sm'>
-          {t(description) ?? t('hero.avalibe')}
-        </span>
-      ) : null
+      showDesc && (
+        <span class='font-body text-sm md:text-base'>{t(description)}</span>
+      )
     }
 
     <span
