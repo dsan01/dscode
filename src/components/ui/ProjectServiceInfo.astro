@@ -6,7 +6,6 @@ import type { ProjectServiceProps as Props } from 'src/types/props'
 const { Service } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-console.log(Service)
 ---
 
 <div class='flex w-full flex-col gap-4 lg:flex-row'>
