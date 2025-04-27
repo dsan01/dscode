@@ -113,6 +113,8 @@ export const labels = {
     "errorPage.error404.description":
       "Parece que esta ruta no lleva a ningún lado. Tal vez fue un enlace roto o un pequeño bug. Pero no te preocupes, puedes volver al inicio y seguir explorando mis proyectos, ideas y servicios.",
     "errorPage.error404.homePage": "Volver a inicio",
+
+    "backToTop.button.title": "Volver arriba",
   },
   en: {
     demo: "demo",
@@ -217,5 +219,7 @@ export const labels = {
     "errorPage.error404.description":
       "Looks like this route doesn’t lead anywhere. Maybe it was a broken link or a small bug. But no worries — you can head back to the homepage and keep exploring my projects, ideas, and services",
     "errorPage.error404.homePage": "Back to Home",
+
+    "backToTop.button.title": "Back to top",
   },
 } as const;

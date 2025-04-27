@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon/components'
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<button
+  class='group bg-primary-400 hover:bg-primary-300 fixed right-5 bottom-5 z-100 aspect-square cursor-pointer rounded-full p-2 text-center opacity-0 shadow transition-all active:scale-95 md:p-4'
+  id='scroll-top'
+  title={t('backToTop.button.title')}
+>
+  <Icon
+    name='tabler:chevron-up'
+    class='text-xl text-neutral-800 group-hover:text-neutral-600 md:text-2xl'
+  />
+</button>
+
+<script>
+  import { getElement } from '@lib/dom-selector'
+  const ScrollButton = getElement('#scroll-top') as HTMLButtonElement
+
+  window.onscroll = function () {
+    scrollFunction()
+  }
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      ScrollButton.classList.add('opacity-100')
+      ScrollButton.classList.remove('opacity-0')
+    } else {
+      ScrollButton.classList.add('opacity-0')
+      ScrollButton.classList.remove('opacity-100')
+    }
+  }
+
+  ScrollButton.addEventListener('click', scrollToNextComponet)
+
+  function scrollToNextComponet() {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+</script>

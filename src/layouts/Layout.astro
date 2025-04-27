@@ -2,6 +2,7 @@
 import Navbar from '@generics/Navbar.astro'
 import './src/styles/global.css'
 import Footer from '@generics/Footer.astro'
+import BackToTop from '@generics/BackToTop.astro'
 const currentLang = Astro.currentLocale
 ---
 
@@ -28,5 +29,6 @@ const currentLang = Astro.currentLocale
     <Navbar />
     <slot />
     <Footer />
+    <BackToTop />
   </body>
 </html>
