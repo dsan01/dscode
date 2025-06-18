@@ -5,4 +5,6 @@ company: "Rokasfaltos S.A.S."
 pubDate: "12-12-2024"
 categories: [1, 2, 0]
 featured: true
+location: "Cali, Colombia"
+technologies: ["logos:astro-icon", "logos:react", "logos:cpanel"]
 ---

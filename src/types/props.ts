@@ -1,5 +1,5 @@
 import type { defaultLang, labels } from "src/i18n/ui";
-import type { ServiceInfo, TrajectoryModel } from "./data";
+import type { ProjectType, ServiceInfo, TrajectoryModel } from "./data";
 import type { CategoryFilterType, FoundationType } from "./enums";
 import type { CollectionEntry } from "astro:content";
 import type { ButtonHTMLAttributes } from "react";
@@ -45,8 +45,12 @@ export interface ProjectBasicProps {
   project: CollectionEntry<"projects">;
 }
 
+export interface ProjectTest {
+  project: ProjectType;
+}
+
 export interface CategoryFoundationProps {
-  category: FoundationType;
+  category: string;
 }
 
 export interface FoundationProps {

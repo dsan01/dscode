@@ -32,3 +32,20 @@ export interface ServiceInfo {
   Foundation: FoundationType;
   tech?: TechStack[];
 }
+
+export interface ProjectType {
+  id: number;
+  title: string;
+  description: string;
+  company: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  categories: string[];
+  featured: boolean;
+  location: string;
+  slug: string;
+  locale: string;
+  thumbnail: any;
+  finish_date: Date;
+}

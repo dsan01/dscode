@@ -8,7 +8,8 @@
       "@sections/*": ["src/components/sections/*"],
       "@generics/*": ["src/components/generics/*"],
       "@primitives/*": ["src/components/primitives/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@data/*": ["src/types/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

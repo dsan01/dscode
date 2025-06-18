@@ -1,16 +1,19 @@
 ---
-import { getCollection } from 'astro:content'
+import fetchApi from '@lib/strapi'
 import ProjectCard from 'src/components/ui/ProjectCard.astro'
 import ProjectCategoryFilter from 'src/components/ui/ProjectCategoryFilter.astro'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import type { ProjectType } from 'src/types/data'
 import { CategoryFilterType } from 'src/types/enums'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
-const projects = (await getCollection('projects'))
-  .filter((post) => post.id.split('/')[0] === lang)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+const projects = await fetchApi<ProjectType[]>({
+  endpoint: 'projects?populate=thumbnail',
+  wrappedByKey: 'data',
+  lang: lang,
+})
 
 const filterOptions = [
   CategoryFilterType.All,

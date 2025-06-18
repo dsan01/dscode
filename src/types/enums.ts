@@ -16,3 +16,5 @@ export enum CategoryFilterType {
   Managment,
   All,
 }
+
+export enum BlogCategoryType {}

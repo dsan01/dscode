@@ -1,11 +1,12 @@
 ---
-import { type ProjectBasicProps as Props } from 'src/types/props'
+import { type ProjectTest as Props } from 'src/types/props'
 import ProjectCategoryBadge from './ProjectCategoryBadge.astro'
 import {
   getLangFromUrl,
   useTranslatedPath,
   useTranslations,
 } from 'src/i18n/utils'
+import { Image } from 'astro:assets'
 
 const { project } = Astro.props
 
@@ -13,56 +14,55 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 
-let categories = project.data.categories
+let categories = project.categories
 const resultString: string = categories
-  .map((category) => `category-${category}`)
+  .map((cat) => `category-${cat}`)
   .join(' ')
-
-const [, ...finalId] = project.id.split('/')
 ---
 
 <div
   class={`font-body flex flex-col items-center gap-10 text-neutral-800 lg:flex-row-reverse ${resultString} project-card`}
 >
   <a
-    href={translatePath(`/projects/${finalId.join('/')}`)}
+    href={translatePath(`/projects/${project.slug}`)}
     class='relative basis-2/6 transition-all'
   >
-    <img
-      src={`/img/projects/${finalId}/cover.jpg`}
-      alt={`${t('projectCard.img.alt')} ${finalId}`}
-      class='h-full w-max rounded-md shadow-md'
+    <Image
+      src={`http://192.168.1.82:1337${project.thumbnail.url}`}
+      alt={project.thumbnail.alternativeText}
+      width={project.thumbnail.width}
+      height={project.thumbnail.height}
     />
     <div
       class='group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all transition-discrete duration-300 hover:backdrop-blur-xs'
     >
-      <span class='hidden font-bold text-neutral-300 group-hover:block'
-        >{t('projectCard.project.seeMore')}</span
-      >
+      <span class='hidden font-bold text-neutral-300 group-hover:block'>
+        {t('projectCard.project.seeMore')}
+      </span>
     </div>
   </a>
 
   <div class='flex basis-4/6 flex-col gap-5'>
     <div>
-      <span class='text-lg font-light text-neutral-700'
-        >{project.data.company}</span
-      >
-      <a href={translatePath(`/projects/${finalId.join('/')}`)}>
+      <span class='text-lg font-light text-neutral-700'>{project.company}</span>
+      <a href={translatePath(`/projects/${project.slug}`)}>
         <h5 class='font-title text-3xl font-medium hover:underline'>
-          {project.data.title}
+          {project.title}
         </h5>
       </a>
     </div>
     <p class='line-clamp-3'>
-      {project.data.description}
+      {project.description}
     </p>
 
-    <div class='flex gap-3'>
-      {
-        project.data.categories.map((category) => (
-          <ProjectCategoryBadge category={category} />
-        ))
-      }
-    </div>
+    {
+      project.categories && (
+        <div class='flex gap-3'>
+          {project.categories.map((category) => (
+            <ProjectCategoryBadge category={category} />
+          ))}
+        </div>
+      )
+    }
   </div>
 </div>

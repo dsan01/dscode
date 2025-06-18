@@ -1,5 +1,6 @@
 ---
-import { getCollection } from 'astro:content'
+import fetchApi from '@lib/strapi'
+import { Image } from 'astro:assets'
 import FeaturedStar from 'src/components/ui/FeaturedStar.astro'
 import ProjectCategoryBadge from 'src/components/ui/ProjectCategoryBadge.astro'
 import {
@@ -7,24 +8,23 @@ import {
   useTranslations,
   useTranslatedPath,
 } from 'src/i18n/utils'
+import type { ProjectType } from 'src/types/data'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 
-const projects = (await getCollection('projects')).filter(
-  (post) => post.id.split('/')[0] === lang
-)
+const projects = await fetchApi<ProjectType[]>({
+  endpoint: 'projects?populate=thumbnail',
+  wrappedByKey: 'data',
+  lang: lang,
+})
 
 const featuredProject =
   projects
-    .filter((x) => x.data.featured == true)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0] ??
+    .filter((x) => x.featured == true)
+    .sort((a, b) => b.finish_date.valueOf() - a.finish_date.valueOf())[0] ??
   projects[0]
-
-const [, ...finalId] = featuredProject.id.split('/')
-const featuredData = featuredProject.data
-const url = translatePath(`/projects/${finalId.join('/')}`)
 ---
 
 <section class='container py-6'>
@@ -32,12 +32,14 @@ const url = translatePath(`/projects/${finalId.join('/')}`)
     class='font-body flex flex-col items-center gap-5 text-neutral-800 lg:flex-row'
   >
     <a
-      href={url}
+      href={translatePath(`/projects/${featuredProject.slug}`)}
       class='relative basis-2/6 transition-all'
     >
-      <img
-        src={`/img/projects/${finalId}/cover.jpg`}
-        alt={`${t('projectCard.img.alt')} ${finalId}`}
+      <Image
+        src={`http://192.168.1.82:1337${featuredProject.thumbnail.url}`}
+        alt={featuredProject.thumbnail.alternativeText}
+        width={featuredProject.thumbnail.width}
+        height={featuredProject.thumbnail.height}
         class='h-full w-max rounded-md shadow-md'
       />
       <div
@@ -57,21 +59,21 @@ const url = translatePath(`/projects/${finalId.join('/')}`)
     <div class='flex basis-4/6 flex-col gap-5'>
       <div>
         <span class='text-lg font-light text-neutral-700'
-          >{featuredData.company}</span
+          >{featuredProject.company}</span
         >
-        <a href={url}>
+        <a href={translatePath(`/projects/${featuredProject.slug}`)}>
           <h5 class='font-title text-3xl font-medium hover:underline'>
-            {featuredData.title}
+            {featuredProject.title}
           </h5>
         </a>
       </div>
       <p class='line-clamp-3'>
-        {featuredData.description}
+        {featuredProject.description}
       </p>
 
-      <div class='flex gap-3'>
+      <div class='flex flex-wrap gap-3'>
         {
-          featuredData.categories.map((category) => (
+          featuredProject.categories.map((category) => (
             <ProjectCategoryBadge category={category} />
           ))
         }

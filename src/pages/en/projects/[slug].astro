@@ -1,0 +1,27 @@
+---
+import fetchApi from '@lib/strapi'
+import type { ProjectType } from '@data/data'
+export const prerender = true
+
+export async function getStaticPaths() {
+  const articles = await fetchApi<ProjectType[]>({
+    endpoint: 'projects',
+    wrappedByKey: 'data',
+  })
+
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: article,
+  }))
+}
+
+type Props = ProjectType
+
+const article = Astro.props
+
+console.log(article)
+---
+
+<h1>
+  {article.title}
+</h1>

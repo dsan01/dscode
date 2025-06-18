@@ -6,14 +6,18 @@ import {
   useTranslations,
   useTranslatedPath,
 } from 'src/i18n/utils'
+import fetchApi from '@lib/strapi'
+import type { ProjectType } from 'src/types/data'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 
-const projects = (await getCollection('projects'))
-  .filter((post) => post.id.split('/')[0] === lang)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+const projects = await fetchApi<ProjectType[]>({
+  endpoint: 'projects?populate=thumbnail',
+  wrappedByKey: 'data',
+  lang: lang,
+})
 ---
 
 <section class='container space-y-9 py-10'>
