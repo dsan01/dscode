@@ -42,7 +42,7 @@ export interface ContactBannerProps {
 }
 
 export interface ProjectBasicProps {
-  project: CollectionEntry<"projects">;
+  project: ProjectType;
 }
 
 export interface ProjectTest {
@@ -87,7 +87,7 @@ export interface ProjectServiceProps {
 }
 
 export interface ProjectContentProps {
-  Headers?: Array<any>;
+  content: string;
 }
 
 export interface ButtonProps

@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components'
 import FeaturedStar from 'src/components/ui/FeaturedStar.astro'
 import ProjectCategoryBadge from 'src/components/ui/ProjectCategoryBadge.astro'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
@@ -9,46 +8,50 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
 const { project } = Astro.props
-const [, ...finalId] = project.id.split('/')
+const parsedDate = Date.parse(project.createdAt)
+const formatedDate = new Date(parsedDate)
 ---
 
-<section class='font-body container flex flex-col items-center gap-10 py-12'>
+<section class='font-body container flex flex-col items-center gap-10 py-6'>
   <div class='flex w-full flex-col justify-between gap-4 md:flex-row'>
     <h1
       class='font-title basis-1/2 text-3xl font-medium text-neutral-800 md:text-4xl'
     >
-      {project.data.title}
+      {project.title}
     </h1>
     <div
       class='flex basis-1/2 flex-col justify-center md:items-end md:text-right'
     >
       <h4 class='text-xl text-neutral-700 md:text-2xl'>
-        {project.data.company}
+        {project.company}
       </h4>
       <span class='font-light text-neutral-700 md:text-lg'
-        >{project.data.location} - {
-          project.data.pubDate.toLocaleDateString(lang, {
+        >{project.location} -
+        {
+          formatedDate.toLocaleDateString(lang, {
             month: 'short',
             year: 'numeric',
           })
-        }</span
-      >
+        }
+      </span>
     </div>
   </div>
 
   <div class='flex w-full flex-col gap-10 md:flex-row-reverse'>
     <div class='relative'>
       {
-        project.data.featured && (
+        project.featured && (
           <div class='absolute -top-7 -right-6 lg:-top-5 lg:-right-5 xl:-top-8 xl:-right-7'>
             <FeaturedStar />
           </div>
         )
       }
       <img
-        src={`/img/projects/${finalId}/cover.jpg`}
-        alt=''
-        class='w-full rounded-lg object-cover object-center'
+        src={`http://192.168.1.82:1337${project.thumbnail.url}`}
+        alt={project.thumbnail.alternativeText}
+        width={project.thumbnail.width}
+        height={project.thumbnail.height}
+        class='rounded-lg object-cover object-center'
       />
     </div>
     <div class='flex basis-1/2 flex-col justify-center gap-4'>
@@ -56,32 +59,14 @@ const [, ...finalId] = project.id.split('/')
         {t('projects.header.summary')}
       </h5>
       <p>
-        {project.data.description}
+        {project.description}
       </p>
       <div class='flex gap-3'>
         {
-          project.data.categories.map((category) => (
+          project.categories.map((category) => (
             <ProjectCategoryBadge category={category} />
           ))
         }
-      </div>
-      <div class='mt-4 flex flex-col gap-2'>
-        <h6 class='font-title text-primary-500 text-lg font-medium'>
-          {t('service.tech.title')}
-        </h6>
-        <div class='flex gap-2'>
-          {
-            project.data.technologies.map((tech) => (
-              <div class='aspect-square rounded-2xl bg-neutral-400 p-2'>
-                <Icon
-                  name={tech}
-                  height='30px'
-                  width='30px'
-                />
-              </div>
-            ))
-          }
-        </div>
       </div>
     </div>
   </div>

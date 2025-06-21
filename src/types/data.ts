@@ -47,5 +47,6 @@ export interface ProjectType {
   slug: string;
   locale: string;
   thumbnail: any;
-  finish_date: Date;
+  finish_date: string;
+  content: string;
 }

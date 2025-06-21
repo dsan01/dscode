@@ -1,24 +1,57 @@
 ---
 import Prose from '@primitives/Prose.astro'
+import { marked } from 'marked'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
 import { type ProjectContentProps as Props } from 'src/types/props'
 
-const { Headers } = Astro.props
+const { content } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-console.log(Headers)
+
+const slugify = (text: string) => {
+  if (typeof text !== 'string') {
+    return ''
+  }
+
+  const slug = text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+
+  return slug.replace(/^-+|-+$/g, '')
+}
+const tokens = marked.lexer(content)
+const headings = tokens.filter((token) => token.type === 'heading')
+
+const tableOfContents = headings.map((heading) => ({
+  text: heading.text,
+  depth: heading.depth,
+  slug: slugify(heading.text),
+}))
+
+console.log(tableOfContents)
+
+const renderer = new marked.Renderer()
+renderer.heading = ({ depth, raw, text }) => {
+  const slug = slugify(raw)
+  return `<h${depth} id="${slug}">${text}</h${depth}>`
+}
+
+marked.use({ renderer })
+const htmlContent = marked.parse(content)
 ---
 
 <div class='container flex flex-col gap-8 py-8 md:flex-row'>
   {
-    Headers && Headers.length > 0 && (
+    tableOfContents && tableOfContents.length > 0 && (
       <aside class='relative basis-1/3'>
         <div class='sticky top-[70px] space-y-4'>
           <h3 class='font-title text-primary-500 text-xl font-medium'>
             {t('projects.content.contentsTable')}
           </h3>
           <div class='font-body flex flex-col gap-2 text-neutral-800 hover:text-neutral-700'>
-            {Headers.map((link) => (
+            {tableOfContents.map((link) => (
               <a
                 href={`#${link.slug}`}
                 class='hover:underline'
@@ -32,9 +65,13 @@ console.log(Headers)
       </aside>
     )
   }
-  <div class={Headers && Headers.length > 0 ? 'basis-2/3' : 'm-auto'}>
+  <div
+    class={tableOfContents && tableOfContents.length > 0
+      ? 'basis-2/3'
+      : 'm-auto'}
+  >
     <Prose>
-      <slot />
+      <div set:html={marked.parse(htmlContent)} />
     </Prose>
   </div>
 </div>
