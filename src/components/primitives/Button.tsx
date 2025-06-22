@@ -1,5 +1,5 @@
 import React from "react";
-import type { ButtonProps } from "src/types/props";
+import type { ButtonProps } from "@data/props";
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(

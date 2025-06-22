@@ -1,5 +1,5 @@
-import type { ServiceInfo } from "src/types/data";
-import { FoundationType } from "src/types/enums";
+import type { ServiceInfo } from "@data/data";
+import { FoundationType } from "@data/enums";
 
 export const Services: ServiceInfo[] = [
   {

@@ -1,4 +1,4 @@
-import type { ButtonGroupProps } from "src/types/props";
+import type { ButtonGroupProps } from "@data/props";
 
 export const ButtonGroup = <T,>({
   Selected,

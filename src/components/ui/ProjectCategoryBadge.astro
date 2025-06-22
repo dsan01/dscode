@@ -1,7 +1,7 @@
 ---
 import Foundations from '@generics/Foundations.astro'
-import { FoundationType } from 'src/types/enums'
-import { type CategoryFoundationProps as Props } from 'src/types/props'
+import { FoundationType } from '@data/enums'
+import { type CategoryFoundationProps as Props } from '@data/props'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

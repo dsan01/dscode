@@ -1,7 +1,7 @@
 ---
 import Foundations from '@generics/Foundations.astro'
-import { CategoryFilterType, FoundationType } from 'src/types/enums'
-import { type CategoryFilterFoundationProps as Props } from 'src/types/props'
+import { CategoryFilterType, FoundationType } from '@data/enums'
+import { type CategoryFilterFoundationProps as Props } from '@data/props'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -49,7 +49,7 @@ const FoundationTypeTrans = () => {
 
 <script>
   import { selectedFilter } from 'src/store/SelectedFilterStore'
-  import type { CategoryFilterType } from 'src/types/enums'
+  import type { CategoryFilterType } from '@data/enums'
   import { getElements } from '@lib/dom-selector'
 
   function setSelectedFilter(category: CategoryFilterType) {

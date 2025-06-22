@@ -1,10 +1,10 @@
 ---
 import fetchApi from '@lib/strapi'
-import ProjectCard from 'src/components/ui/ProjectCard.astro'
-import ProjectCategoryFilter from 'src/components/ui/ProjectCategoryFilter.astro'
+import ProjectCard from '@ui/ProjectCard.astro'
+import ProjectCategoryFilter from '@ui/ProjectCategoryFilter.astro'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
-import type { ProjectType } from 'src/types/data'
-import { CategoryFilterType } from 'src/types/enums'
+import type { ProjectType } from '@data/data'
+import { CategoryFilterType } from '@data/enums'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -53,7 +53,7 @@ const filterOptions = [
 <script>
   import { selectedFilter } from 'src/store/SelectedFilterStore'
   import { getElements } from '@lib/dom-selector'
-  import { CategoryFilterType } from 'src/types/enums'
+  import { CategoryFilterType } from '@data/enums'
 
   selectedFilter.subscribe((category) => {
     const projectCards = getElements(

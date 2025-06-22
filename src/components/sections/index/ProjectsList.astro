@@ -1,5 +1,5 @@
 ---
-import ProjectCard from 'src/components/ui/ProjectCard.astro'
+import ProjectCard from '@ui/ProjectCard.astro'
 import { getCollection } from 'astro:content'
 import {
   getLangFromUrl,
@@ -7,7 +7,7 @@ import {
   useTranslatedPath,
 } from 'src/i18n/utils'
 import fetchApi from '@lib/strapi'
-import type { ProjectType } from 'src/types/data'
+import type { ProjectType } from '@data/data'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

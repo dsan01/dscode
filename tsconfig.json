@@ -8,6 +8,7 @@
       "@sections/*": ["src/components/sections/*"],
       "@generics/*": ["src/components/generics/*"],
       "@primitives/*": ["src/components/primitives/*"],
+      "@ui/*": ["src/components/ui/*"],
       "@lib/*": ["src/lib/*"],
       "@data/*": ["src/types/*"]
     },

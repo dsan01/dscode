@@ -1,5 +1,5 @@
-import type { TrajectoryColection } from "src/types/data";
-import { TrajectoryType } from "src/types/enums";
+import type { TrajectoryColection } from "@data/data";
+import { TrajectoryType } from "@data/enums";
 
 export const Trajectories: TrajectoryColection[] = [
   {

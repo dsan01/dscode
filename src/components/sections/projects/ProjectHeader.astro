@@ -1,8 +1,8 @@
 ---
-import FeaturedStar from 'src/components/ui/FeaturedStar.astro'
-import ProjectCategoryBadge from 'src/components/ui/ProjectCategoryBadge.astro'
+import FeaturedStar from '@ui/FeaturedStar.astro'
+import ProjectCategoryBadge from '@ui/ProjectCategoryBadge.astro'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
-import { type ProjectBasicProps as Props } from 'src/types/props'
+import { type ProjectBasicProps as Props } from '@data/props'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

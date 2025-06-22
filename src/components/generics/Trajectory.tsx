@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { ButtonGroup } from "@primitives/ButtonGroup";
 import { Trajectories } from "src/data/static/TrajectoryData";
-import type { TrajectoryModel } from "src/types/data";
-import { TrajectoryType } from "src/types/enums";
+import type { TrajectoryModel } from "@data/data";
+import { TrajectoryType } from "@data/enums";
 import type {
   ButtonResources,
   BasicTranslateComponentProps,
-} from "src/types/props";
+} from "@data/props";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 import { TrajectoryCard } from "../ui/TrajectoryCard";
 

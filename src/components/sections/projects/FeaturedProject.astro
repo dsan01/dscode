@@ -1,14 +1,14 @@
 ---
 import fetchApi from '@lib/strapi'
 import { Image } from 'astro:assets'
-import FeaturedStar from 'src/components/ui/FeaturedStar.astro'
-import ProjectCategoryBadge from 'src/components/ui/ProjectCategoryBadge.astro'
+import FeaturedStar from '@ui/FeaturedStar.astro'
+import ProjectCategoryBadge from '@ui/ProjectCategoryBadge.astro'
 import {
   getLangFromUrl,
   useTranslations,
   useTranslatedPath,
 } from 'src/i18n/utils'
-import type { ProjectType } from 'src/types/data'
+import type { ProjectType } from '@data/data'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

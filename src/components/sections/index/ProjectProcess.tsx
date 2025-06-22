@@ -1,7 +1,7 @@
 import type React from "react";
-import { StackSelector } from "src/components/ui/StackSelector";
+import { StackSelector } from "@ui/StackSelector";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
-import type { BasicTranslateComponentProps } from "src/types/props";
+import type { BasicTranslateComponentProps } from "@data/props";
 
 export const ProjectProcess: React.FC<BasicTranslateComponentProps> = ({
   url,

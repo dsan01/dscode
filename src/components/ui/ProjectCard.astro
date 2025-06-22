@@ -1,5 +1,5 @@
 ---
-import { type ProjectTest as Props } from 'src/types/props'
+import { type ProjectTest as Props } from '@data/props'
 import ProjectCategoryBadge from './ProjectCategoryBadge.astro'
 import {
   getLangFromUrl,
@@ -29,7 +29,7 @@ const resultString: string = categories
   >
     <Image
       src={`http://192.168.1.82:1337${project.thumbnail.url}`}
-      alt={project.thumbnail.alternativeText}
+      alt={project.thumbnail.alternativeText ?? 'dem,,'}
       width={project.thumbnail.width}
       height={project.thumbnail.height}
     />

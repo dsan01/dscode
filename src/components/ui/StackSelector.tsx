@@ -1,4 +1,4 @@
-import type { StackSelectorProps } from "src/types/props";
+import type { StackSelectorProps } from "@data/props";
 import { TbArrowNarrowRight } from "react-icons/tb";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 

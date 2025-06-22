@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
-import type { ProjectServiceProps as Props } from 'src/types/props'
+import type { ProjectServiceProps as Props } from '@data/props'
 
 const { Service } = Astro.props
 const lang = getLangFromUrl(Astro.url)
