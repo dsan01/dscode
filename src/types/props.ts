@@ -45,12 +45,14 @@ export interface ProjectBasicProps {
   project: ProjectType;
 }
 
-export interface ProjectTest {
+export interface ProjectCardProps {
   project: ProjectType;
+  url: URL;
 }
 
 export interface CategoryFoundationProps {
   category: string;
+  url: URL;
 }
 
 export interface FoundationProps {
@@ -95,4 +97,11 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   variant?: "default" | "outlined";
   ref: string;
+}
+
+export interface ProjectCategoryFilterProp {
+  url: URL;
+  category: CategoryFilterType;
+  isActive: boolean;
+  onClick: (category: CategoryFilterType) => void;
 }

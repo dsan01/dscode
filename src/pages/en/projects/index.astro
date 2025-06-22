@@ -1,6 +1,6 @@
 ---
 import PageTitle from '@generics/PageTitle.astro'
-import ProjectListFilter from '@sections/projects/ProjectListFilter.astro'
+import { ProjectList } from '@sections/projects/ProjectList'
 import FeaturedProject from '@sections/projects/FeaturedProject.astro'
 import Layout from 'src/layouts/Layout.astro'
 ---
@@ -11,5 +11,8 @@ import Layout from 'src/layouts/Layout.astro'
     description='projects.page.desc'
   />
   <FeaturedProject />
-  <ProjectListFilter />
+  <ProjectList
+    url={Astro.url}
+    client:only='react'
+  />
 </Layout>

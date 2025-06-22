@@ -97,6 +97,12 @@ export const labels = {
 
     "projects.page.allProjetcsList": "Todos mis proyectos",
     "projects.page.futureProjects": "Más adelante habrá más, lo prometo.",
+    "projects.page.loadingProjects": "Desempolvando los mejores proyectos...",
+    "projects.page.errorProjectsTitlte": "¡Ups! Hubo un problema técnico.",
+    "projects.page.errorProjectsDesc":
+      "Parece que no pudimos cargar los proyectos en este momento. Suele ser algo temporal. Por favor, refresca la página o inténtalo de nuevo en un momento.",
+    "projects.page.notFoundProjects":
+      "Aún no tengo un proyecto público con esa tecnología. ¿Hacemos que el tuyo sea el primero?",
 
     "projects.filter.all": "Todos",
 
@@ -203,6 +209,12 @@ export const labels = {
 
     "projects.page.allProjetcsList": "All my projects",
     "projects.page.futureProjects": "More to come, I promise.",
+    "projects.page.loadingProjects": "Dusting off the best projects...",
+    "projects.page.errorProjectsTitlte": "Oops! There was a technical issue.",
+    "projects.page.errorProjectsDesc":
+      "It seems we couldn't load the projects right now. This is usually temporary. Please refresh the page or try again in a moment.",
+    "projects.page.notFoundProjects":
+      "I don't have a public project with that specific stack yet. Perhaps we could make yours the first?",
 
     "projects.filter.all": "All",
 
