@@ -14,17 +14,20 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 
-const projects = await fetchApi<ProjectType[]>({
-  endpoint: 'projects?populate=thumbnail',
+const filteredProjects = await fetchApi<ProjectType>({
+  endpoint: 'projects',
+  query: {
+    populate: 'thumbnail',
+    filters: {
+      featured: {
+        $eq: 'true',
+      },
+    },
+  },
   wrappedByKey: 'data',
   lang: lang,
+  wrappedByList: true,
 })
-
-const featuredProject =
-  projects
-    .filter((x) => x.featured == true)
-    .sort((a, b) => b.finish_date.valueOf() - a.finish_date.valueOf())[0] ??
-  projects[0]
 ---
 
 <section class='container py-6'>
@@ -32,14 +35,14 @@ const featuredProject =
     class='font-body flex flex-col items-center gap-5 text-neutral-800 lg:flex-row'
   >
     <a
-      href={translatePath(`/projects/${featuredProject.slug}`)}
+      href={translatePath(`/projects/${filteredProjects.slug}`)}
       class='relative basis-2/6 transition-all'
     >
       <Image
-        src={`http://192.168.1.82:1337${featuredProject.thumbnail.url}`}
-        alt={featuredProject.thumbnail.alternativeText}
-        width={featuredProject.thumbnail.width}
-        height={featuredProject.thumbnail.height}
+        src={`http://192.168.1.82:1337${filteredProjects.thumbnail.url}`}
+        alt={filteredProjects.thumbnail.alternativeText}
+        width={filteredProjects.thumbnail.width}
+        height={filteredProjects.thumbnail.height}
         class='h-full w-max rounded-md shadow-md'
       />
       <div
@@ -59,21 +62,21 @@ const featuredProject =
     <div class='flex basis-4/6 flex-col gap-5'>
       <div>
         <span class='text-lg font-light text-neutral-700'
-          >{featuredProject.company}</span
+          >{filteredProjects.company}</span
         >
-        <a href={translatePath(`/projects/${featuredProject.slug}`)}>
+        <a href={translatePath(`/projects/${filteredProjects.slug}`)}>
           <h5 class='font-title text-3xl font-medium hover:underline'>
-            {featuredProject.title}
+            {filteredProjects.title}
           </h5>
         </a>
       </div>
       <p class='line-clamp-3'>
-        {featuredProject.description}
+        {filteredProjects.description}
       </p>
 
       <div class='flex flex-wrap gap-3'>
         {
-          featuredProject.categories.map((category) => (
+          filteredProjects.categories.map((category) => (
             <ProjectCategoryBadge category={category} />
           ))
         }

@@ -1,15 +1,18 @@
+import qs from "qs";
+import type { ParsedQs } from "qs";
+
 interface Props {
   endpoint: string;
-  query?: Record<string, string>;
+  query?: ParsedQs;
   wrappedByKey?: string;
   wrappedByList?: boolean;
   lang?: string;
 }
 
 /**
- * Fetches data from the Strapi API
+ * Fetches data from the Strapi API using 'qs' for complex queries.
  * @param endpoint - The endpoint to fetch from
- * @param query - The query parameters to add to the url
+ * @param query - The query object for Strapi (filters, populate, etc.)
  * @param wrappedByKey - The key to unwrap the response from
  * @param wrappedByList - If the response is a list, unwrap it
  * @returns
@@ -21,30 +24,39 @@ export default async function fetchApi<T>({
   wrappedByList,
   lang = "es",
 }: Props): Promise<T> {
-  const containQueryParams = endpoint.includes("?");
   if (endpoint.startsWith("/")) {
     endpoint = endpoint.slice(1);
   }
 
-  const url = new URL(
-    `http://127.0.0.1:1337/api/${endpoint}${containQueryParams ? `&` : `?`}locale=${lang}`,
-  );
+  const fullQuery = {
+    ...query,
+    locale: lang,
+  };
 
-  if (query) {
-    Object.entries(query).forEach(([key, value]) => {
-      url.searchParams.append(key, value);
-    });
+  const queryString = qs.stringify(fullQuery, { encodeValuesOnly: true });
+
+  const url = `http://192.168.1.82:1337/api/${endpoint}?${queryString}`;
+
+  try {
+    const res = await fetch(url.toString());
+    if (!res.ok) {
+      console.error(`Error fetching ${url}: ${res.status} ${res.statusText}`);
+      throw new Error(`Failed to fetch API: ${res.statusText}`);
+    }
+
+    let data = await res.json();
+
+    if (wrappedByKey) {
+      data = data[wrappedByKey];
+    }
+
+    if (wrappedByList) {
+      data = data[0];
+    }
+
+    return data as T;
+  } catch (error) {
+    console.error("An error occurred in fetchApi:", error);
+    throw error;
   }
-  const res = await fetch(url.toString());
-  let data = await res.json();
-
-  if (wrappedByKey) {
-    data = data[wrappedByKey];
-  }
-
-  if (wrappedByList) {
-    data = data[0];
-  }
-
-  return data as T;
 }

@@ -17,13 +17,22 @@ let project: ProjectType
 
 try {
   project = await fetchApi<ProjectType>({
-    endpoint: 'projects?populate=thumbnail',
-    wrappedByKey: 'data',
-    wrappedByList: true,
-    lang: lang,
+    endpoint: 'projects',
     query: {
-      'filters[slug][$eq]': slug || '',
+      populate: {
+        thumbnail: {
+          fields: ['url', 'name', 'width', 'height', 'alternativeText'],
+        },
+      },
+      filters: {
+        slug: {
+          $eq: slug,
+        },
+      },
     },
+    wrappedByKey: 'data',
+    lang: lang,
+    wrappedByList: true,
   })
   if (!project) {
     return Astro.redirect('/404')
