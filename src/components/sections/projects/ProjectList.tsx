@@ -81,7 +81,7 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
         </div>
       </div>
 
-      <div className="">
+      <div>
         {loading && (
           <div className="font-body space-y-3 py-10 text-center text-neutral-500">
             <p className="text-2xl">(˃ ⤙ ˂)</p>
@@ -95,7 +95,6 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
               {t("projects.page.errorProjectsTitlte")}
             </h6>
             <p>{t("projects.page.errorProjectsDesc")}</p>
-            <p>{error}</p>
           </div>
         )}
 
