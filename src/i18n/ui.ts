@@ -78,7 +78,15 @@ export const labels = {
     "enum.TrajectoryType.Certificates": "Certificados",
 
     "trajectory.card.currently": "Actualidad",
-    "trajectory,title": "Mi Trayectoria y Experiencia",
+    "trajectory.title": "Mi Trayectoria y Experiencia",
+
+    "trajectory.api.errorTitle": "¡Ups! Hubo un problema técnico.",
+    "trajectory.api.errorDesc":
+      "Ocurrió un problema técnico al recuperar mi historial. Por favor, refresca la página para intentarlo de nuevo.",
+    "trajectory.api.loadingTrajectories":
+      "Compilando mi historial y certificaciones...",
+    "trajectory.api.notFoundTrajectories":
+      "Aún no hay elementos en esta sección. ¡Es un área en constante crecimiento!",
 
     "enum.ProjectProcess.Discover": "Descubro",
     "enum.ProjectProcess.Desing": "Diseño",
@@ -190,7 +198,15 @@ export const labels = {
     "enum.TrajectoryType.Certificates": "Certificates",
 
     "trajectory.card.currently": "Present",
-    "trajectory,title": "My Career and Experience",
+    "trajectory.title": "My Career and Experience",
+
+    "trajectory.api.errorTitle": "Oops! There was a technical issue.",
+    "trajectory.api.errorDesc":
+      "A technical issue occurred while retrieving my background. Please refresh the page to try again.",
+    "trajectory.api.loadingTrajectories":
+      "Compiling my experience and certifications...",
+    "trajectory.api.notFoundTrajectories":
+      "There are no items in this section yet. It's an area that's always growing!",
 
     "enum.ProjectProcess.Discover": "Discover",
     "enum.ProjectProcess.Desing": "Desing",

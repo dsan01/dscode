@@ -9,13 +9,13 @@ type TechStack = {
 };
 
 export interface TrajectoryModel {
-  Title: string;
-  Image: string;
-  Successes?: string[];
-  Company: string;
-  StartDate: Date;
-  EndDate?: Date;
-  Type: TrajectoryType;
+  title: string;
+  thumbnail: any;
+  successes?: string;
+  company: string;
+  startDate: string;
+  endDate?: string;
+  type: TrajectoryType;
 }
 
 export interface TrajectoryColection {
