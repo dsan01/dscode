@@ -62,6 +62,7 @@ const TrajectorySection: React.FC<BasicTranslateComponentProps> = ({ url }) => {
             sort: ["startDate:desc"],
           },
           wrappedByKey: "data",
+          lang: lang,
         });
         setTrajectories(filteredTrajectories);
       } catch (err) {

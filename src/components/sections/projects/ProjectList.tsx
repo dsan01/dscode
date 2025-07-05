@@ -37,6 +37,7 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
       try {
         const query: ParsedQs = {
           populate: "thumbnail",
+          sort: ["finish_date:desc"],
         };
         if (activeFilter != CategoryFilterType.All) {
           query.filters = {
