@@ -3,9 +3,13 @@ import PageTitle from '@generics/PageTitle.astro'
 import { ProjectList } from '@sections/projects/ProjectList'
 import FeaturedProject from '@sections/projects/FeaturedProject.astro'
 import Layout from 'src/layouts/Layout.astro'
+import ContactBanner from '@generics/ContactBanner.astro'
 ---
 
-<Layout>
+<Layout
+  title={'meta.title.projetcs'}
+  description={'meta.description.projects'}
+>
   <PageTitle
     title='projects.page.title'
     description='projects.page.desc'
@@ -14,5 +18,9 @@ import Layout from 'src/layouts/Layout.astro'
   <ProjectList
     url={Astro.url}
     client:only='react'
+  />
+  <ContactBanner
+    title={'index.contactBanner.title'}
+    showDesc={false}
   />
 </Layout>

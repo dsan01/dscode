@@ -4,6 +4,12 @@ import './src/styles/global.css'
 import Footer from '@generics/Footer.astro'
 import BackToTop from '@generics/BackToTop.astro'
 const currentLang = Astro.currentLocale
+import { type LayoutMetaProps as Props } from '@data/props'
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const { title, description = 'meta.description.default' } = Astro.props
 ---
 
 <!doctype html>
@@ -14,16 +20,48 @@ const currentLang = Astro.currentLocale
       name='viewport'
       content='width=device-width'
     />
+    <meta
+      name='generator'
+      content={Astro.generator}
+    />
+
+    <title>
+      DSCode {title && ` | ${t(title) ?? title}`}
+    </title>
+
+    <meta
+      name='description'
+      content={t(description) ?? description}
+    />
+
+    <link
+      rel='icon'
+      type='image/png'
+      href='/favicon-96x96.png'
+      sizes='96x96'
+    />
     <link
       rel='icon'
       type='image/svg+xml'
       href='/favicon.svg'
     />
-    <meta
-      name='generator'
-      content={Astro.generator}
+    <link
+      rel='shortcut icon'
+      href='/favicon.ico'
     />
-    <title>Astro Basics</title>
+    <link
+      rel='apple-touch-icon'
+      sizes='180x180'
+      href='/apple-touch-icon.png'
+    />
+    <meta
+      name='apple-mobile-web-app-title'
+      content='DSCode'
+    />
+    <link
+      rel='manifest'
+      href='/site.webmanifest'
+    />
   </head>
   <body>
     <Navbar />

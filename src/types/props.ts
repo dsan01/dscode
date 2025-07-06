@@ -1,7 +1,6 @@
 import type { defaultLang, labels } from "src/i18n/ui";
 import type { ProjectType, ServiceInfo, TrajectoryModel } from "./data";
 import type { CategoryFilterType, FoundationType } from "./enums";
-import type { CollectionEntry } from "astro:content";
 import type { ButtonHTMLAttributes } from "react";
 import type { VariantProps } from "class-variance-authority";
 import type { buttonVariants } from "@primitives/Button";
@@ -104,4 +103,9 @@ export interface ProjectCategoryFilterProp {
   category: CategoryFilterType;
   isActive: boolean;
   onClick: (category: CategoryFilterType) => void;
+}
+
+export interface LayoutMetaProps {
+  title?: TranslationKey | string;
+  description?: TranslationKey | string;
 }

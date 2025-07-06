@@ -10,6 +10,22 @@ export const labels = {
   es: {
     demo: "demo", //Solo para pruebas
 
+    "meta.title.home": "Desarrollador de Productos Digitales",
+    "meta.title.projetcs": "Proyectos",
+    "meta.title.about": "Sobre mi",
+    "meta.title.blog": "Blog",
+    "meta.title.contact": "Contacto",
+
+    "meta.description.default":
+      "Desarrollador de productos digitales con experiencia en Front-end, Back-end, UI/UX y gestión de proyectos. Transformo ideas en soluciones completas. ¡Explora mi portafolio!",
+
+    "meta.description.projects":
+      "Explora una selección de mis proyectos. Cada caso de estudio detalla mi trabajo en diseño UI/UX, desarrollo full-stack y gestión para lograr resultados exitosos.",
+
+    "meta.description.about": "",
+    "meta.description.blog": "",
+    "meta.description.contact": "",
+
     "nav.projects": "Proyectos",
     "nav.about": "Sobre Mi",
     "nav.blog": "Blog",
@@ -132,6 +148,22 @@ export const labels = {
   },
   en: {
     demo: "demo",
+
+    "meta.title.home": "Digital Product Developer",
+    "meta.title.projetcs": "Projects",
+    "meta.title.about": "About me",
+    "meta.title.blog": "Blog",
+    "meta.title.contact": "Contac",
+
+    "meta.description.default":
+      "Digital product developer with expertise in Front-End, Back-End, UI/UX & Project Management. I turn complex ideas into complete solutions. Explore my portfolio!",
+
+    "meta.description.projects":
+      "Explore a selection of my projects. Each case study details my work in UI/UX design, full-stack development, and project management to achieve successful outcomes.",
+
+    "meta.description.about": "",
+    "meta.description.blog": "",
+    "meta.description.contact": "",
 
     "nav.projects": "Projects",
     "nav.about": "About Me",

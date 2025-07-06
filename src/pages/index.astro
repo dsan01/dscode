@@ -9,7 +9,10 @@ import ProjectsList from '@sections/index/ProjectsList.astro'
 export const prerender = true
 ---
 
-<Layout>
+<Layout
+  title={'meta.title.home'}
+  description={'meta.description.default'}
+>
   <Hero />
   <ServicesSlider />
   <ProjectHelp />
