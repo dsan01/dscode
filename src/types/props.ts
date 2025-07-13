@@ -1,7 +1,17 @@
 import type { defaultLang, labels } from "src/i18n/ui";
-import type { ProjectType, ServiceInfo, TrajectoryModel } from "./data";
+import type {
+  ContactBenfitType,
+  ContactSocialLinksType,
+  ProjectType,
+  ServiceInfo,
+  TrajectoryModel,
+} from "./data";
 import type { CategoryFilterType, FoundationType } from "./enums";
-import type { ButtonHTMLAttributes } from "react";
+import type {
+  ButtonHTMLAttributes,
+  InputHTMLAttributes,
+  TextareaHTMLAttributes,
+} from "react";
 import type { VariantProps } from "class-variance-authority";
 import type { buttonVariants } from "@primitives/Button";
 
@@ -96,6 +106,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   variant?: "default" | "outlined";
   ref: string;
+  isLoading?: boolean;
 }
 
 export interface ProjectCategoryFilterProp {
@@ -108,4 +119,31 @@ export interface ProjectCategoryFilterProp {
 export interface LayoutMetaProps {
   title?: TranslationKey | string;
   description?: TranslationKey | string;
+}
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string;
+  label: string;
+  placeholder: string;
+  errors?: boolean;
+  errorMessage?: string;
+  ref: string;
+}
+
+export interface TextboxProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  name: string;
+  label: string;
+  placeholder: string;
+  errors?: boolean;
+  errorMessage?: string;
+  ref: string;
+}
+
+export interface BenefitsContactCardProps {
+  benefit: ContactBenfitType;
+}
+
+export interface ContactLinkCardProps {
+  link: ContactSocialLinksType;
 }
