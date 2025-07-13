@@ -1,5 +1,6 @@
 import qs from "qs";
 import type { ParsedQs } from "qs";
+import apiClient from "./apiClient";
 
 interface Props {
   endpoint: string;
@@ -24,10 +25,6 @@ export default async function fetchApi<T>({
   wrappedByList,
   lang = "es",
 }: Props): Promise<T> {
-  if (endpoint.startsWith("/")) {
-    endpoint = endpoint.slice(1);
-  }
-
   const fullQuery = {
     ...query,
     locale: lang,
@@ -35,28 +32,23 @@ export default async function fetchApi<T>({
 
   const queryString = qs.stringify(fullQuery, { encodeValuesOnly: true });
 
-  const url = `http://192.168.1.82:1337/api/${endpoint}?${queryString}`;
+  // Construimos el endpoint con la query string
+  const fullEndpoint = `${endpoint}?${queryString}`;
 
-  try {
-    const res = await fetch(url.toString());
-    if (!res.ok) {
-      console.error(`Error fetching ${url}: ${res.status} ${res.statusText}`);
-      throw new Error(`Failed to fetch API: ${res.statusText}`);
-    }
+  // Delegamos la llamada de red a nuestro cliente genérico
+  let data = await apiClient<any>({
+    endpoint: fullEndpoint,
+    method: "GET", // Siempre será GET para esta función
+  });
 
-    let data = await res.json();
-
-    if (wrappedByKey) {
-      data = data[wrappedByKey];
-    }
-
-    if (wrappedByList) {
-      data = data[0];
-    }
-
-    return data as T;
-  } catch (error) {
-    console.error("An error occurred in fetchApi:", error);
-    throw error;
+  // La lógica para desenvolver la respuesta de Strapi se mantiene
+  if (wrappedByKey) {
+    data = data[wrappedByKey];
   }
+
+  if (wrappedByList) {
+    data = data[0];
+  }
+
+  return data as T;
 }
