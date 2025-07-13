@@ -1,0 +1,10 @@
+---
+import LinkCardContact from '@ui/LinkCardContact.astro'
+import { contactLinks } from 'src/data/static/ContactData'
+---
+
+<section class='container'>
+  <div class='grid grid-cols-1 gap-10 py-9 lg:grid-cols-3'>
+    {contactLinks.map((link) => <LinkCardContact link={link} />)}
+  </div>
+</section>

@@ -1,0 +1,44 @@
+---
+import { Icon } from 'astro-icon/components'
+import { type ContactLinkCardProps as Props } from '@data/props'
+
+import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+
+const { link } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<a
+  href={link.link}
+  target='_blank'
+  class='bg-primary-400 group flex flex-col gap-4 rounded-lg px-4 py-3 shadow-md'
+>
+  <div class='flex items-center gap-4'>
+    <div
+      class='bg-primary-300 flex aspect-square items-center rounded-full p-1.5'
+    >
+      <Icon
+        name={link.icon}
+        class='text-2xl text-neutral-800'
+      />
+    </div>
+    <div class='flex w-full items-center justify-between'>
+      <h6
+        class='font-title text-3xl font-semibold text-neutral-800 group-hover:underline'
+      >
+        {link.title}
+      </h6>
+      <Icon
+        name='tabler:external-link'
+        class='text-2xl text-neutral-800'
+      />
+    </div>
+  </div>
+  <div>
+    <p class='font-body'>
+      {t(link.description)}
+    </p>
+  </div>
+</a>

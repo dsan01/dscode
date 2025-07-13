@@ -1,0 +1,15 @@
+---
+import PageTitle from '@generics/PageTitle.astro'
+import ContactLinks from '@sections/contact/ContactLinks.astro'
+import ContactWrapper from '@sections/contact/ContactWrapper.astro'
+import Layout from 'src/layouts/Layout.astro'
+---
+
+<Layout title={'meta.title.contact'}>
+  <PageTitle
+    title='contact.page.title'
+    description='contact.page.desc'
+  />
+  <ContactWrapper />
+  <ContactLinks />
+</Layout>

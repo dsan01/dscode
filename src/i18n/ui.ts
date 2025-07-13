@@ -145,6 +145,56 @@ export const labels = {
     "errorPage.error404.homePage": "Volver a inicio",
 
     "backToTop.button.title": "Volver arriba",
+
+    "contact.page.title": "¿Una idea o una oportunidad?",
+    "contact.page.desc":
+      "Me encantaría conocer más sobre tu proyecto o la vacante que tienes en mente. Creo en la comunicación clara y en las buenas alianzas. Elige tu canal preferido y empecemos la conversación.",
+    "contact.form.title": "Contactame por este medio",
+    "contact.formLabel.name": "Tu nombre",
+    "contact.formPlace.name": "Escribe tu nombre y apellido",
+    "contact.formErrorRequired.name": "Por favor, dime cómo te llamas.",
+    "contact.formLabel.email": "Tu correo electrónico",
+    "contact.formPlace.email": "tu_correo@ejemplo.com",
+    "contact.formErrorRequired.email":
+      "Necesito tu correo para poder responderte.",
+    "contact.formErrorInvalid.email":
+      "Parece que este correo no es válido. ¿Puedes revisarlo?",
+    "contact.formLabel.message": "Tu mensaje",
+    "contact.formPlace.message":
+      "Hola, me gustaría hablar sobre un proyecto... Cuéntame aquí tu idea o la oportunidad que tienes en mente.",
+    "contact.formErrorRequired.message":
+      "¡No te olvides de escribir tu mensaje!",
+    "contact.form.sendButton": "Enviar mensaje",
+
+    "contact.benefit.title.exploration": "Exploración sin compromiso",
+    "contact.benefit.title.comunication": "Comunicación garantizada",
+    "contact.benefit.title.tehcnical": "Aporte estratégico o técnico",
+    "contact.benefit.title.adapt": "Adaptabilidad total",
+
+    "contact.benefit.desc.exploration":
+      "La primera llamada es para escucharte. Entenderé tus necesidades y te daré mi perspectiva honesta, sin ninguna obligación.",
+    "contact.benefit.desc.comunication":
+      "Tu tiempo es valioso. Te garantizo una respuesta a tu mensaje en un plazo máximo de 24 horas hábiles.",
+    "contact.benefit.desc.tehcnical":
+      "Te ofrezco tanto mi capacidad para ejecutar y construir, como mi experiencia para asesorar y planificar el mejor camino a seguir.",
+    "contact.benefit.desc.adapt":
+      "Ya sea que necesites un desarrollador para una tarea específica o un líder técnico para todo el proyecto, mi rol se ajusta a ti.",
+
+    "contact.link.github":
+      "Aquí es donde vive mi código. Explora mis repositorios y proyectos para ver mi estilo de desarrollo y mis contribuciones técnicas.",
+    "contact.link.linkedin":
+      "Mi trayectoria profesional en detalle. Ideal para conocer mi experiencia, ver recomendaciones y conectar en el ámbito profesional.",
+    "contact.link.cv":
+      "¿Prefieres el formato clásico? Descarga un resumen completo de mi perfil, habilidades y experiencia en un archivo PDF listo para compartir.",
+
+    "contact.toast.success":
+      "¡Mensaje recibido! Te responderé en menos de 24 horas hábiles.",
+    "contact.toast.error":
+      "No se pudo enviar tu mensaje. Inténtalo de nuevo mas tarde o contáctame directamente por correo.",
+    "contact.toast.serverError":
+      "¡Ups! Algo interrumpió el envío. Si el problema continúa contáctame directamente por correo.",
+
+    "generic.loading": "Cargando...",
   },
   en: {
     demo: "demo",
@@ -277,9 +327,52 @@ export const labels = {
 
     "errorPage.error404.title": "Oops... This Page Got Lost in the Code",
     "errorPage.error404.description":
-      "Looks like this route doesn’t lead anywhere. Maybe it was a broken link or a small bug. But no worries — you can head back to the homepage and keep exploring my projects, ideas, and services",
+      "Looks like this route doesn't lead anywhere. Maybe it was a broken link or a small bug. But no worries — you can head back to the homepage and keep exploring my projects, ideas, and services",
     "errorPage.error404.homePage": "Back to Home",
 
     "backToTop.button.title": "Back to top",
+
+    "contact.page.title": "¿Una idea o una oportunidad?",
+    "contact.page.desc":
+      "Me encantaría conocer más sobre tu proyecto o la vacante que tienes en mente. Creo en la comunicación clara y en las buenas alianzas. Elige tu canal preferido y empecemos la conversación.",
+    "contact.form.title": "Contactame por este medio",
+    "contact.formLabel.name": "Your name",
+    "contact.formPlace.name": "Enter your first and last name",
+    "contact.formErrorRequired.name": "Please let me know your name.",
+    "contact.formLabel.email": "Your email address",
+    "contact.formPlace.email": "your_email@example.com",
+    "contact.formErrorRequired.email":
+      "I'll need your email to get back to you.",
+    "contact.formErrorInvalid.email":
+      "This email doesn't look quite right. Could you double-check it?",
+    "contact.formLabel.message": "Your message",
+    "contact.formPlace.message":
+      "Hi, I'd like to talk about a project... Describe your idea or the opportunity you have in mind here.",
+    "contact.formErrorRequired.message":
+      "Please don't forget to write your message!",
+    "contact.form.sendButton": "Send Message",
+
+    "contact.benefit.title.exploration": " No-strings-attached exploration",
+    "contact.benefit.title.comunication": "Guaranteed communication",
+    "contact.benefit.title.tehcnical": "Strategic or technical contribution",
+    "contact.benefit.title.adapt": "Full adaptability",
+
+    "contact.benefit.desc.exploration":
+      "The first call is for me to listen. I'll understand your needs and give you my honest perspective, with no obligation.",
+    "contact.benefit.desc.comunication":
+      "Your time is valuable. I guarantee a response to your message within 24 business hours.",
+    "contact.benefit.desc.tehcnical":
+      "I offer both my ability to execute and build, and my experience to consult and plan the best path forward.",
+    "contact.benefit.desc.adapt":
+      "Whether you need a developer for a specific task or a technical lead for the entire project, my role adjusts to you.",
+
+    "contact.link.github":
+      "This is where my code lives. Explore my repositories and projects to see my development style and technical contributions.",
+    "contact.link.linkedin":
+      "My professional journey in detail. Ideal for reviewing my experience, seeing recommendations, and connecting professionally.",
+    "contact.link.cv":
+      "Prefer the classic format? Download a complete summary of my profile, skills, and experience in a share-ready PDF file.",
+
+    "generic.loading": "Loading...",
   },
 } as const;

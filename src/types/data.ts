@@ -50,3 +50,22 @@ export interface ProjectType {
   finish_date: string;
   content: string;
 }
+
+export interface ContactType {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface ContactBenfitType {
+  icon: string;
+  title: TranslationKey;
+  description: TranslationKey;
+}
+
+export interface ContactSocialLinksType {
+  icon: string;
+  title: string;
+  description: TranslationKey;
+  link: string;
+}
