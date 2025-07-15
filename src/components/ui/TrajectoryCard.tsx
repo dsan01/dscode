@@ -1,4 +1,4 @@
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import type { TrajectoryCardProps } from "@data/props";
 import { marked } from "marked";
 import { Prose } from "@primitives/Prose";

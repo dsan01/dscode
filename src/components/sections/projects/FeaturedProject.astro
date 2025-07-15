@@ -3,11 +3,7 @@ import fetchApi from '@lib/strapi'
 import { Image } from 'astro:assets'
 import FeaturedStar from '@ui/FeaturedStar.astro'
 import ProjectCategoryBadge from '@ui/ProjectCategoryBadge.astro'
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-} from 'src/i18n/utils'
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
 import type { ProjectType } from '@data/data'
 export const prerender = false
 

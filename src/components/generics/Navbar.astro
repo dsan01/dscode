@@ -1,11 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-} from 'src/i18n/utils'
-import { languages } from 'src/i18n/ui'
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
+import { languages } from '@i18n/ui'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)

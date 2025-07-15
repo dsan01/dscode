@@ -1,6 +1,6 @@
 import type { StackSelectorProps } from "@data/props";
 import { TbArrowNarrowRight } from "react-icons/tb";
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
 export const StackSelector: React.FC<StackSelectorProps> = ({
   text,

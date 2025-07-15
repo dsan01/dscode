@@ -1,6 +1,6 @@
 import type { CategoryFoundationProps } from "@data/props";
 import FoundationIcon from "@generics/Foundation";
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { FoundationType } from "@data/enums";
 
 export const ProjectCategoryBadge: React.FC<CategoryFoundationProps> = ({

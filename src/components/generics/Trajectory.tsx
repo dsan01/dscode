@@ -6,7 +6,7 @@ import type {
   ButtonResources,
   BasicTranslateComponentProps,
 } from "@data/props";
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { TrajectoryCard } from "@ui/TrajectoryCard";
 import fetchApi from "@lib/strapi";
 

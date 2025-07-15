@@ -1,4 +1,4 @@
-import type { defaultLang, labels, languages } from "src/i18n/ui";
+import type { defaultLang, labels, languages } from "@i18n/ui";
 import type { FoundationType, TrajectoryType } from "./enums";
 
 type Language = keyof typeof languages;

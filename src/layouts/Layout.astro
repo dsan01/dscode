@@ -5,7 +5,7 @@ import Footer from '@generics/Footer.astro'
 import BackToTop from '@generics/BackToTop.astro'
 const currentLang = Astro.currentLocale
 import { type LayoutMetaProps as Props } from '@data/props'
-import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

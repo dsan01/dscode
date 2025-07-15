@@ -1,4 +1,4 @@
-import type { defaultLang, labels } from "src/i18n/ui";
+import type { defaultLang, labels } from "@i18n/ui";
 import type {
   ContactBenfitType,
   ContactSocialLinksType,

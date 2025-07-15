@@ -1,11 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
 import { type ContactBannerProps as Props } from '@data/props'
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-} from 'src/i18n/utils'
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

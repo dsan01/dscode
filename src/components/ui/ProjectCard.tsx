@@ -4,7 +4,7 @@ import {
   getLangFromUrl,
   useTranslatedPath,
   useTranslations,
-} from "src/i18n/utils";
+} from "@i18n/utils";
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, url }) => {
   const lang = getLangFromUrl(url);

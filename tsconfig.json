@@ -10,7 +10,8 @@
       "@primitives/*": ["src/components/primitives/*"],
       "@ui/*": ["src/components/ui/*"],
       "@lib/*": ["src/lib/*"],
-      "@data/*": ["src/types/*"]
+      "@data/*": ["src/types/*"],
+      "@i18n/*": ["src/i18n/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

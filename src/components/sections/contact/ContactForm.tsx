@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import type { BasicTranslateComponentProps } from "@data/props";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";

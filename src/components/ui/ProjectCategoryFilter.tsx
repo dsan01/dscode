@@ -1,6 +1,6 @@
 import type { ProjectCategoryFilterProp } from "@data/props";
 import FoundationIcon from "@generics/Foundation";
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { CategoryFilterType, FoundationType } from "@data/enums";
 
 export const ProjectCategoryFilter: React.FC<ProjectCategoryFilterProp> = ({

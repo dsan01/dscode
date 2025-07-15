@@ -4,7 +4,7 @@ import type { ProjectType } from "@data/data";
 import type { ParsedQs } from "qs";
 import { CategoryFilterType } from "@data/enums";
 
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { ProjectCard } from "@ui/ProjectCard";
 import fetchApi from "@lib/strapi";
 import ProjectCategoryFilter from "@ui/ProjectCategoryFilter";

@@ -6,11 +6,7 @@ import Layout from 'src/layouts/Layout.astro'
 import fetchApi from '@lib/strapi'
 import type { ProjectType } from '@data/data'
 
-import {
-  getLangFromUrl,
-  useTranslatedPath,
-  useTranslations,
-} from 'src/i18n/utils'
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '@i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

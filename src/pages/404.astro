@@ -2,11 +2,7 @@
 import Button from '@primitives/Button'
 import { Picture } from 'astro:assets'
 import ErrorImg from 'src/assets/img/404/404.png'
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-} from 'src/i18n/utils'
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
 import Layout from 'src/layouts/Layout.astro'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

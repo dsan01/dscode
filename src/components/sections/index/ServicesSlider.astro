@@ -3,7 +3,7 @@ import Foundations from '@generics/Foundations.astro'
 import { FoundationType } from '@data/enums'
 import { ServiceSlider } from 'src/data/static/ServiceSliderData'
 
-import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
