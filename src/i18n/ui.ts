@@ -147,6 +147,8 @@ export const labels = {
     "backToTop.button.title": "Volver arriba",
 
     "contact.page.title": "¿Una idea o una oportunidad?",
+    "contact.page.disclaimer":
+      "Usaré tu correo únicamente para responderte. Odio el spam tanto como tú, así que puedes estar seguro de que tus datos están a salvo conmigo.",
     "contact.page.desc":
       "Me encantaría conocer más sobre tu proyecto o la vacante que tienes en mente. Creo en la comunicación clara y en las buenas alianzas. Elige tu canal preferido y empecemos la conversación.",
     "contact.form.title": "Contactame por este medio",
@@ -332,10 +334,13 @@ export const labels = {
 
     "backToTop.button.title": "Back to top",
 
-    "contact.page.title": "¿Una idea o una oportunidad?",
+    "contact.page.title": "An idea or an opportunity?",
+    "contact.page.disclaimer":
+      "I will only use your email to reply to you. I hate spam as much as you do, so you can rest assured your data is safe with me.",
+
     "contact.page.desc":
-      "Me encantaría conocer más sobre tu proyecto o la vacante que tienes en mente. Creo en la comunicación clara y en las buenas alianzas. Elige tu canal preferido y empecemos la conversación.",
-    "contact.form.title": "Contactame por este medio",
+      "I'd be happy to learn more about your project or the vacancy you have in mind. I believe in clear communication and good partnerships. Choose your preferred channel and let's start the conversation.",
+    "contact.form.title": "Contact me by this means",
     "contact.formLabel.name": "Your name",
     "contact.formPlace.name": "Enter your first and last name",
     "contact.formErrorRequired.name": "Please let me know your name.",

@@ -10,6 +10,7 @@ import type { ContactType } from "@data/data";
 import Button from "@primitives/Button";
 import { sendContactForm } from "@lib/contactService";
 import { Toaster, toast } from "sonner";
+import { TbAlertTriangle } from "react-icons/tb";
 
 export const ContactForm: React.FC<BasicTranslateComponentProps> = ({
   url,
@@ -52,7 +53,7 @@ export const ContactForm: React.FC<BasicTranslateComponentProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col justify-center gap-3">
       <h3 className="font-title text-primary-700 text-center text-2xl font-medium">
         {t("contact.form.title")}
       </h3>
@@ -79,6 +80,13 @@ export const ContactForm: React.FC<BasicTranslateComponentProps> = ({
           errorMessage={errors.message?.message}
           {...register("message")}
         />
+        <div className="font-body bg-primary-300 flex items-center gap-4 rounded-2xl px-6 py-2 text-center text-neutral-700">
+          <div>
+            <TbAlertTriangle className="text-2xl lg:text-4xl" />
+          </div>
+
+          <p className="text-xs lg:text-sm">{t("contact.page.disclaimer")}</p>
+        </div>
         <Button type="submit" variant="default" isLoading={isLoading}>
           {!isLoading ? t("contact.form.sendButton") : t("generic.loading")}
         </Button>

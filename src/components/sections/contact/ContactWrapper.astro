@@ -9,7 +9,7 @@ import { Benefits } from 'src/data/static/ContactData'
     url={Astro.url}
     client:only='react'
   />
-  <div class='flex flex-col gap-7'>
+  <div class='flex flex-col justify-center gap-7'>
     {Benefits.map((Benefit) => <ContactBenefitCard benefit={Benefit} />)}
   </div>
 </section>
