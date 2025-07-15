@@ -24,7 +24,8 @@ export const labels = {
 
     "meta.description.about": "",
     "meta.description.blog": "",
-    "meta.description.contact": "",
+    "meta.description.contact":
+      "¿Tienes un proyecto, una idea o una oportunidad? Hablemos. Encuentra aquí mi formulario de contacto, correo y redes para iniciar la conversación.",
 
     "nav.projects": "Proyectos",
     "nav.about": "Sobre Mi",
@@ -205,7 +206,7 @@ export const labels = {
     "meta.title.projetcs": "Projects",
     "meta.title.about": "About me",
     "meta.title.blog": "Blog",
-    "meta.title.contact": "Contac",
+    "meta.title.contact": "Contact",
 
     "meta.description.default":
       "Digital product developer with expertise in Front-End, Back-End, UI/UX & Project Management. I turn complex ideas into complete solutions. Explore my portfolio!",
@@ -215,7 +216,8 @@ export const labels = {
 
     "meta.description.about": "",
     "meta.description.blog": "",
-    "meta.description.contact": "",
+    "meta.description.contact":
+      "Have a project, an idea, or an opportunity? Let's talk. Find my contact form, email, and social media links here to start the conversation.",
 
     "nav.projects": "Projects",
     "nav.about": "About Me",
