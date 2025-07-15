@@ -51,6 +51,7 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
           endpoint: "projects",
           query: query,
           wrappedByKey: "data",
+          lang: lang,
         });
         setProjects(filteredProjects);
       } catch (err) {

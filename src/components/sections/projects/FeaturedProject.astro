@@ -9,78 +9,80 @@ import {
   useTranslatedPath,
 } from 'src/i18n/utils'
 import type { ProjectType } from '@data/data'
+export const prerender = false
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 
-const filteredProjects = await fetchApi<ProjectType>({
-  endpoint: 'projects',
-  query: {
-    populate: 'thumbnail',
-    filters: {
-      featured: {
-        $eq: 'true',
+let filteredProject: ProjectType | null = null
+
+try {
+  filteredProject = await fetchApi<ProjectType>({
+    endpoint: 'projects',
+    query: {
+      populate: 'thumbnail',
+      filters: {
+        featured: {
+          $eq: 'true',
+        },
       },
     },
-  },
-  wrappedByKey: 'data',
-  lang: lang,
-  wrappedByList: true,
-})
+    wrappedByKey: 'data',
+    lang: lang,
+    wrappedByList: true,
+  })
+} catch (error) {
+  console.error('Error al obtener los proyectos destacados:', error)
+  filteredProject = null
+}
 ---
 
-<section class='container py-6'>
-  <div
-    class='font-body flex flex-col items-center gap-5 text-neutral-800 lg:flex-row'
-  >
-    <a
-      href={translatePath(`/projects/${filteredProjects.slug}`)}
-      class='relative basis-2/6 transition-all'
-    >
-      <Image
-        src={`http://192.168.1.82:1337${filteredProjects.thumbnail.url}`}
-        alt={filteredProjects.thumbnail.alternativeText}
-        width={filteredProjects.thumbnail.width}
-        height={filteredProjects.thumbnail.height}
-        class='h-full w-max rounded-md shadow-md'
-      />
-      <div
-        class='group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all transition-discrete hover:backdrop-blur-xs'
-      >
-        <span class='hidden font-bold text-neutral-300 group-hover:block'
-          >{t('projectCard.project.seeMore')}</span
+{
+  filteredProject && (
+    <section class='container py-6'>
+      <div class='font-body flex flex-col items-center gap-5 text-neutral-800 lg:flex-row'>
+        <a
+          href={translatePath(`/projects/${filteredProject.slug}`)}
+          class='relative basis-2/6 transition-all'
         >
-      </div>
-      <div
-        class='absolute -top-7 -right-6 lg:-top-5 lg:-right-5 xl:-top-8 xl:-right-7'
-      >
-        <FeaturedStar />
-      </div>
-    </a>
-
-    <div class='flex basis-4/6 flex-col gap-5'>
-      <div>
-        <span class='text-lg font-light text-neutral-700'
-          >{filteredProjects.company}</span
-        >
-        <a href={translatePath(`/projects/${filteredProjects.slug}`)}>
-          <h5 class='font-title text-3xl font-medium hover:underline'>
-            {filteredProjects.title}
-          </h5>
+          <Image
+            src={`http://192.168.1.82:1337${filteredProject.thumbnail.url}`}
+            alt={filteredProject.thumbnail.alternativeText}
+            width={filteredProject.thumbnail.width}
+            height={filteredProject.thumbnail.height}
+            class='h-full w-max rounded-md shadow-md'
+          />
+          <div class='group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all transition-discrete hover:backdrop-blur-xs'>
+            <span class='hidden font-bold text-neutral-300 group-hover:block'>
+              {t('projectCard.project.seeMore')}
+            </span>
+          </div>
+          <div class='absolute -top-7 -right-6 lg:-top-5 lg:-right-5 xl:-top-8 xl:-right-7'>
+            <FeaturedStar />
+          </div>
         </a>
-      </div>
-      <p class='line-clamp-3'>
-        {filteredProjects.description}
-      </p>
 
-      <div class='flex flex-wrap gap-3'>
-        {
-          filteredProjects.categories.map((category) => (
-            <ProjectCategoryBadge category={category} />
-          ))
-        }
+        <div class='flex basis-4/6 flex-col gap-5'>
+          <div>
+            <span class='text-lg font-light text-neutral-700'>
+              {filteredProject.company}
+            </span>
+            <a href={translatePath(`/projects/${filteredProject.slug}`)}>
+              <h5 class='font-title text-3xl font-medium hover:underline'>
+                {filteredProject.title}
+              </h5>
+            </a>
+          </div>
+          <p class='line-clamp-3'>{filteredProject.description}</p>
+
+          <div class='flex flex-wrap gap-3'>
+            {filteredProject.categories.map((category) => (
+              <ProjectCategoryBadge category={category} />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  )
+}

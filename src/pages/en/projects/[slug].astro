@@ -6,10 +6,15 @@ import Layout from 'src/layouts/Layout.astro'
 import fetchApi from '@lib/strapi'
 import type { ProjectType } from '@data/data'
 
-import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from 'src/i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
 
 const { slug } = Astro.params
 
@@ -36,16 +41,16 @@ try {
   })
 
   if (!project) {
-    return Astro.redirect('/404')
+    return Astro.redirect(translatePath('/404'))
   }
 } catch (error) {
-  return Astro.redirect('/404')
+  return Astro.redirect(translatePath('/404'))
 }
 ---
 
 <Layout>
   <ProjectHeader project={project} />
-  <ProjectContent content={project.content} />
+  {project.content && <ProjectContent content={project.content} />}
   <ContactBanner
     title={'index.contactBanner.title'}
     showDesc={false}
