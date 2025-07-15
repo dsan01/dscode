@@ -69,3 +69,8 @@ export interface ContactSocialLinksType {
   description: TranslationKey;
   link: string;
 }
+
+export interface SliderType {
+  text: TranslationKey;
+  icon: FoundationType;
+}

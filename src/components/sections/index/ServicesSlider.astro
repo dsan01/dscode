@@ -1,6 +1,7 @@
 ---
 import Foundations from '@generics/Foundations.astro'
 import { FoundationType } from '@data/enums'
+import { ServiceSlider } from 'src/data/static/ServiceSliderData'
 
 import { getLangFromUrl, useTranslations } from 'src/i18n/utils'
 const lang = getLangFromUrl(Astro.url)
@@ -14,96 +15,33 @@ const t = useTranslations(lang)
     <ul
       class='animate-infinite-scroll flex items-center whitespace-nowrap *:mx-2 group-hover:[animation-play-state:paused]'
     >
-      <li>{t('service.develop')}</li>
+    {
+      ServiceSlider.map((service) => (
+      <li>{t(service.text)}</li>
       <li>
         <Foundations
-          Foundation={FoundationType.Develop}
+          Foundation={service.icon}
           ClassSize='size-5 md:size-7 '
         />
       </li>
-      <li>{t('service.desing')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Desing}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-      <li>{t('service.managment')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Managment}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-      <li>{t('service.develop')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Develop}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-      <li>{t('service.desing')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Desing}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-      <li>{t('service.managment')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Managment}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
+      ))
+    }
     </ul>
 
     <ul
       class='animate-infinite-scroll flex items-center gap-4 whitespace-nowrap group-hover:[animation-play-state:paused]'
       aria-hidden='true'
     >
-      <li>{t('service.develop')}</li>
+    {
+      ServiceSlider.map((service) => (
+      <li>{t(service.text)}</li>
       <li>
         <Foundations
-          Foundation={FoundationType.Develop}
-          ClassSize='size-5 md:size-7'
+          Foundation={service.icon}
+          ClassSize='size-5 md:size-7 '
         />
       </li>
-      <li>{t('service.desing')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Desing}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-      <li>{t('service.managment')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Managment}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-      <li>{t('service.develop')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Develop}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-      <li>{t('service.desing')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Desing}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-      <li>{t('service.managment')}</li>
-      <li>
-        <Foundations
-          Foundation={FoundationType.Managment}
-          ClassSize='size-5 md:size-7'
-        />
-      </li>
-    </ul>
+      ))
+    }
   </div>
 </section>
