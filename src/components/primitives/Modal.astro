@@ -57,9 +57,28 @@ const t = useTranslations(lang)
   class Modal extends HTMLDialogElement {
     constructor() {
       super()
-      const CloseButon = this.querySelector(`#close-button-${id}`)
-      CloseButon.addEventListener('click', () => {
-        this.close()
+      const closeButton = this.querySelector(`#close-button-${id}`)
+
+      closeButton.addEventListener('click', () => {
+        this.classList.add('hide')
+      })
+
+      this.addEventListener('click', (event) => {
+        if (event.target === this) {
+          this.classList.add('hide')
+        }
+      })
+
+      this.addEventListener('cancel', (event) => {
+        event.preventDefault()
+        this.classList.add('hide')
+      })
+
+      this.addEventListener('animationend', (event) => {
+        if (event.animationName === 'hide-modal') {
+          this.classList.remove('hide')
+          this.close()
+        }
       })
     }
   }

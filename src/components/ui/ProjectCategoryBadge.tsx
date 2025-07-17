@@ -21,9 +21,11 @@ export const ProjectCategoryBadge: React.FC<CategoryFoundationProps> = ({
     }
   };
   return (
-    <div className="bg-primary-300 group flex items-center gap-2.5 rounded-full px-3 py-1 transition-all">
-      <FoundationIcon Foundation={FinalCategory} ClassSize="size-4" />
-      <span className="font-body text-xs group-hover:block md:hidden">
+    <div className="bg-primary-300 group flex items-center gap-2.5 rounded-full px-3 py-1 transition-all duration-300 ease-in-out md:gap-0 hover:md:gap-2.5">
+      <div>
+        <FoundationIcon Foundation={FinalCategory} ClassSize="size-4" />
+      </div>
+      <span className="font-body text-xs whitespace-nowrap transition-all duration-300 ease-in-out md:max-w-0 md:opacity-0 group-hover:md:max-w-xs group-hover:md:opacity-100">
         {Trasnlation(FinalCategory)}
       </span>
     </div>

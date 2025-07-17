@@ -12,10 +12,11 @@ const translatePath = useTranslatedPath(lang)
   id='navbar'
 >
   <div
-    class='bg-primary-400 flex w-full items-center justify-between rounded-full p-2.5 align-middle shadow-md sm:px-10 md:bg-transparent md:p-0 md:shadow-none'
+    class='bg-primary-400 relative flex w-full items-center justify-between rounded-full p-2.5 align-middle shadow-md sm:px-10 md:bg-transparent md:p-0 md:shadow-none'
   >
     <div>
       <a href={translatePath('/')}>
+        <title>DSCode</title>
         <!-- SVG para pantallas pequeñas (hasta md) -->
         <svg
           class='block md:hidden'
@@ -95,33 +96,39 @@ const translatePath = useTranslatedPath(lang)
         >{t('nav.blog')}</a
       >
     </div>
-    <div
-      class='text-primary-700 hidden text-2xl md:flex'
-      id='lang-selector'
-    >
-      <Icon name='tabler:language-hiragana' />
-      <Icon name='tabler:caret-down-filled' />
-    </div>
-    <div
-      class='top-full right-16 z-100 hidden flex-col rounded-sm bg-transparent px-4 py-3 text-left transition-discrete md:absolute md:bg-neutral-400 md:shadow'
-      id='lang-menu'
-    >
-      <ul class='font-body space-y-4 pt-2 pb-3 md:w-max md:text-neutral-800'>
-        {
-          Object.entries(languages).map(([language, label]) => (
-            <li>
-              <a
-                href={translatePath('/', language)}
-                class:list={[language == lang ? 'font-bold underline' : '']}
-              >
-                {label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+    <div class='group relative hidden md:flex'>
+      <button
+        class='text-primary-700 flex items-center text-2xl'
+        aria-haspopup='true'
+        aria-expanded='false'
+      >
+        <Icon name='tabler:language-hiragana' />
+        <Icon
+          name='tabler:caret-down-filled'
+          class='transition-transform duration-300 group-hover:rotate-180'
+        />
+      </button>
 
+      <div
+        id='lang-menu'
+        class='pointer-events-none absolute top-full right-0 z-50 flex translate-y-2 flex-col rounded-md bg-neutral-400 px-4 py-3 text-left opacity-0 shadow-lg transition-all duration-300 ease-in-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100'
+      >
+        <ul class='font-body w-max space-y-4 pt-2 pb-3 text-neutral-800'>
+          {
+            Object.entries(languages).map(([language, label]) => (
+              <li>
+                <a
+                  href={translatePath('/', language)}
+                  class:list={[language == lang && 'font-bold underline']}
+                >
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
     <button
       class='md:hidden'
       id='menu-button'
@@ -143,7 +150,7 @@ const translatePath = useTranslatedPath(lang)
   </div>
   <div
     id='menu-container'
-    class='mt-4 hidden w-full flex-col gap-4'
+    class='pointer-events-none absolute top-full left-0 container mt-4 flex w-full -translate-y-4 flex-col gap-4 opacity-0 transition-all duration-300 ease-in-out'
   >
     <div class='bg-primary-400 font-body flex w-full flex-col rounded-2xl p-4'>
       <ul class='font-body space-y-4 text-neutral-800'>
@@ -208,88 +215,38 @@ const translatePath = useTranslatedPath(lang)
   import { getElement } from '@lib/dom-selector'
 
   const Nabar = getElement('#navbar') as HTMLElement
-  const LangSelector = getElement('#lang-selector') as HTMLDivElement
-  const LangMenu = getElement('#lang-menu') as HTMLDivElement
-  const MenuButton = getElement('#menu-button') as HTMLDivElement
-  const CloseMenuButton = getElement('#close-menu-button') as HTMLButtonElement
-  const Menu = getElement('#menu-container') as HTMLButtonElement
+
+  // --- Lógica del Menú Móvil (Actualizada) ---
+  const menuButton = getElement('#menu-button') as HTMLButtonElement
+  const closeMenuButton = getElement('#close-menu-button') as HTMLButtonElement
+  const menuContainer = getElement('#menu-container') as HTMLDivElement
 
   let isMenuOpen = false
 
-  const closeMenuOnClickOutside = (event: any) => {
-    if (!Menu.contains(event.target) && !MenuButton.contains(event.target)) {
-      hideMobileMenu()
-    }
-  }
-
   const showMobileMenu = () => {
     isMenuOpen = true
-    Nabar.style.top = '0' // Mantener visible mientras el menú está abierto
-
-    Menu.classList.remove('hidden')
-    Menu.classList.add('flex')
-    CloseMenuButton.classList.remove('hidden')
-    CloseMenuButton.classList.add('flex')
-    MenuButton.classList.remove('block')
-    MenuButton.classList.add('hidden')
-    document.addEventListener('click', closeMenuOnClickOutside)
+    menuButton.style.display = 'none'
+    closeMenuButton.style.display = 'block'
+    menuContainer.classList.remove(
+      'opacity-0',
+      '-translate-y-4',
+      'pointer-events-none'
+    )
   }
 
   const hideMobileMenu = () => {
-    if (isMenuOpen) {
-      Menu.classList.remove('flex')
-      Menu.classList.add('hidden')
-      MenuButton.classList.remove('hidden')
-      MenuButton.classList.add('flex')
-      CloseMenuButton.classList.remove('block')
-      CloseMenuButton.classList.add('hidden')
-
-      isMenuOpen = false
-      document.removeEventListener('click', closeMenuOnClickOutside)
-    }
+    isMenuOpen = false
+    closeMenuButton.style.display = 'none'
+    menuButton.style.display = 'block'
+    menuContainer.classList.add(
+      'opacity-0',
+      '-translate-y-4',
+      'pointer-events-none'
+    )
   }
 
-  MenuButton.addEventListener('click', showMobileMenu)
-
-  CloseMenuButton.addEventListener('click', hideMobileMenu)
-
-  document.querySelectorAll('button').forEach((button) => {
-    button.addEventListener('click', (e) => {
-      e.stopPropagation() // Evita que el evento se propague y cause scroll
-    })
-  })
-
-  if (LangSelector && LangMenu) {
-    let isHovering = false
-
-    const showMenu = () => {
-      isHovering = true
-      LangMenu.classList.remove('hidden')
-      LangMenu.classList.add('flex')
-    }
-
-    const hideMenu = () => {
-      setTimeout(() => {
-        if (!isHovering) {
-          LangMenu.classList.remove('flex')
-          LangMenu.classList.add('hidden')
-        }
-      }, 300)
-    }
-
-    LangSelector.addEventListener('mouseenter', showMenu)
-    LangMenu.addEventListener('mouseenter', showMenu)
-
-    LangSelector.addEventListener('mouseleave', () => {
-      isHovering = false
-      hideMenu()
-    })
-
-    LangMenu.addEventListener('mouseleave', () => {
-      isHovering = false
-      hideMenu()
-    })
-  }
+  menuButton.addEventListener('click', showMobileMenu)
+  closeMenuButton.addEventListener('click', hideMobileMenu)
 
   let prevScrollpos = window.scrollY
   let isScrolling = false
