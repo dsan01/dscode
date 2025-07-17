@@ -2,7 +2,7 @@
 import fetchApi from '@lib/strapi'
 import { Image } from 'astro:assets'
 import FeaturedStar from '@ui/FeaturedStar.astro'
-import ProjectCategoryBadge from '@ui/ProjectCategoryBadge.astro'
+import { ProjectCategoryBadge } from '@ui/ProjectCategoryBadge'
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
 import type { ProjectType } from '@data/data'
 export const prerender = false
@@ -74,7 +74,10 @@ try {
 
           <div class='flex flex-wrap gap-3'>
             {filteredProject.categories.map((category) => (
-              <ProjectCategoryBadge category={category} />
+              <ProjectCategoryBadge
+                category={category}
+                url={Astro.url}
+              />
             ))}
           </div>
         </div>

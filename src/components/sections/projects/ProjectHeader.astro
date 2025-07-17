@@ -1,6 +1,6 @@
 ---
 import FeaturedStar from '@ui/FeaturedStar.astro'
-import ProjectCategoryBadge from '@ui/ProjectCategoryBadge.astro'
+import { ProjectCategoryBadge } from '@ui/ProjectCategoryBadge'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { type ProjectBasicProps as Props } from '@data/props'
 
@@ -64,7 +64,10 @@ const formatedDate = new Date(parsedDate)
       <div class='flex gap-3'>
         {
           project.categories.map((category) => (
-            <ProjectCategoryBadge category={category} />
+            <ProjectCategoryBadge
+              category={category}
+              url={Astro.url}
+            />
           ))
         }
       </div>
