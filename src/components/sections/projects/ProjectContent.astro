@@ -30,8 +30,6 @@ const tableOfContents = headings.map((heading) => ({
   slug: slugify(heading.text),
 }))
 
-console.log(tableOfContents)
-
 const renderer = new marked.Renderer()
 renderer.heading = ({ depth, raw, text }) => {
   const slug = slugify(raw)
@@ -54,7 +52,7 @@ const htmlContent = marked.parse(content)
             {tableOfContents.map((link) => (
               <a
                 href={`#${link.slug}`}
-                class='hover:underline'
+                class='toc-link transition-all duration-200 hover:underline'
                 style={`padding-left: ${link.depth > 1 ? (link.depth - 1) * 10 : 0}px;`}
               >
                 {link.text}
@@ -75,3 +73,70 @@ const htmlContent = marked.parse(content)
     </Prose>
   </div>
 </div>
+
+<script>
+  import { getElements, getElement } from '@lib/dom-selector'
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocLinks = getElements('.toc-link')
+    if (tocLinks.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute('id')
+          const correspondingLink = getElement(`.toc-link[href="#${id}"]`)
+
+          if (entry.isIntersecting) {
+            tocLinks.forEach((link) => {
+              link.classList.remove('font-bold')
+            })
+            correspondingLink?.classList.add('font-bold')
+          }
+        })
+      },
+      { rootMargin: '-20% 0px -80% 0px' }
+    )
+
+    tocLinks.forEach((link) => {
+      const headingId = link.getAttribute('href')?.substring(1)
+      if (headingId) {
+        const headingElement = document.getElementById(headingId)
+        if (headingElement) {
+          observer.observe(headingElement)
+        }
+      }
+    })
+
+    const handleTocLinkClick = (event: {
+      preventDefault: () => void
+      currentTarget: any
+    }) => {
+      event.preventDefault()
+      const link = event.currentTarget
+      const headingId = link.getAttribute('href')?.substring(1)
+      if (!headingId) return
+
+      const headingElement = document.getElementById(headingId)
+      if (!headingElement) return
+
+      const navbarHeight = 0
+      const observerOffset = window.innerHeight * 0.2
+
+      const elementPosition =
+        headingElement.getBoundingClientRect().top + window.scrollY
+      const targetPosition = elementPosition - navbarHeight - observerOffset
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth',
+      })
+
+      history.pushState(null, '', link.getAttribute('href'))
+    }
+
+    tocLinks.forEach((link) => {
+      link.addEventListener('click', handleTocLinkClick)
+    })
+  })
+</script>
