@@ -2,6 +2,7 @@ import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import type { TrajectoryCardProps } from "@data/props";
 import { marked } from "marked";
 import { Prose } from "@primitives/Prose";
+import { STRAPI_URL } from "astro:env/client";
 
 export const TrajectoryCard: React.FC<TrajectoryCardProps> = ({
   trajectory,
@@ -23,7 +24,7 @@ export const TrajectoryCard: React.FC<TrajectoryCardProps> = ({
     <div className="font-body relative flex flex-col items-center gap-3 rounded-lg bg-neutral-400 px-10 py-8 text-neutral-800 shadow-md">
       <div className="bg-alert-d-300 outline-neutral-w absolute -top-7 aspect-square size-14 overflow-clip rounded-full shadow-md outline-4">
         <img
-          src={`http://192.168.1.82:1337${trajectory.thumbnail.url}`}
+          src={`${STRAPI_URL}${trajectory.thumbnail.url}`}
           alt={trajectory.company}
           draggable={false}
           loading="lazy"

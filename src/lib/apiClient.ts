@@ -1,5 +1,4 @@
-// Definimos la URL base de tu API en un solo lugar.
-const API_BASE_URL = "http://192.168.1.82:1337/api";
+import { STRAPI_URL } from "astro:env/client";
 
 interface ApiClientProps {
   endpoint: string;
@@ -21,7 +20,7 @@ export default async function apiClient<T>({
   body,
   headers = {},
 }: ApiClientProps): Promise<T> {
-  const url = `${API_BASE_URL}${endpoint.startsWith("/") ? "" : "/"}${endpoint}`;
+  const url = `${STRAPI_URL}/api${endpoint.startsWith("/") ? "" : "/"}${endpoint}`;
 
   // Configuración por defecto para las peticiones
   const config: RequestInit = {

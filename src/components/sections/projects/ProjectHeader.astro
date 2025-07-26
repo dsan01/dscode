@@ -3,12 +3,13 @@ import FeaturedStar from '@ui/FeaturedStar.astro'
 import { ProjectCategoryBadge } from '@ui/ProjectCategoryBadge'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { type ProjectBasicProps as Props } from '@data/props'
+import { STRAPI_URL } from 'astro:env/client'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
 const { project } = Astro.props
-const parsedDate = Date.parse(project.createdAt)
+const parsedDate = Date.parse(project.finish_date)
 const formatedDate = new Date(parsedDate)
 ---
 
@@ -47,7 +48,7 @@ const formatedDate = new Date(parsedDate)
         )
       }
       <img
-        src={`http://192.168.1.82:1337${project.thumbnail.url}`}
+        src={`${STRAPI_URL}${project.thumbnail.url}`}
         alt={project.thumbnail.alternativeText}
         width={project.thumbnail.width}
         height={project.thumbnail.height}

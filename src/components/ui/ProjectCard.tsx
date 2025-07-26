@@ -1,5 +1,6 @@
 import { ProjectCategoryBadge } from "./ProjectCategoryBadge";
 import { type ProjectCardProps } from "@data/props";
+import { STRAPI_URL } from "astro:env/client";
 import {
   getLangFromUrl,
   useTranslatedPath,
@@ -20,7 +21,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, url }) => {
         className="relative basis-2/6 transition-all"
       >
         <img
-          src={`http://192.168.1.82:1337${project.thumbnail.formats.medium.url}`}
+          src={`${STRAPI_URL}${project.thumbnail.formats.medium.url}`}
           alt={project.thumbnail.alternativeText}
           width={project.thumbnail.formats.medium.width}
           height={project.thumbnail.formats.medium.height}

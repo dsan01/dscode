@@ -5,6 +5,7 @@ import FeaturedStar from '@ui/FeaturedStar.astro'
 import { ProjectCategoryBadge } from '@ui/ProjectCategoryBadge'
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
 import type { ProjectType } from '@data/data'
+import { STRAPI_URL } from 'astro:env/client'
 export const prerender = false
 
 const lang = getLangFromUrl(Astro.url)
@@ -43,7 +44,7 @@ try {
           class='relative basis-2/6 transition-all'
         >
           <Image
-            src={`http://192.168.1.82:1337${filteredProject.thumbnail.url}`}
+            src={`${STRAPI_URL}${filteredProject.thumbnail.url}`}
             alt={filteredProject.thumbnail.alternativeText}
             width={filteredProject.thumbnail.width}
             height={filteredProject.thumbnail.height}

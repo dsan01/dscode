@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -28,5 +28,13 @@ export default defineConfig({
 
   adapter: node({
     mode: "standalone"
-  })
+  }),
+
+  env: {
+    schema: {
+      STRAPI_URL: envField.string({ context: "client", access: "public" }),
+      STRAPI_BEARER: envField.string({ context: "server", access: "secret" }),
+    }
+  },
+
 });
