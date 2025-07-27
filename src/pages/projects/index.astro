@@ -14,13 +14,14 @@ import ContactBanner from '@generics/ContactBanner.astro'
     title='projects.page.title'
     description='projects.page.desc'
   />
-  <FeaturedProject />
+  <FeaturedProject server:defer />
   <ProjectList
     url={Astro.url}
     client:only='react'
   />
   <ContactBanner
-    title={'index.contactBanner.title'}
-    showDesc={false}
+    title='projects.contact.title'
+    description='projects.contact.desc'
+    showDesc
   />
 </Layout>

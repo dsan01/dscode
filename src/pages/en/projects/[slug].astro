@@ -44,11 +44,12 @@ try {
 }
 ---
 
-<Layout>
+<Layout title={project.title}>
   <ProjectHeader project={project} />
   {project.content && <ProjectContent content={project.content} />}
   <ContactBanner
-    title={'index.contactBanner.title'}
-    showDesc={false}
+    title='projects.contact.title'
+    description='projects.contact.desc'
+    showDesc
   />
 </Layout>
