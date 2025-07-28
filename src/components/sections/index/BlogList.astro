@@ -1,0 +1,72 @@
+---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
+import fetchApi from '@lib/strapi'
+import type { BlogType } from '@data/data'
+import { BlogCard } from '@ui/BlogCard'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+
+let blogs: BlogType[] = []
+try {
+  blogs = await fetchApi<BlogType[]>({
+    endpoint: 'blogs',
+    query: {
+      populate: 'thumbnail',
+      pagination: {
+        start: 0,
+        limit: 3,
+      },
+    },
+    wrappedByKey: 'data',
+    lang: lang,
+  })
+} catch (error) {
+  console.log(error)
+}
+---
+
+<section class='container space-y-10 py-12'>
+  <div
+    class='font-body flex flex-col-reverse items-center gap-4 text-neutral-800 lg:flex-row'
+  >
+    <p class='text-balance'>
+      {t('blogList.desc')}
+    </p>
+    <div class='flex h-full w-full flex-col items-end justify-between'>
+      <h3 class='font-title text-primary-700 text-4xl font-medium'>
+        {t('blogList.title')}
+      </h3>
+      <a
+        href={translatePath('/blog')}
+        class='hover:underline'
+        >{t('blogList.cta')}</a
+      >
+    </div>
+  </div>
+  <div class='grid grid-cols-1 gap-10 lg:grid-cols-3'>
+    {
+      blogs &&
+        blogs.map((blog) => {
+          return (
+            <BlogCard
+              blog={blog}
+              url={Astro.url}
+            />
+          )
+        })
+    }
+    {
+      (!blogs || blogs.length < 1) && (
+        <div class='font-body col-span-3 space-y-3 py-10 text-center text-neutral-500'>
+          <span class='text-2xl'>(ᵕ—ᴗ—)</span>
+          <h6 class='text-2xl font-medium'>
+            {t('blog.page.errorProjectsTitlte')}
+          </h6>
+          <p>{t('blog.page.errorProjectsDesc')}</p>
+        </div>
+      )
+    }
+  </div>
+</section>

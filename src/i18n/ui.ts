@@ -23,7 +23,8 @@ export const labels = {
       "Explora una selección de mis proyectos. Cada caso de estudio detalla mi trabajo en diseño UI/UX, desarrollo full-stack y gestión para lograr resultados exitosos.",
 
     "meta.description.about": "",
-    "meta.description.blog": "",
+    "meta.description.blog":
+      "Ideas y reflexiones más allá del código. Un blog personal donde escribo sobre lo que me apasiona: tecnología, herramientas y la vida en la industria del desarrollo.",
     "meta.description.contact":
       "¿Tienes un proyecto, una idea o una oportunidad? Hablemos. Encuentra aquí mi formulario de contacto, correo y redes para iniciar la conversación.",
 
@@ -197,6 +198,33 @@ export const labels = {
     "contact.toast.serverError":
       "¡Ups! Algo interrumpió el envío. Si el problema continúa contáctame directamente por correo.",
 
+    "blogList.title": "Desde mi Teclado",
+    "blogList.desc":
+      "Más allá del código. En este espacio comparto artículos sobre lo que me apasiona: nuevas tecnologías, mi proceso creativo y aprendizajes del día a día en la industria tech.",
+    "blogList.cta": "Explorar el Blog",
+
+    "blog.page.title": "Mis artículos y reflexiones",
+    "blog.page.desc":
+      "Explora algunas de las ideas y artículos que he escrito, desde análisis técnicos y herramientas de productividad, hasta reflexiones sobre la industria tecnológica. Cada texto refleja mi pasión por compartir conocimiento y ofrecer nuevas perspectivas.",
+    "blog.page.errorProjectsTitlte": "¡Ups! Hubo un problema técnico.",
+    "blog.page.errorProjectsDesc":
+      "Parece que no pudimos cargar las entradas del blog en este momento. Suele ser algo temporal. Por favor, refresca la página o inténtalo de nuevo en un momento.",
+
+    "blog.page.categoryFilter": "Filtrar por categoría",
+    "blog.page.defaultCategoryFilter": "Todos",
+
+    "blog.page.futureBlogs": "Más adelante escribiré más, lo prometo.",
+
+    "blog.contact.title": "¿Te ha inspirado una idea?",
+    "blog.contact.desc":
+      "Mis artículos son solo el comienzo. Si mis reflexiones resuenan contigo y crees que podemos construir algo increíble juntos, me encantaría escucharte.",
+
+    "blog.page.loadingProjects": "Buscando en el archivo de ideas...",
+    "blog.page.notFoundProjects":
+      "No hay resultados para tu búsqueda. ¡Pero no te preocupes! Puedes intentar con otras palabras o ver todos los artículos.",
+    "blog.card.cta": "La historia completa",
+    "blog.card.imgCta": "La historia completa",
+
     "generic.loading": "Cargando...",
   },
   en: {
@@ -215,7 +243,8 @@ export const labels = {
       "Explore a selection of my projects. Each case study details my work in UI/UX design, full-stack development, and project management to achieve successful outcomes.",
 
     "meta.description.about": "",
-    "meta.description.blog": "",
+    "meta.description.blog":
+      "Ideas and insights beyond the code. A personal blog where I write about my passions: technology, useful tools, and life within the development industry.",
     "meta.description.contact":
       "Have a project, an idea, or an opportunity? Let's talk. Find my contact form, email, and social media links here to start the conversation.",
 
@@ -379,6 +408,34 @@ export const labels = {
       "My professional journey in detail. Ideal for reviewing my experience, seeing recommendations, and connecting professionally.",
     "contact.link.cv":
       "Prefer the classic format? Download a complete summary of my profile, skills, and experience in a share-ready PDF file.",
+
+    "blogList.title": "From My Keyboard",
+    "blogList.desc":
+      "Beyond the code. In this space, I share articles about what I'm passionate about: new technologies, my creative process, and day-to-day learnings from the tech industry.",
+    "blogList.cta": "Explore the Blog",
+
+    "blog.page.title": "My Articles and Reflections",
+    "blog.page.desc":
+      "Explore some of the ideas and articles I've written, from technical deep-dives and productivity tools to reflections on the tech industry. Each piece reflects my passion for sharing knowledge and offering new perspectives.",
+
+    "blog.page.errorProjectsTitlte": "Oops! There was a technical issue.",
+    "blog.page.errorProjectsDesc":
+      "It seems we couldn't load the blog posts right now. This is usually temporary. Please refresh the page or try again in a moment.",
+
+    "blog.page.categoryFilter": "Filter by category",
+    "blog.page.defaultCategoryFilter": "All",
+
+    "blog.page.futureBlogs": "I will write more later, I promise.",
+
+    "blog.contact.title": "Inspired with an idea?",
+    "blog.contact.desc":
+      "My articles are just the beginning. If my insights resonate with you and you believe we can build something amazing together, I'd love to hear from you.",
+
+    "blog.page.loadingProjects": "Searching the idea archive...",
+    "blog.page.notFoundProjects":
+      "No results for your search. But don't worry! You can try other keywords or view all posts.",
+
+    "blog.card.cta": "The Full Story",
 
     "generic.loading": "Loading...",
   },

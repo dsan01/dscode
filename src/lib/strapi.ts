@@ -1,6 +1,8 @@
 import qs from "qs";
 import type { ParsedQs } from "qs";
 import apiClient from "./apiClient";
+import type { StrapiBase } from "@data/data";
+import { parseStrapiData } from "./parsers";
 
 interface Props {
   endpoint: string;
@@ -10,6 +12,8 @@ interface Props {
   lang?: string;
 }
 
+type StrapiEntity = Record<string, any> & Partial<StrapiBase>;
+
 /**
  * Fetches data from the Strapi API using 'qs' for complex queries.
  * @param endpoint - The endpoint to fetch from
@@ -18,7 +22,7 @@ interface Props {
  * @param wrappedByList - If the response is a list, unwrap it
  * @returns
  */
-export default async function fetchApi<T>({
+export default async function fetchApi<T extends StrapiEntity>({
   endpoint,
   query,
   wrappedByKey,
@@ -50,5 +54,5 @@ export default async function fetchApi<T>({
     data = data[0];
   }
 
-  return data as T;
+  return parseStrapiData(data) as T;
 }

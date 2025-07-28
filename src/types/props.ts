@@ -1,5 +1,6 @@
 import type { defaultLang, labels } from "@i18n/ui";
 import type {
+  BlogType,
   ContactBenfitType,
   ContactSocialLinksType,
   ProjectType,
@@ -10,6 +11,7 @@ import type { CategoryFilterType, FoundationType } from "./enums";
 import type {
   ButtonHTMLAttributes,
   InputHTMLAttributes,
+  SelectHTMLAttributes,
   TextareaHTMLAttributes,
 } from "react";
 import type { VariantProps } from "class-variance-authority";
@@ -39,9 +41,10 @@ export interface TrajectoryCardProps {
 }
 
 export interface StackSelectorProps {
-  text: TranslationKey;
+  text: TranslationKey | string;
   isSelected: boolean;
   url: URL;
+  onClick: () => void;
 }
 
 export interface ContactBannerProps {
@@ -124,7 +127,7 @@ export interface LayoutMetaProps {
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label: string;
-  placeholder: string;
+  placeholder?: string;
   errors?: boolean;
   errorMessage?: string;
   ref: string;
@@ -134,10 +137,23 @@ export interface TextboxProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   label: string;
-  placeholder: string;
+  placeholder?: string;
   errors?: boolean;
   errorMessage?: string;
   ref: string;
+}
+
+export interface SelectProps<T>
+  extends SelectHTMLAttributes<HTMLSelectElement> {
+  name: string;
+  label: string;
+  placeholder?: string;
+  defaultOption?: string;
+  errors?: boolean;
+  errorMessage?: string;
+  options: T[];
+  getOptionValue: (option: T) => string | number;
+  getOptionLabel: (option: T) => string;
 }
 
 export interface BenefitsContactCardProps {
@@ -146,4 +162,9 @@ export interface BenefitsContactCardProps {
 
 export interface ContactLinkCardProps {
   link: ContactSocialLinksType;
+}
+
+export interface BlogCardProps {
+  blog: BlogType;
+  url: URL;
 }

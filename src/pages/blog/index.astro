@@ -1,0 +1,26 @@
+---
+import ContactBanner from '@generics/ContactBanner.astro'
+import PageTitle from '@generics/PageTitle.astro'
+import { BlogList } from '@sections/blog/BlogList'
+import Layout from 'src/layouts/Layout.astro'
+export const prerender = true
+---
+
+<Layout
+  title={'meta.title.blog'}
+  description={'meta.description.blog'}
+>
+  <PageTitle
+    title='blog.page.title'
+    description='blog.page.desc'
+  />
+  <BlogList
+    url={Astro.url}
+    client:only='react'
+  />
+  <ContactBanner
+    title='blog.contact.title'
+    description='blog.contact.desc'
+    showDesc
+  />
+</Layout>

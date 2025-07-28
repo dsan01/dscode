@@ -33,21 +33,16 @@ export interface ServiceInfo {
   tech?: TechStack[];
 }
 
-export interface ProjectType {
-  id: number;
+export interface ProjectType extends StrapiBase {
   title: string;
   description: string;
   company: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
   categories: string[];
   featured: boolean;
   location: string;
   slug: string;
-  locale: string;
-  thumbnail: any;
-  finish_date: string;
+  thumbnail: MediaType;
+  finish_date: Date;
   content: string;
 }
 
@@ -73,4 +68,64 @@ export interface ContactSocialLinksType {
 export interface SliderType {
   text: TranslationKey;
   icon: FoundationType;
+}
+export interface BlogType extends StrapiBase {
+  title: string;
+  slug: string;
+  content?: string;
+  description: string;
+
+  category?: CategoryType;
+  thumbnail: MediaType;
+}
+
+export interface CategoryType extends StrapiBase {
+  title: string;
+  slug?: string;
+}
+
+export interface MediaType extends StrapiBase {
+  name: string;
+  alternativeText?: string;
+  caption: string;
+  width: number;
+  height: number;
+  formats: Formats;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl?: string;
+  provider: string;
+  provider_metadata?: string;
+}
+
+export interface Formats {
+  large?: AlterImg;
+  small?: AlterImg;
+  medium?: AlterImg;
+  thumbnail?: AlterImg;
+}
+
+export interface AlterImg {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: null;
+  size: number;
+  width: number;
+  height: number;
+  sizeInBytes: number;
+}
+
+export interface StrapiBase {
+  id: number;
+  documentId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+  locale?: string;
 }
