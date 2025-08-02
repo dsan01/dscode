@@ -1,11 +1,11 @@
 ---
 import fetchApi from '@lib/strapi'
-import { Image } from 'astro:assets'
 import FeaturedStar from '@ui/FeaturedStar.astro'
 import { ProjectCategoryBadge } from '@ui/ProjectCategoryBadge'
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '@i18n/utils'
 import type { ProjectType } from '@data/data'
-import { STRAPI_URL } from 'astro:env/client'
+import { ImageFormat } from '@data/enums'
+import StrapiImage from '@primitives/StrapiImage'
 export const prerender = false
 
 const lang = getLangFromUrl(Astro.url)
@@ -41,21 +41,22 @@ try {
       <div class='font-body flex flex-col items-center gap-5 text-neutral-800 lg:flex-row'>
         <a
           href={translatePath(`/projects/${filteredProject.slug}`)}
-          class='relative basis-2/6 transition-all'
+          class='relative w-full basis-2/6 transition-all'
         >
-          <Image
-            src={`${STRAPI_URL}${filteredProject.thumbnail.url}`}
-            alt={filteredProject.thumbnail.alternativeText}
-            width={filteredProject.thumbnail.width}
-            height={filteredProject.thumbnail.height}
-            class='h-full w-max rounded-md shadow-md'
+          <StrapiImage
+            media={filteredProject.thumbnail}
+            displayFormat={ImageFormat.Medium}
+            className='h-[300px] md:h-[250px] rounded-md '
+            url={Astro.url}
+            context={t('meta.title.projetcs')}
+            client:only
           />
-          <div class='group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all transition-discrete hover:backdrop-blur-xs'>
+          <div class='group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all duration-300 hover:backdrop-blur-xs'>
             <span class='hidden font-bold text-neutral-300 group-hover:block'>
               {t('projectCard.project.seeMore')}
             </span>
           </div>
-          <div class='absolute -top-7 -right-6 lg:-top-5 lg:-right-5 xl:-top-8 xl:-right-7'>
+          <div class='absolute -top-7 -right-6 z-10 lg:-top-5 lg:-right-5 xl:-top-8 xl:-right-7'>
             <FeaturedStar />
           </div>
         </a>

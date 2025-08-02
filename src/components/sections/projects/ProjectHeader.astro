@@ -3,7 +3,8 @@ import FeaturedStar from '@ui/FeaturedStar.astro'
 import { ProjectCategoryBadge } from '@ui/ProjectCategoryBadge'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { type ProjectBasicProps as Props } from '@data/props'
-import { STRAPI_URL } from 'astro:env/client'
+import { ImageFormat } from '@data/enums'
+import StrapiImage from '@primitives/StrapiImage'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -28,31 +29,35 @@ const formatedDate = new Date(parsedDate)
       </h4>
       <span class='font-light text-neutral-700 md:text-lg'
         >{project.location} -
-        {
-          formatedDate.toLocaleDateString(lang, {
-            month: 'short',
-            year: 'numeric',
-          })
-        }
+        <time datetime={formatedDate.toISOString()}>
+          {
+            formatedDate.toLocaleDateString(lang, {
+              month: 'short',
+              year: 'numeric',
+            })
+          }
+        </time>
       </span>
     </div>
   </div>
 
   <div class='flex w-full flex-col gap-10 md:flex-row-reverse'>
-    <div class='relative'>
+    <div class='relative basis-1/2'>
       {
         project.featured && (
-          <div class='absolute -top-7 -right-6 lg:-top-5 lg:-right-5 xl:-top-8 xl:-right-7'>
+          <div class='absolute -top-7 -right-6 z-10 lg:-top-5 lg:-right-5 xl:-top-8 xl:-right-7'>
             <FeaturedStar />
           </div>
         )
       }
-      <img
-        src={`${STRAPI_URL}${project.thumbnail.url}`}
-        alt={project.thumbnail.alternativeText}
-        width={project.thumbnail.width}
-        height={project.thumbnail.height}
-        class='rounded-lg object-cover object-center'
+      <StrapiImage
+        media={project.thumbnail}
+        displayFormat={ImageFormat.Original}
+        className='aspect-video w-full rounded-lg object-cover shadow-md'
+        url={Astro.url}
+        context={t('meta.title.projetcs')}
+        showCaption
+        client:only
       />
     </div>
     <div class='flex basis-1/2 flex-col justify-center gap-4'>

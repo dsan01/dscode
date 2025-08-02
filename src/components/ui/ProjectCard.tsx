@@ -1,11 +1,12 @@
 import { ProjectCategoryBadge } from "./ProjectCategoryBadge";
 import { type ProjectCardProps } from "@data/props";
-import { STRAPI_URL } from "astro:env/client";
 import {
   getLangFromUrl,
   useTranslatedPath,
   useTranslations,
 } from "@i18n/utils";
+import { ImageFormat } from "@data/enums";
+import StrapiImage from "@primitives/StrapiImage";
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, url }) => {
   const lang = getLangFromUrl(url);
@@ -20,13 +21,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, url }) => {
         href={translatePath(`/projects/${project.slug}`)}
         className="relative basis-2/6 transition-all"
       >
-        <img
-          src={`${STRAPI_URL}${project.thumbnail.formats.medium.url}`}
-          alt={project.thumbnail.alternativeText}
-          width={project.thumbnail.formats.medium.width}
-          height={project.thumbnail.formats.medium.height}
-          loading="lazy"
-          className="rounded-md"
+        <StrapiImage
+          media={project.thumbnail}
+          displayFormat={ImageFormat.Medium}
+          className="h-[300px] rounded-md md:h-[250px]"
+          url={url}
+          context={t("meta.title.projetcs")}
         />
         <div className="group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all duration-300 hover:backdrop-blur-xs">
           <span className="hidden font-bold text-neutral-300 group-hover:block">

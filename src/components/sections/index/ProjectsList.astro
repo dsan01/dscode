@@ -46,26 +46,29 @@ try {
       )
     }
   </div>
-  {
-    projects &&
-      projects.slice(0, 3).map((project) => {
-        return (
-          <ProjectCard
-            project={project}
-            url={Astro.url}
-          />
-        )
-      })
-  }
-  {
-    (!projects || projects.length < 1) && (
-      <div class='font-body space-y-3 py-10 text-center text-neutral-500'>
-        <span class='text-2xl'>(ᵕ—ᴗ—)</span>
-        <h6 class='text-2xl font-medium'>
-          {t('projects.page.errorProjectsTitlte')}
-        </h6>
-        <p>{t('projects.page.errorProjectsDesc')}</p>
-      </div>
-    )
-  }
+  <div class='flex flex-col gap-4'>
+    {
+      projects &&
+        projects.slice(0, 3).map((project) => {
+          return (
+            <ProjectCard
+              project={project}
+              url={Astro.url}
+              client:only
+            />
+          )
+        })
+    }
+    {
+      (!projects || projects.length < 1) && (
+        <div class='font-body space-y-3 py-10 text-center text-neutral-500'>
+          <span class='text-2xl'>(ᵕ—ᴗ—)</span>
+          <h6 class='text-2xl font-medium'>
+            {t('projects.page.errorProjectsTitlte')}
+          </h6>
+          <p>{t('projects.page.errorProjectsDesc')}</p>
+        </div>
+      )
+    }
+  </div>
 </section>
