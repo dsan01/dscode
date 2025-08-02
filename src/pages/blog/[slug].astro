@@ -1,0 +1,51 @@
+---
+import ContactBanner from '@generics/ContactBanner.astro'
+import Layout from 'src/layouts/Layout.astro'
+import fetchApi from '@lib/strapi'
+import type { BlogType } from '@data/data'
+
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '@i18n/utils'
+import BlogHeader from '@sections/blog/BlogHeader.astro'
+import BlogContent from '@sections/blog/BlogContent.astro'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+
+const { slug } = Astro.params
+
+let blog: BlogType
+
+try {
+  blog = await fetchApi<BlogType>({
+    endpoint: 'blogs',
+    query: {
+      populate: ['thumbnail', 'category', 'createdBy'],
+      filters: {
+        slug: {
+          $eq: slug,
+        },
+      },
+    },
+    wrappedByKey: 'data',
+    lang: lang,
+    wrappedByList: true,
+  })
+
+  if (!blog) {
+    return Astro.redirect(translatePath('/404'))
+  }
+} catch (error) {
+  return Astro.redirect(translatePath('/404'))
+}
+---
+
+<Layout title={blog.title}>
+  <BlogHeader blog={blog} />
+  {blog.content && <BlogContent content={blog.content} />}
+  <ContactBanner
+    title='blog.contact.title'
+    description='blog.contact.desc'
+    showDesc
+  />
+</Layout>

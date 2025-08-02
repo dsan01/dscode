@@ -1,0 +1,142 @@
+---
+import Prose from '@primitives/Prose.astro'
+import { marked } from 'marked'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+import { type BlogContentProps as Props } from '@data/props'
+
+const { content } = Astro.props
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const slugify = (text: string) => {
+  if (typeof text !== 'string') {
+    return ''
+  }
+
+  const slug = text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+
+  return slug.replace(/^-+|-+$/g, '')
+}
+const tokens = marked.lexer(content)
+const headings = tokens.filter((token) => token.type === 'heading')
+
+const tableOfContents = headings.map((heading) => ({
+  text: heading.text,
+  depth: heading.depth,
+  slug: slugify(heading.text),
+}))
+
+const renderer = new marked.Renderer()
+renderer.heading = ({ depth, raw, text }) => {
+  const slug = slugify(raw)
+  return `<h${depth} id="${slug}">${text}</h${depth}>`
+}
+
+marked.use({ renderer })
+const htmlContent = marked.parse(content)
+---
+
+<div class='container flex flex-col gap-8 py-8 md:flex-row'>
+  {
+    tableOfContents && tableOfContents.length > 0 && (
+      <aside class='relative basis-1/3'>
+        <div class='sticky top-[70px] space-y-4'>
+          <h3 class='font-title text-primary-700 text-xl font-medium'>
+            {t('projects.content.contentsTable')}
+          </h3>
+          <div class='font-body flex flex-col gap-2 text-neutral-800 hover:text-neutral-700'>
+            {tableOfContents.map((link) => (
+              <a
+                href={`#${link.slug}`}
+                class='toc-link transition-all duration-200 hover:underline'
+                style={`padding-left: ${link.depth > 1 ? (link.depth - 1) * 10 : 0}px;`}
+              >
+                {link.text}
+              </a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    )
+  }
+  <div
+    class={tableOfContents && tableOfContents.length > 0
+      ? 'basis-2/3'
+      : 'm-auto'}
+  >
+    <Prose>
+      <div set:html={marked.parse(htmlContent)} />
+    </Prose>
+  </div>
+</div>
+
+<script>
+  import { getElements, getElement } from '@lib/dom-selector'
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocLinks = getElements('.toc-link')
+    if (tocLinks.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute('id')
+          const correspondingLink = getElement(`.toc-link[href="#${id}"]`)
+
+          if (entry.isIntersecting) {
+            tocLinks.forEach((link) => {
+              link.classList.remove('font-bold')
+            })
+            correspondingLink?.classList.add('font-bold')
+          }
+        })
+      },
+      { rootMargin: '-20% 0px -80% 0px' }
+    )
+
+    tocLinks.forEach((link) => {
+      const headingId = link.getAttribute('href')?.substring(1)
+      if (headingId) {
+        const headingElement = document.getElementById(headingId)
+        if (headingElement) {
+          observer.observe(headingElement)
+        }
+      }
+    })
+
+    const handleTocLinkClick = (event: {
+      preventDefault: () => void
+      currentTarget: any
+    }) => {
+      event.preventDefault()
+      const link = event.currentTarget
+      const headingId = link.getAttribute('href')?.substring(1)
+      if (!headingId) return
+
+      const headingElement = document.getElementById(headingId)
+      if (!headingElement) return
+
+      const navbarHeight = 0
+      const observerOffset = window.innerHeight * 0.2
+
+      const elementPosition =
+        headingElement.getBoundingClientRect().top + window.scrollY
+      const targetPosition = elementPosition - navbarHeight - observerOffset
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth',
+      })
+
+      history.pushState(null, '', link.getAttribute('href'))
+    }
+
+    tocLinks.forEach((link) => {
+      link.addEventListener('click', handleTocLinkClick)
+    })
+  })
+</script>

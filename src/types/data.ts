@@ -74,7 +74,7 @@ export interface BlogType extends StrapiBase {
   slug: string;
   content?: string;
   description: string;
-
+  createdBy: StrapiUser;
   category?: CategoryType;
   thumbnail: MediaType;
 }
@@ -128,4 +128,11 @@ export interface StrapiBase {
   updatedAt: Date;
   publishedAt: Date;
   locale?: string;
+}
+
+export interface StrapiUser extends StrapiBase {
+  firstname: string;
+  lastname?: string;
+  username?: string;
+  preferedLanguage?: string;
 }

@@ -1,0 +1,76 @@
+---
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+import { type BlogBasicProps as Props } from '@data/props'
+import StrapiImage from '@primitives/StrapiImage'
+import { ImageFormat } from '@data/enums'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const { blog } = Astro.props
+---
+
+<header class='font-body bg-neutral-300 py-10'>
+  <div class='container flex flex-col gap-4'>
+    {
+      blog.category?.title && (
+        <span class='text-primary-700 border-primary-700 w-min rounded-xl border px-2 py-1 text-xs'>
+          {blog.category?.title ?? 'son categoria'}
+        </span>
+      )
+    }
+    <div class='flex flex-col gap-4 md:flex-row'>
+      <div class='basis-3/4 space-y-2'>
+        <h1 class='font-title text-primary-800 text-4xl font-semibold'>
+          {blog.title}
+        </h1>
+        <time
+          datetime={blog.publishedAt.toISOString()}
+          class='text-neutral-800'
+        >
+          {
+            blog.publishedAt.toLocaleDateString(lang, {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })
+          }
+        </time>
+      </div>
+      <div
+        class='flex basis-1/4 flex-col justify-center text-end text-neutral-800'
+      >
+        <span>By</span>
+        <span class='font-semibold'>
+          {`${blog.createdBy.firstname} ${blog.createdBy.lastname ?? ''}`}
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+<div
+  class='font-body container flex w-full flex-col gap-10 py-10 text-neutral-800 md:flex-row'
+>
+  <div
+    class='flex basis-1/2 flex-col items-center justify-center gap-4 text-balance'
+  >
+    <h4 class='text-primary-700 font-title w-full text-xl font-semibold'>
+      {t('projects.header.summary')}
+    </h4>
+    <p>
+      {blog.description}
+    </p>
+  </div>
+
+  <div class='basis-1/2'>
+    <StrapiImage
+      media={blog.thumbnail}
+      displayFormat={ImageFormat.Original}
+      className='h-[200px] w-full rounded-lg object-cover object-center shadow-lg md:h-[300px]'
+      url={Astro.url}
+      context={t('meta.title.blog')}
+      showCaption
+      client:only
+    />
+  </div>
+</div>
