@@ -52,7 +52,7 @@ const StrapiImage: React.FC<LazyImageProps> = ({
 
   const placeholderSrc = media.formats?.thumbnail?.url
     ? `${STRAPI_URL}${media.formats.thumbnail.url}`
-    : "";
+    : null;
 
   const highResSrc = getImageUrlWithFallback(media, displayFormat);
 
@@ -84,12 +84,14 @@ const StrapiImage: React.FC<LazyImageProps> = ({
       <div
         className={`relative overflow-hidden rounded-lg bg-neutral-400 ${className}`}
       >
-        <img
-          src={placeholderSrc}
-          alt=""
-          className={`absolute inset-0 h-full w-full scale-110 object-cover blur-lg filter transition-opacity duration-500 ${isLoaded ? "opacity-0" : "opacity-100"}`}
-          aria-hidden="true"
-        />
+        {placeholderSrc && (
+          <img
+            src={placeholderSrc}
+            alt=""
+            className={`absolute inset-0 h-full w-full scale-110 object-cover blur-lg filter transition-opacity duration-500 ${isLoaded ? "opacity-0" : "opacity-100"}`}
+            aria-hidden="true"
+          />
+        )}
 
         <img
           src={highResSrc}
