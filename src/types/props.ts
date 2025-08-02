@@ -3,11 +3,12 @@ import type {
   BlogType,
   ContactBenfitType,
   ContactSocialLinksType,
+  MediaType,
   ProjectType,
   ServiceInfo,
   TrajectoryModel,
 } from "./data";
-import type { CategoryFilterType, FoundationType } from "./enums";
+import type { CategoryFilterType, FoundationType, ImageFormat } from "./enums";
 import type {
   ButtonHTMLAttributes,
   InputHTMLAttributes,
@@ -166,5 +167,22 @@ export interface ContactLinkCardProps {
 
 export interface BlogCardProps {
   blog: BlogType;
+  url: URL;
+}
+
+export interface BlogBasicProps {
+  blog: BlogType;
+}
+
+export interface BlogContentProps {
+  content: string;
+}
+
+export interface LazyImageProps {
+  media: MediaType;
+  displayFormat?: ImageFormat;
+  className?: string;
+  context?: string;
+  showCaption?: boolean;
   url: URL;
 }

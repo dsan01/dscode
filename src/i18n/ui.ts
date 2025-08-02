@@ -226,6 +226,9 @@ export const labels = {
     "blog.card.imgCta": "La historia completa",
 
     "generic.loading": "Cargando...",
+    "image.errorCaptionContetx": "Error al cargar la imagen del",
+    "image.errorCaption": "Error al cargar la imagen",
+    "image.noAltContetx": "Imagen relacionada al",
   },
   en: {
     demo: "demo",
@@ -438,5 +441,9 @@ export const labels = {
     "blog.card.cta": "The Full Story",
 
     "generic.loading": "Loading...",
+
+    "image.errorCaptionContetx": "Error loading image of",
+    "image.errorCaption": "Error loading image",
+    "image.noAltContetx": "Image related to",
   },
 } as const;

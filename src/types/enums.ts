@@ -17,4 +17,10 @@ export enum CategoryFilterType {
   All,
 }
 
-export enum BlogCategoryType {}
+export enum ImageFormat {
+  Thumbnail = "thumbnail",
+  Small = "small",
+  Medium = "medium",
+  Large = "large",
+  Original = "original",
+}
