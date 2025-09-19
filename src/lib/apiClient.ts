@@ -22,6 +22,10 @@ export default async function apiClient<T>({
 }: ApiClientProps): Promise<T> {
   const url = `${STRAPI_URL}/api${endpoint.startsWith("/") ? "" : "/"}${endpoint}`;
 
+  if (import.meta.env.DEV) {
+    console.log(url);
+  }
+
   // Configuración por defecto para las peticiones
   const config: RequestInit = {
     method,

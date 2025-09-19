@@ -7,7 +7,6 @@ import ContactBanner from '@generics/ContactBanner.astro'
 import TrajectorySection from '@generics/Trajectory'
 import ProjectsList from '@sections/index/ProjectsList.astro'
 import BlogList from '@sections/index/BlogList.astro'
-export const prerender = true
 ---
 
 <Layout
@@ -17,8 +16,8 @@ export const prerender = true
   <Hero />
   <ServicesSlider />
   <ProjectHelp />
-  <ProjectsList server:defer />
-  <BlogList server:defer />
+  <ProjectsList />
+  <BlogList />
   <TrajectorySection
     client:only='react'
     url={Astro.url}
