@@ -2,6 +2,7 @@ export enum FoundationType {
   Desing,
   Develop,
   Managment,
+  Data,
 }
 
 export enum TrajectoryType {
@@ -15,6 +16,7 @@ export enum CategoryFilterType {
   Develop,
   Managment,
   All,
+  Data,
 }
 
 export enum ImageFormat {

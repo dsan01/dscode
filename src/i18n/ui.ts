@@ -44,15 +44,18 @@ export const labels = {
     "service.develop": "Desarrollo",
     "service.desing": "Diseño",
     "service.managment": "Gerencia",
+    "service.data": "Data",
 
     "service.long.develop": "Desarrollo Front - Back",
     "service.long.desing": "Diseño UI/UX",
     "service.long.managment": "Gerencia de proyectos",
+    "service.long.data": "Análisis de datos",
 
     "service.desc.develop.title": "Desarrollo Web Escalable y Eficiente",
     "service.desc.desing.title": "Experiencias Digitales que Conectan",
     "service.desc.managment.title":
       "Gestión de Proyectos con Enfoque Estratégico",
+    "service.desc.data.title": "Datos que Impulsan Decisiones",
 
     "service.desc.develop.subtitle":
       "Creo soluciones digitales sólidas, del frontend al backend, aplicando buenas prácticas y tecnologías modernas.",
@@ -60,6 +63,8 @@ export const labels = {
       "Diseño interfaces a medida que mejoran la experiencia del usuario y optimizan cada paso del proceso digital.",
     "service.desc.managment.subtitle":
       "Planifico, organizo y coordino proyectos digitales con herramientas modernas y visión integral.",
+    "service.desc.data.subtitle":
+      "Transformo datos complejos en insights claros que te ayudan a tomar decisiones estratégicas.",
 
     "service.desc.develop.description":
       "Desarrollo aplicaciones web completas, desde la interfaz hasta el servidor, utilizando tecnologías como JavaScript, C#, React, .NET, MongoDB y PostgreSQL. Aplico principios de Clean Code y SOLID para asegurar un código limpio, mantenible y escalable. Cada proyecto está orientado al rendimiento, la seguridad y la facilidad de evolución, permitiendo soluciones robustas que crecen con tu negocio.",
@@ -67,6 +72,8 @@ export const labels = {
       "Ofrezco diseños UI/UX personalizados, creados con las últimas tendencias, altos estándares de calidad y enfoque total en la usabilidad. Cada interfaz está pensada para ser funcional, atractiva y fácil de mantener, lo que garantiza una experiencia coherente a lo largo del tiempo. Trabajo de la mano contigo para asegurar que el diseño se alinee con tus objetivos y potencie tu producto digital.",
     "service.desc.managment.description":
       "Me especializo en la gestión de proyectos tecnológicos, asegurando su éxito desde la planificación hasta la entrega. Utilizo herramientas como Jira y MS Project para organizar tareas, controlar tiempos y optimizar recursos. Coordino cronogramas, presupuestos, requerimientos e interesados, anticipando riesgos y adaptándome a los cambios. Mi enfoque combina claridad, eficiencia y comunicación constante para que cada proyecto avance con propósito y dirección.",
+    "service.desc.data.description":
+      "Ofrezco un servicio integral que va desde la administración eficiente de bases de datos (SQL y NoSQL) hasta el análisis avanzado de la información. Mi enfoque garantiza la integridad y el rendimiento de tus datos, para luego transformarlos en insights accionables a través de reportes y dashboards interactivos. Colaboro contigo para alinear cada análisis con tus objetivos de negocio y potenciar tus decisiones estratégicas.",
 
     "service.tech.title": "Tecnologías y herramientas",
 

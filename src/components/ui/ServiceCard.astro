@@ -3,38 +3,58 @@ import type { ServiceCardProps as Props } from '@data/props'
 import Foundations from '@generics/Foundations.astro'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
 
 const { FoundationCategory, title, img = '/img/bg/BG_T3.png' } = Astro.props
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+const serviceImages = await import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/img/services/*.{jpeg,jpg,png,gif,webp,avif}'
+)
+console.log(serviceImages)
+
+const imagePath = `/src/assets/img/services/${img}`
+if (!serviceImages[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  )
 ---
 
 <div
-  class='group flex min-h-[320px] flex-col justify-between gap-5 rounded-xl bg-cover bg-center px-3 py-3.5 shadow-md'
-  style={`background-image: url(${img});`}
+  class='group relative flex min-h-[320px] flex-col justify-between gap-5 overflow-hidden rounded-xl shadow-md'
 >
-  <div
-    class='bg-primary-300/10 flex items-center justify-between rounded-md p-1.5 backdrop-blur-xs'
-  >
-    <div class='basis-1/4'>
-      <Foundations
-        Foundation={FoundationCategory}
-        ClassSize='size-10'
-        ClassColor='fill-neutral-300'
-      />
-    </div>
-    <h6
-      class='font-title basis-3/4 text-right text-2xl font-semibold text-neutral-300'
+  <Image
+    src={serviceImages[imagePath]() ?? '/img/bg/BG_T3.png'}
+    alt={`Fondo para ${t(title)}`}
+    quality='mid'
+    class='absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105'
+  />
+
+  <div class='flex h-full flex-col justify-between gap-5 p-3.5'>
+    <div
+      class='bg-primary-300/10 flex items-center justify-between rounded-md p-1.5 backdrop-blur-xs'
     >
-      {t(title)}
-    </h6>
+      <div class='basis-1/4'>
+        <Foundations
+          Foundation={FoundationCategory}
+          ClassSize='size-10'
+          ClassColor='fill-neutral-300'
+        />
+      </div>
+      <h6
+        class='font-title basis-3/4 text-right text-2xl font-semibold text-neutral-300'
+      >
+        {t(title)}
+      </h6>
+    </div>
+    <button
+      class='show-modal flex cursor-pointer items-center justify-between rounded-md bg-neutral-400/40 px-4 py-1.5 backdrop-blur-xs transition-opacity duration-200 group-hover:opacity-100 md:opacity-0'
+      data-category={FoundationCategory}
+    >
+      <span>{t('projectList.seeMore')}</span>
+      <Icon name='tabler:plus' />
+    </button>
   </div>
-  <button
-    class='show-modal flex cursor-pointer items-center justify-between rounded-md bg-neutral-400/40 px-4 py-1.5 backdrop-blur-xs transition-opacity duration-200 group-hover:opacity-100 md:opacity-0'
-    data-category={FoundationCategory}
-  >
-    <span>{t('projectList.seeMore')}</span>
-    <Icon name='tabler:plus' />
-  </button>
 </div>
