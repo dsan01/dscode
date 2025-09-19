@@ -32,6 +32,11 @@ export const ProjectCategoryFilter: React.FC<ProjectCategoryFilterProp> = ({
           Foundation: FoundationType.Managment,
           Translation: t("service.managment"),
         };
+      case CategoryFilterType.Data:
+        return {
+          Foundation: FoundationType.Data,
+          Translation: t("service.data"),
+        };
       case CategoryFilterType.All:
         return { Foundation: null, Translation: t("projects.filter.all") };
     }

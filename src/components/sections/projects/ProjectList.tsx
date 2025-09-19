@@ -24,8 +24,9 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
   // Opciones para los botones de filtro
   const filterOptions = [
     CategoryFilterType.All,
-    CategoryFilterType.Desing,
     CategoryFilterType.Develop,
+    CategoryFilterType.Data,
+    CategoryFilterType.Desing,
     CategoryFilterType.Managment,
   ];
 

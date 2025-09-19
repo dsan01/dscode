@@ -18,6 +18,8 @@ export const ProjectCategoryBadge: React.FC<CategoryFoundationProps> = ({
         return t("service.develop");
       case FoundationType.Managment:
         return t("service.managment");
+      case FoundationType.Data:
+        return t("service.data");
     }
   };
   return (

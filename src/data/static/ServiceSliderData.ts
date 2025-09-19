@@ -7,6 +7,10 @@ const basePattern: SliderType[] = [
     text: "service.develop",
   },
   {
+    icon: FoundationType.Data,
+    text: "service.data",
+  },
+  {
     icon: FoundationType.Desing,
     text: "service.desing",
   },
