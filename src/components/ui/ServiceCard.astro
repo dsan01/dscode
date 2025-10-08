@@ -13,7 +13,6 @@ const t = useTranslations(lang)
 const serviceImages = await import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/img/services/*.{jpeg,jpg,png,gif,webp,avif}'
 )
-console.log(serviceImages)
 
 const imagePath = `/src/assets/img/services/${img}`
 if (!serviceImages[imagePath])
