@@ -8,7 +8,7 @@ const Textbox = React.forwardRef<HTMLTextAreaElement, TextboxProps>(
         <span className="font-medium"> {label} </span>
         <textarea
           placeholder={placeholder}
-          className="peer outline-primary-600 focus:outline-primary-700 mt-2 mb-0.5 min-h-20 w-full resize-none rounded-md bg-transparent px-3 py-3 text-neutral-800 outline transition-all placeholder:text-neutral-600 focus:outline-2 disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-500 disabled:placeholder:text-neutral-600"
+          className="peer outline-primary-600 focus:outline-primary-700 mt-2 mb-0.5 min-h-28 w-full resize-none rounded-md bg-transparent px-3 py-3 text-neutral-800 outline transition-all placeholder:text-neutral-600 focus:outline-2 disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-500 disabled:placeholder:text-neutral-600 md:min-h-20"
           name={name}
           {...Props}
           ref={ref}
