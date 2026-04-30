@@ -17,6 +17,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, url }) => {
       <a
         href={translatePath(`/blog/${blog.slug}`)}
         className="group relative transition-all"
+        data-astro-prefetch
       >
         <StrapiImage
           media={blog.thumbnail}
@@ -34,7 +35,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, url }) => {
 
       <div className="space-y-5">
         <div className="flex items-center justify-between">
-          <a href={translatePath(`/blog/${blog.slug}`)}>
+          <a href={translatePath(`/blog/${blog.slug}`)} data-astro-prefetch>
             <h4 className="font-title text-xl hover:underline">{blog.title}</h4>
           </a>
           <time dateTime={blog.publishedAt.toISOString()} className="text-sm">
