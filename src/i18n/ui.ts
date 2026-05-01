@@ -236,6 +236,50 @@ export const labels = {
     "image.errorCaptionContetx": "Error al cargar la imagen del",
     "image.errorCaption": "Error al cargar la imagen",
     "image.noAltContetx": "Imagen relacionada al",
+
+    "hobbie.title.photo": "Fotografía: El mundo en un lente",
+    "hobbie.title.coffee": "Café de Especialidad: Un ritual diario",
+    "hobbie.title.music": "Música en Alta Fidelidad: Escucha activa",
+    "hobbie.title.travel": "Viajes y Diarios: Bitácora del mundo",
+    "hobbie.desc.photo":
+      "Disfruto todo el proceso creativo, desde la captura de retratos y paisajes hasta la edición meticulosa de cada detalle. A veces, la mayor satisfacción es ver una buena foto impresa.",
+    "hobbie.desc.coffee":
+      "Más que cafeína, es una pasión por el proceso. Me encanta explorar diferentes granos y métodos de preparación, desde una prensa francesa hasta una moka italiana.",
+    "hobbie.desc.music":
+      "Mi curiosidad me lleva a explorar una gran variedad de géneros. Siempre busco la mejor calidad de audio (Hi-Fi) para poder apreciar la profundidad y los matices de cada canción.",
+    "hobbie.desc.travel":
+      "Recorrer el mundo es mi forma de aprender y resetearme. Cada aventura queda documentada en mi diario personal, un tesoro de anécdotas, lecciones y lugares inolvidables.",
+
+    "about.intro.start":
+      "Hola soy <span class='font-hand text-xl font-bold'>David</span> y soy:",
+
+    "about.github.title": "Mi Código y yo",
+    "about.github.desc":
+      "Más que un calendario, es un reflejo visual de mi disciplina. Cada contribución representa mi pasión diaria por construir, mejorar y aprender en el mundo del desarrollo de software.",
+
+    "about.github.legend.less": "Menos",
+    "about.github.legend.more": "Más",
+    "about.github.totalCount": "{{count}} actividades en {{year}}",
+    "about.github.jan": "Ene",
+    "about.github.feb": "Feb",
+    "about.github.mar": "Mar",
+    "about.github.apr": "Abr",
+    "about.github.may": "May",
+    "about.github.jun": "Jun",
+    "about.github.jul": "Jul",
+    "about.github.aug": "Ago",
+    "about.github.sep": "Sep",
+    "about.github.oct": "Oct",
+    "about.github.nov": "Nov",
+    "about.github.dec": "Dic",
+
+    "about.github.sun": "Dom",
+    "about.github.mon": "Lun",
+    "about.github.tue": "Mar",
+    "about.github.wed": "Mie",
+    "about.github.thu": "Jue",
+    "about.github.fri": "Vie",
+    "about.github.sat": "Sab",
   },
   en: {
     demo: "demo",
@@ -370,7 +414,7 @@ export const labels = {
 
     "errorPage.error404.title": "Oops... This Page Got Lost in the Code",
     "errorPage.error404.description":
-      "Looks like this route doesn't lead anywhere. Maybe it was a broken link or a small bug. But no worries — you can head back to the homepage and keep exploring my projects, ideas, and services",
+      "Looks like this route doesn't lead anywhere. Maybe it was a broken link or a small bug. But no worries you can head back to the homepage and keep exploring my projects, ideas, and services",
     "errorPage.error404.homePage": "Back to Home",
 
     "backToTop.button.title": "Back to top",
@@ -452,5 +496,49 @@ export const labels = {
     "image.errorCaptionContetx": "Error loading image of",
     "image.errorCaption": "Error loading image",
     "image.noAltContetx": "Image related to",
+
+    "hobbie.title.photo": "Fotografía: El mundo en un lente",
+    "hobbie.title.coffee": "Café de Especialidad: Un ritual diario",
+    "hobbie.title.music": "Música en Alta Fidelidad: Escucha activa",
+    "hobbie.title.travel": "Viajes y Diarios: Bitácora del mundo",
+    "hobbie.desc.photo":
+      "Disfruto todo el proceso creativo, desde la captura de retratos y paisajes hasta la edición meticulosa de cada detalle. A veces, la mayor satisfacción es ver una buena foto impresa.",
+    "hobbie.desc.coffee":
+      "Más que cafeína, es una pasión por el proceso. Me encanta explorar diferentes granos y métodos de preparación, desde una prensa francesa hasta una moka italiana.",
+    "hobbie.desc.music":
+      "Mi curiosidad me lleva a explorar una gran variedad de géneros. Siempre busco la mejor calidad de audio (Hi-Fi) para poder apreciar la profundidad y los matices de cada canción.",
+    "hobbie.desc.travel":
+      "Recorrer el mundo es mi forma de aprender y resetearme. Cada aventura queda documentada en mi diario personal, un tesoro de anécdotas, lecciones y lugares inolvidables.",
+
+    "about.intro.start":
+      "Hi I'm <span class='font-hand text-xl font-bold'>David</span> and I'm:",
+
+    "about.github.title": "My code and me",
+    "about.github.desc":
+      "Más que un calendario, es un reflejo visual de mi disciplina. Cada contribución representa mi pasión diaria por construir, mejorar y aprender en el mundo del desarrollo de software.",
+
+    "about.github.legend.less": "Less",
+    "about.github.legend.more": "More",
+    "about.github.totalCount": "{{count}} activities in {{year}}",
+    "about.github.jan": "Jan",
+    "about.github.feb": "Feb",
+    "about.github.mar": "Mar",
+    "about.github.apr": "Apr",
+    "about.github.may": "May",
+    "about.github.jun": "Jun",
+    "about.github.jul": "Jul",
+    "about.github.aug": "Aug",
+    "about.github.sep": "Sep",
+    "about.github.oct": "Oct",
+    "about.github.nov": "Nov",
+    "about.github.dec": "Dec",
+
+    "about.github.sun": "Sun",
+    "about.github.mon": "Mon",
+    "about.github.tue": "Tue",
+    "about.github.wed": "Wed",
+    "about.github.thu": "Thu",
+    "about.github.fri": "Fri",
+    "about.github.sat": "Sat",
   },
 } as const;
