@@ -102,6 +102,7 @@ const StrapiImage: React.FC<LazyImageProps> = ({
           height={media.height}
           width={media.width}
           loading="lazy"
+          draggable="false"
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         />
       </div>
