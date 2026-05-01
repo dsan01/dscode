@@ -1,0 +1,28 @@
+---
+import Hobbies from '@sections/about/Hobbies.astro'
+import MyHeader from '@sections/about/MyHeader.astro'
+import Layout from 'src/layouts/Layout.astro'
+import TrajectorySection from '@generics/Trajectory'
+import CommitHistory from '@sections/about/CommitHistory'
+import ContactBanner from '@generics/ContactBanner.astro'
+---
+
+<Layout
+  title='meta.title.about'
+  description='meta.description.about'
+>
+  <MyHeader />
+  <Hobbies />
+  <TrajectorySection
+    client:only='react'
+    url={Astro.url}
+  />
+  <CommitHistory
+    url={Astro.url}
+    client:only='react'
+  />
+  <ContactBanner
+    title={'index.contactBanner.title'}
+    showDesc={false}
+  />
+</Layout>
