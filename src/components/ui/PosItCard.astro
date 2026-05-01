@@ -1,0 +1,39 @@
+---
+import type { PostItCardProps as Props } from '@data/props'
+import { Icon } from 'astro-icon/components'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const { hobby, rotation, zIndex } = Astro.props
+
+const cardStyle = `transform: rotate(${rotation}deg); z-index: ${zIndex + 1};`
+---
+
+<div
+  class='bg-primary-300 flex flex-col justify-between rounded-lg p-4 shadow-xl transition-all hover:!z-10 hover:scale-105 md:aspect-square md:p-6'
+  style={cardStyle}
+>
+  <div class='space-y-4'>
+    <h6
+      class='font-hand text-primary-800 text-3xl font-bold md:text-2xl lg:text-3xl'
+    >
+      {t(hobby.title)}
+    </h6>
+    <p class='font-hand text-lg text-neutral-800 lg:text-xl'>
+      {t(hobby.description)}
+    </p>
+  </div>
+  <div class='flex flex-wrap gap-4 pt-2'>
+    {
+      hobby.icons.map((hobbie) => (
+        <div class='aspect-square'>
+          <Icon
+            name={hobbie}
+            class='text-4xl'
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>
