@@ -136,3 +136,15 @@ export interface StrapiUser extends StrapiBase {
   username?: string;
   preferedLanguage?: string;
 }
+
+export interface HobbiesType {
+  title: TranslationKey;
+  description: TranslationKey;
+  icons: string[];
+}
+
+export interface AboutMePageType extends StrapiBase {
+  page_title: string;
+  description: string;
+  thumbnail: MediaType[];
+}

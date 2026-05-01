@@ -3,6 +3,7 @@ import type {
   BlogType,
   ContactBenfitType,
   ContactSocialLinksType,
+  HobbiesType,
   MediaType,
   ProjectType,
   ServiceInfo,
@@ -185,4 +186,10 @@ export interface LazyImageProps {
   context?: string;
   showCaption?: boolean;
   url: URL;
+}
+
+export interface PostItCardProps {
+  hobby: HobbiesType;
+  rotation: number;
+  zIndex: number;
 }
