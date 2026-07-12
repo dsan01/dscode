@@ -90,7 +90,7 @@ export const ContactForm: React.FC<BasicTranslateComponentProps> = ({
         <Button type="submit" variant="default" isLoading={isLoading}>
           {!isLoading ? t("contact.form.sendButton") : t("generic.loading")}
         </Button>
-        <Toaster position="top-right" richColors className="!font-body" />
+        <Toaster position="top-right" richColors className="font-body!" />
       </form>
     </div>
   );
