@@ -144,7 +144,7 @@ export interface HobbiesType {
 }
 
 export interface AboutMePageType extends StrapiBase {
-  page_title: string;
+  title: string;
   description: string;
   thumbnail: MediaType[];
 }

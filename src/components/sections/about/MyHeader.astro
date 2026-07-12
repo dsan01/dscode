@@ -11,7 +11,7 @@ import { marked } from 'marked'
 let page: AboutMePageType | null = null
 try {
   page = await fetchApi<AboutMePageType>({
-    endpoint: 'about-me',
+    endpoint: 'about',
     // query: {
     //   populate: 'thumbnail',
     // },
@@ -58,7 +58,7 @@ const htmlContent = marked.parse(page?.description ?? '')
       <h1
         class='font-title from-primary-700 via-primary-500 to-primary-300 bg-linear-to-r bg-clip-text pb-1 text-4xl font-medium text-transparent xl:text-5xl'
       >
-        {page?.page_title ?? t('hero.title')}
+        {page?.title ?? t('hero.title')}
       </h1>
       <Prose>
         <div set:html={htmlContent} />
