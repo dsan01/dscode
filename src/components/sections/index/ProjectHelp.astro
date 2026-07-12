@@ -3,7 +3,7 @@ import Modal from '@primitives/Modal.astro'
 import ServiceCard from '@ui/ServiceCard.astro'
 import ProjectServiceInfo from '@ui/ProjectServiceInfo.astro'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
-import { Services } from 'src/data/static/ServiceProjectData'
+import { Services } from '@static/ServiceProjectData'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

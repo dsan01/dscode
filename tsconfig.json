@@ -3,15 +3,15 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@sections/*": ["src/components/sections/*"],
-      "@generics/*": ["src/components/generics/*"],
-      "@primitives/*": ["src/components/primitives/*"],
-      "@ui/*": ["src/components/ui/*"],
-      "@lib/*": ["src/lib/*"],
-      "@data/*": ["src/types/*"],
-      "@i18n/*": ["src/i18n/*"]
+      "@sections/*": ["./src/components/sections/*"],
+      "@generics/*": ["./src/components/generics/*"],
+      "@primitives/*": ["./src/components/primitives/*"],
+      "@ui/*": ["./src/components/ui/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@data/*": ["./src/types/*"],
+      "@static/*": ["./src/data/static/*"],
+      "@i18n/*": ["./src/i18n/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
