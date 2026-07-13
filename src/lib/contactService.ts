@@ -12,9 +12,12 @@ interface SubmissionResponse {
  */
 export async function sendContactForm(
   formData: ContactType,
+  token?:string
 ): Promise<SubmissionResponse> {
-  // 1. El endpoint ahora es el local de Astro
   const endpoint = "/api/contact";
+  if (!token) {
+    throw new Error("no token");
+  }
 
   try {
     const res = await fetch(endpoint, {
@@ -22,12 +25,10 @@ export async function sendContactForm(
       headers: {
         "Content-Type": "application/json",
       },
-      // 2. Enviamos los datos directamente, sin la envoltura 'data'
-      body: JSON.stringify(formData),
+      body: JSON.stringify({formData, token}),
     });
 
     if (!res.ok) {
-      // Si nuestro endpoint devuelve un error, lo manejamos
       const errorData = await res.json();
       throw new Error(errorData.message || "Fallo en la petición a la API");
     }

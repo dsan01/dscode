@@ -35,6 +35,9 @@ export default defineConfig({
     schema: {
       STRAPI_URL: envField.string({ context: "client", access: "public" }),
       STRAPI_BEARER: envField.string({ context: "server", access: "secret" }),
+      CAP_URL: envField.string({ context: "client", access: "public" }),
+      CAP_SITE: envField.string({ context: "client", access: "public" }),
+      CAP_SECRET: envField.string({ context: "server", access: "secret" }),
     }
   },
 

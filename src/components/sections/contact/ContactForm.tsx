@@ -11,6 +11,15 @@ import Button from "@primitives/Button";
 import { sendContactForm } from "@lib/contactService";
 import { Toaster, toast } from "sonner";
 import { TbAlertTriangle } from "react-icons/tb";
+import { CaptchaError, resetCaptcha, solveCaptcha } from "@lib/captchaService";
+
+yup.addMethod(yup.string, "email", function validateEmail(message) {
+  return this.matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, {
+    message,
+    name: "email",
+    excludeEmptyString: true,
+  });
+});
 
 export const ContactForm: React.FC<BasicTranslateComponentProps> = ({
   url,
@@ -38,14 +47,25 @@ export const ContactForm: React.FC<BasicTranslateComponentProps> = ({
   const onSubmit = async (data: ContactType) => {
     setIsLoading(true);
     try {
-      const success = await sendContactForm(data);
+      const solution = await solveCaptcha();
+
+      if (!solution.token) {
+        toast.error(t("contact.toast.captcha"));
+      }
+
+      const success = await sendContactForm(data, solution.token);
       if (success) {
         toast.success(t("contact.toast.success"));
+        resetCaptcha()
         reset();
         return;
       }
       toast.error(t("contact.toast.error"));
-    } catch {
+    } catch (error) {
+      if (error instanceof CaptchaError) {
+        toast.warning(t("contact.toast.captcha"));
+        return;
+      }
       toast.error(t("contact.toast.serverError"));
     } finally {
       setIsLoading(false);
