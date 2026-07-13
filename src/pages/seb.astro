@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title={'meta.title.home'} description={'meta.description.default'}>
+  <div class="container mt-10">
+    <div class="rounded-lg bg-neutral-400 px-4 py-6 shadow text-center font-hand text-4xl font-bold">Gracias por estar en mi vida</div>
+  </div>
+  <div class="scene-wrapper">
+    <div id="scene" class="scene">
+      <img src="/img/easter/flowerB.webp" alt="Bouquet" class="bouquet" />
+
+      <img
+        src="/img/easter/flower1.webp"
+        alt=""
+        class="flower flower-1 hidden_f"
+      />
+
+      <img
+        src="/img/easter/flower2.webp"
+        alt=""
+        class="flower flower-2 hidden_f"
+      />
+
+      <img
+        src="/img/easter/flower3.webp"
+        alt=""
+        class="flower flower-3 hidden_f"
+      />
+
+      <img
+        src="/img/easter/flower4.webp"
+        alt=""
+        class="flower flower-4 hidden_f"
+      />
+      <img
+        src="/img/easter/flower5.webp"
+        alt=""
+        class="flower flower-5 hidden_f"
+      />
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const flowers = document.querySelectorAll('.flower');
+  console.log(flowers.length);
+  let current = 0;
+
+  window.addEventListener('click', () => {
+    if (current >= flowers.length) return;
+
+    flowers[current].classList.remove('hidden_f');
+    current++;
+  });
+
+  window.addEventListener('click', () => {
+    console.log('click');
+  });
+</script>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .scene-wrapper {
+    width: 100%;
+    height: 80dvh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .scene {
+    --scene-scale: 1.3;
+    position: relative;
+    width: min(90vw, 100vh * 16 / 9);
+    aspect-ratio: 16 / 9;
+    /* height: 80dvh; */
+    margin: auto;
+    overflow: hidden;
+    user-select: none;
+    scale: var(--scene-scale);
+  }
+
+  .scene img {
+    position: absolute;
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+
+  .bouquet {
+    width: 20%;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .flower {
+    opacity: 1;
+    transform-origin: center;
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .hidden_f {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  /* AJUSTA ESTAS POSICIONES */
+
+  .flower-1 {
+    left: 40%;
+    top: 26%;
+    width: 20%;
+    z-index: 10;
+    /* transform: rotate(-8deg); */
+  }
+
+  .flower-2 {
+    left: 54%;
+    top: 24.5%;
+    width: 8%;
+    z-index: 2;
+    /* transform: rotate(10deg); */
+  }
+
+  .flower-3 {
+    left: 38%;
+    top: 24%;
+    width: 12%;
+    z-index: 2;
+    /* transform: rotate(-20deg); */
+  }
+
+  .flower-4 {
+    left: 47%;
+    top: 23%;
+    width: 12%;
+    z-index: 2;
+  }
+
+  .flower-5 {
+    left: 37%;
+    top: 21%;
+    width: 12%;
+    z-index: 2;
+  }
+
+  .flower:not(.hidden_f) {
+    transform: scale(1);
+  }
+
+  @media (max-width: 1024px) {
+    .scene {
+      --scene-scale: 1.1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .scene {
+      --scene-scale: 1.2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .scene {
+      --scene-scale: 3;
+    }
+  }
+</style>
