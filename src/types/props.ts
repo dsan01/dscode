@@ -93,9 +93,9 @@ export interface ServiceCardProps {
 export interface ModalProps {
   id: string;
   title?: TranslationKey;
-  showCloseButton: boolean;
-  showDefaultHeader: boolean;
-  showDefaultFooter: boolean;
+  showCloseButton?: boolean;
+  showDefaultHeader?: boolean;
+  showDefaultFooter?: boolean;
 }
 
 export interface ProjectServiceProps {
