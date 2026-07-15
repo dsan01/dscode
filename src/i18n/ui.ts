@@ -288,6 +288,9 @@ export const labels = {
     "about.github.thu": "Jue",
     "about.github.fri": "Vie",
     "about.github.sat": "Sab",
+
+
+    "easter.modal.title": "¡Felicidades!",
   },
   en: {
     demo: "demo",
@@ -569,5 +572,7 @@ export const labels = {
     "about.github.thu": "Thu",
     "about.github.fri": "Fri",
     "about.github.sat": "Sat",
+
+    "easter.modal.title": "¡Felicidades!",
   },
 } as const;

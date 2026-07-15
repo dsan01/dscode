@@ -1,0 +1,128 @@
+---
+import Button from '@primitives/Button'
+---
+
+<form id='otp-form'>
+  <div class='font-body flex items-center justify-center gap-3'>
+    <input
+      class='pin peer outline-primary-600 focus:outline-primary-700 size-14 rounded-md bg-transparent p-3 text-center text-2xl font-extrabold text-neutral-800 outline transition-all placeholder:text-neutral-600 focus:outline-2 disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-500 disabled:placeholder:text-neutral-600'
+      maxlength='1'
+      inputmode='numeric'
+      pattern='[0-9]*'
+    />
+    <input
+      class='pin peer outline-primary-600 focus:outline-primary-700 size-14 rounded-md bg-transparent p-3 text-center text-2xl font-extrabold text-neutral-800 outline transition-all placeholder:text-neutral-600 focus:outline-2 disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-500 disabled:placeholder:text-neutral-600'
+      maxlength='1'
+      inputmode='numeric'
+      pattern='[0-9]*'
+    />
+    <input
+      class='pin peer outline-primary-600 focus:outline-primary-700 size-14 rounded-md bg-transparent p-3 text-center text-2xl font-extrabold text-neutral-800 outline transition-all placeholder:text-neutral-600 focus:outline-2 disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-500 disabled:placeholder:text-neutral-600'
+      maxlength='1'
+      inputmode='numeric'
+      pattern='[0-9]*'
+    />
+    <input
+      class='pin peer outline-primary-600 focus:outline-primary-700 size-14 rounded-md bg-transparent p-3 text-center text-2xl font-extrabold text-neutral-800 outline transition-all placeholder:text-neutral-600 focus:outline-2 disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-500 disabled:placeholder:text-neutral-600'
+      maxlength='1'
+      inputmode='numeric'
+      pattern='[0-9]*'
+    />
+  </div>
+  <p
+    class='text-alert-d-500 text-sm'
+    id='pin-error'
+  >
+  </p>
+</form>
+
+<script>
+  import { getElement, getElements } from '@lib/dom-selector'
+  import { EASTER_CODE } from 'astro:env/client'
+
+  const SECRET = EASTER_CODE
+
+  const inputs = Array.from(getElements('.pin') as NodeListOf<HTMLInputElement>)
+  const error = getElement('#pin-error') as HTMLButtonElement
+
+  inputs.forEach((input, index) => {
+    input.addEventListener('input', (e) => {
+      const value = e.target.value.replace(/\D/g, '')
+
+      e.target.value = value
+
+      if (!value) return
+
+      if (index < inputs.length - 1) {
+        inputs[index + 1].focus()
+      } else {
+        validate()
+      }
+    })
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !input.value && index > 0) {
+        inputs[index - 1].focus()
+      }
+
+      if (e.key === 'ArrowLeft' && index > 0) {
+        inputs[index - 1].focus()
+      }
+
+      if (e.key === 'ArrowRight' && index < inputs.length - 1) {
+        inputs[index + 1].focus()
+      }
+
+      if (e.key === 'Enter') {
+        e.preventDefault()
+        validate()
+      }
+    })
+
+    input.addEventListener('paste', (e) => {
+      e.preventDefault()
+
+      const text = e.clipboardData
+        .getData('text')
+        .replace(/\D/g, '')
+        .slice(0, 4)
+
+      text.split('').forEach((digit, i) => {
+        if (inputs[i]) inputs[i].value = digit
+      })
+
+      if (text.length === 4) {
+        validate()
+      }
+    })
+  })
+
+  function validate() {
+    const code = inputs.map((input) => input.value).join('')
+    console.log(code)
+
+    if (code === '1508') {
+      error.textContent = 'No seria tan sencillo...'
+      return
+    }
+
+    if (code.length < 4) {
+      error.textContent = 'Pon el codigo completo'
+      return
+    }
+
+    if (code !== SECRET) {
+      error.textContent = 'Nop, ese no es, piensa bien'
+      return
+    }
+
+    localStorage.setItem(
+      'easter-access',
+      JSON.stringify({
+        expires: Date.now() + 60 * 60 * 1000,
+      })
+    )
+
+    window.location.href = '/seb'
+  }
+</script>

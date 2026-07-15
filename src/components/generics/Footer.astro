@@ -6,6 +6,8 @@ import { getLangFromUrl, useTranslatedPath, useTranslations } from '@i18n/utils'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
+import Modal from '@primitives/Modal.astro'
+import EasterModalForm from '@ui/EasterModalForm.astro'
 ---
 
 <footer
@@ -63,7 +65,10 @@ const translatePath = useTranslatedPath(lang)
     <div class='flex justify-between'>
       <div class='font-body flex items-center gap-0.5 text-xs md:text-sm'>
         <span>{t('footer.tagline.start')}</span>
-        <Icon name='tabler:heart' />
+        <Icon
+          name='tabler:heart'
+          id='easter-trigger'
+        />
         <span>{t('footer.tagline.middle')}</span>
         <Icon name='tabler:coffee' />
         <span>{t('footer.tagline.end')}</span>
@@ -100,4 +105,33 @@ const translatePath = useTranslatedPath(lang)
       </div>
     </div>
   </div>
+  <Modal
+    id='easter-modal'
+    title='easter.modal.title'
+    showDefaultHeader
+  >
+    <EasterModalForm />
+  </Modal>
 </footer>
+
+<script>
+  import { getElement } from '@lib/dom-selector'
+
+  const trigger = getElement('#easter-trigger') as HTMLElement
+  const modal = getElement('#modal-easter-modal') as HTMLDialogElement
+
+  let taps = 0
+  let timeout: NodeJS.Timeout | undefined
+
+  trigger.addEventListener('click', () => {
+    taps++
+    clearTimeout(timeout)
+    timeout = setTimeout(() => {
+      taps = 0
+    }, 1000)
+    if (taps === 3) {
+      taps = 0
+      modal.showModal()
+    }
+  })
+</script>
