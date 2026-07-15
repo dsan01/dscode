@@ -1,13 +1,15 @@
 ---
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { HobbiesData } from './src/data/static/HobbiesData'
 import PosItCard from '@ui/PosItCard.astro'
-
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 const rotations = [2, -3, 1, -2.5, 3]
 ---
 
 <section class='container flex flex-col'>
   <h3 class='font-title text-primary-700 text-4xl font-semibold'>
-    Mi Combustible Creativo
+    {t("hobbie.title")}
   </h3>
   <div class='grid grid-cols-1 py-12 md:grid-cols-2 lg:grid-cols-4'>
     {

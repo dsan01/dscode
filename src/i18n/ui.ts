@@ -22,7 +22,7 @@ export const labels = {
     "meta.description.projects":
       "Explora una selección de mis proyectos. Cada caso de estudio detalla mi trabajo en diseño UI/UX, desarrollo full-stack y gestión para lograr resultados exitosos.",
 
-    "meta.description.about": "",
+    "meta.description.about": "Conoce más sobre David, desarrollador Full Stack e ingeniero informático. Descubre mi experiencia, trayectoria, tecnologías, proyectos y la pasión que impulsa mi trabajo.",
     "meta.description.blog":
       "Ideas y reflexiones más allá del código. Un blog personal donde escribo sobre lo que me apasiona: tecnología, herramientas y la vida en la industria del desarrollo.",
     "meta.description.contact":
@@ -201,9 +201,11 @@ export const labels = {
     "contact.toast.success":
       "¡Mensaje recibido! Te responderé en menos de 24 horas hábiles.",
     "contact.toast.error":
-      "No se pudo enviar tu mensaje. Inténtalo de nuevo mas tarde o contáctame directamente por correo.",
+      "No se pudo enviar tu mensaje. Inténtalo de nuevo mas tarde o contáctame directamente por correo electrónico.",
     "contact.toast.serverError":
-      "¡Ups! Algo interrumpió el envío. Si el problema continúa contáctame directamente por correo.",
+      "¡Ups! Algo interrumpió el envío. Si el problema continúa contáctame directamente por correo electrónico.",
+    "contact.toast.captcha":
+      "¡Ups! No pudimos verificar el CAPTCHA. Inténtalo de nuevo.",
 
     "blogList.title": "Desde mi Teclado",
     "blogList.desc":
@@ -237,21 +239,27 @@ export const labels = {
     "image.errorCaption": "Error al cargar la imagen",
     "image.noAltContetx": "Imagen relacionada al",
 
-    "hobbie.title.photo": "Fotografía: El mundo en un lente",
-    "hobbie.title.coffee": "Café de Especialidad: Un ritual diario",
-    "hobbie.title.music": "Música en Alta Fidelidad: Escucha activa",
-    "hobbie.title.travel": "Viajes y Diarios: Bitácora del mundo",
+
+    "hobbie.title": "Mi combustible Creativo",
+
+    "hobbie.title.photo": "Fotografía",
+    "hobbie.title.coffee": "Café de Especialidad",
+    "hobbie.title.music": "Música en Alta Fidelidad",
+    "hobbie.title.travel": "Viajes y Diarios",
     "hobbie.desc.photo":
-      "Disfruto todo el proceso creativo, desde la captura de retratos y paisajes hasta la edición meticulosa de cada detalle. A veces, la mayor satisfacción es ver una buena foto impresa.",
+      "Disfruto de todo el proceso creativo, desde encontrar el mejor ángulo para retratos o paisajes hasta editar cada detalle. Últimamente, lo que más disfruto es ver una buena fotografía impresa.",
     "hobbie.desc.coffee":
-      "Más que cafeína, es una pasión por el proceso. Me encanta explorar diferentes granos y métodos de preparación, desde una prensa francesa hasta una moka italiana.",
+      "Más que el sabor, me apasiona todo el proceso. Disfruto explorar diferentes granos y métodos de preparación, desde una prensa francesa hasta una moka italiana.",
     "hobbie.desc.music":
-      "Mi curiosidad me lleva a explorar una gran variedad de géneros. Siempre busco la mejor calidad de audio (Hi-Fi) para poder apreciar la profundidad y los matices de cada canción.",
+      "Mi curiosidad me lleva a explorar una gran variedad de géneros musicales. Siempre he disfrutado de un buen sistema de audio de alta fidelidad (Hi-Fi), que me permite apreciar cada instrumento y cada frecuencia.",
     "hobbie.desc.travel":
-      "Recorrer el mundo es mi forma de aprender y resetearme. Cada aventura queda documentada en mi diario personal, un tesoro de anécdotas, lecciones y lugares inolvidables.",
+      "Recorrer el mundo y mi país es una de mis mayores pasiones. Cada viaje queda plasmado en mi journal, un tesoro lleno de anécdotas, fotografías y lugares inolvidables.",
 
     "about.intro.start":
       "Hola soy <span class='font-hand text-xl font-bold'>David</span> y soy:",
+    
+    "about.contact.title": "Ya conoces un poco de mí. Ahora quiero conocer tu proyecto.",
+    "about.contact.desc": "Estoy a un mensaje de distancia para hablar sobre tu próxima idea.",
 
     "about.github.title": "Mi Código y yo",
     "about.github.desc":
@@ -296,7 +304,7 @@ export const labels = {
     "meta.description.projects":
       "Explore a selection of my projects. Each case study details my work in UI/UX design, full-stack development, and project management to achieve successful outcomes.",
 
-    "meta.description.about": "",
+    "meta.description.about": "Learn more about David Sánchez, a Full Stack Developer and Software Engineer. Explore my experience, projects, technologies, and the passion behind my work.",
     "meta.description.blog":
       "Ideas and insights beyond the code. A personal blog where I write about my passions: technology, useful tools, and life within the development industry.",
     "meta.description.contact":
@@ -317,14 +325,17 @@ export const labels = {
     "service.develop": "Develop",
     "service.desing": "Desing",
     "service.managment": "Managment",
+    "service.data": "Data",
 
     "service.long.develop": "Front - Back Develop",
     "service.long.desing": "UI/UX Desing",
     "service.long.managment": "Project Managment",
+    "service.long.data": "Data analysis",
 
     "service.desc.develop.title": "Scalable and Efficient Web Development",
     "service.desc.desing.title": "Digital Experiences that Connect",
     "service.desc.managment.title": "Strategic Project Management",
+    "service.desc.data.title": "Data That Drives Decisions",
 
     "service.desc.develop.subtitle":
       "I build solid digital solutions from frontend to backend using best practices and modern technologies.",
@@ -332,6 +343,8 @@ export const labels = {
       "I design custom interfaces that enhance user experience and streamline digital processes.",
     "service.desc.managment.subtitle":
       "I plan, organize, and coordinate digital projects with modern tools and a strategic vision.",
+    "service.desc.data.subtitle":
+      "I transform complex data into clear insights that help you make strategic decisions.",
 
     "service.desc.develop.description":
       "I develop full-stack web applications, from user interface to backend, using technologies like JavaScript, C#, React, .NET, MongoDB, and PostgreSQL. I follow Clean Code and SOLID principles to deliver clean, maintainable, and scalable code. My focus is on performance, security, and long-term flexibility, ensuring robust solutions that grow with your business.",
@@ -339,7 +352,9 @@ export const labels = {
       "I offer tailor-made UI/UX designs, built with the latest trends, high standards of quality, and a strong focus on usability. Every interface is crafted to be functional, visually appealing, and easy to maintain. I work closely with you to ensure the design aligns with your goals and enhances your digital product.",
     "service.desc.managment.description":
       "I specialize in managing tech projects, ensuring success from planning to delivery. I use tools like Jira and MS Project to track progress, manage timelines, and optimize resources. I handle schedules, budgets, requirements, and stakeholders, anticipating risks and adapting to changes. My approach combines clarity, efficiency, and consistent communication to keep every project moving with purpose.",
-
+    "service.desc.data.description":
+      "I offer a comprehensive service ranging from efficient database management (SQL and NoSQL) to advanced data analysis. My approach ensures data integrity and performance, transforming information into actionable insights through reports and interactive dashboards. I collaborate with you to align every analysis with your business goals and empower your strategic decision-making.",
+    
     "service.tech.title": "Technologies and tools",
 
     "projectHelp.title": "How Can I Help You to Boost Your Project?",
@@ -463,6 +478,15 @@ export const labels = {
     "contact.link.cv":
       "Prefer the classic format? Download a complete summary of my profile, skills, and experience in a share-ready PDF file.",
 
+    "contact.toast.success":
+      "Message received! I'll get back to you within 24 business hours.",
+    "contact.toast.error":
+      "Your message couldn't be sent. Please try again later or contact me directly by email.",
+    "contact.toast.serverError":
+      "Oops! Something interrupted the submission. If the problem persists, please contact me directly by email.",
+    "contact.toast.captcha":
+      "Oops! We couldn't verify the CAPTCHA. Please try again.",
+    
     "blogList.title": "From My Keyboard",
     "blogList.desc":
       "Beyond the code. In this space, I share articles about what I'm passionate about: new technologies, my creative process, and day-to-day learnings from the tech industry.",
@@ -496,26 +520,31 @@ export const labels = {
     "image.errorCaptionContetx": "Error loading image of",
     "image.errorCaption": "Error loading image",
     "image.noAltContetx": "Image related to",
+    
+    "hobbie.title": "My Creative Fuel",
 
-    "hobbie.title.photo": "Fotografía: El mundo en un lente",
-    "hobbie.title.coffee": "Café de Especialidad: Un ritual diario",
-    "hobbie.title.music": "Música en Alta Fidelidad: Escucha activa",
-    "hobbie.title.travel": "Viajes y Diarios: Bitácora del mundo",
+    "hobbie.title.photo": "Photography",
+    "hobbie.title.coffee": "Specialty Coffee",
+    "hobbie.title.music": "High-Fidelity Audio",
+    "hobbie.title.travel": "Travel & Journaling",
     "hobbie.desc.photo":
-      "Disfruto todo el proceso creativo, desde la captura de retratos y paisajes hasta la edición meticulosa de cada detalle. A veces, la mayor satisfacción es ver una buena foto impresa.",
+      "I enjoy every part of the creative process, from finding the perfect angle for portraits or landscapes to refining every detail in post-processing. Lately, what I enjoy the most is seeing a great photograph in print.",
     "hobbie.desc.coffee":
-      "Más que cafeína, es una pasión por el proceso. Me encanta explorar diferentes granos y métodos de preparación, desde una prensa francesa hasta una moka italiana.",
+      "More than just the flavor, I'm passionate about the entire process. I enjoy exploring different coffee beans and brewing methods, from a French press to an Italian moka pot.",
     "hobbie.desc.music":
-      "Mi curiosidad me lleva a explorar una gran variedad de géneros. Siempre busco la mejor calidad de audio (Hi-Fi) para poder apreciar la profundidad y los matices de cada canción.",
+      "My curiosity leads me to explore a wide variety of musical genres. I've always enjoyed listening through a high-fidelity (Hi-Fi) audio system, allowing me to appreciate every instrument and every frequency.",
     "hobbie.desc.travel":
-      "Recorrer el mundo es mi forma de aprender y resetearme. Cada aventura queda documentada en mi diario personal, un tesoro de anécdotas, lecciones y lugares inolvidables.",
+      "Traveling around the world and exploring my own country is one of my greatest passions. Every trip is captured in my journal, a collection of stories, photographs, and unforgettable places.",
 
     "about.intro.start":
       "Hi I'm <span class='font-hand text-xl font-bold'>David</span> and I'm:",
 
+    "about.contact.title": "Now you know a little about me. I'd love to hear about your project.",
+    "about.contact.desc": "I'm just one message away from discussing your next idea.",
+
     "about.github.title": "My code and me",
     "about.github.desc":
-      "Más que un calendario, es un reflejo visual de mi disciplina. Cada contribución representa mi pasión diaria por construir, mejorar y aprender en el mundo del desarrollo de software.",
+      "More than a calendar, it's a visual reflection of my discipline. Every contribution represents my daily commitment to building, improving, and continuously learning in the world of software development.",
 
     "about.github.legend.less": "Less",
     "about.github.legend.more": "More",
