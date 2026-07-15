@@ -31,6 +31,8 @@ const translatePath = useTranslatedPath(lang)
         href='https://github.com/dsan01'
         title='Github'
         target='_blank'
+        data-umami-event="external-link"
+        data-umami-event-to="Github"
       >
         <Icon
           name='tabler:brand-github'
@@ -43,6 +45,8 @@ const translatePath = useTranslatedPath(lang)
         href='https://www.linkedin.com/in/dsanchez01/'
         title='LinkedIn'
         target='_blank'
+        data-umami-event="external-link"
+        data-umami-event-to="Linkedin"
       >
         <Icon
           name='tabler:brand-linkedin'
@@ -54,6 +58,8 @@ const translatePath = useTranslatedPath(lang)
         class='group hover:bg-primary-400 flex items-center justify-center align-middle transition-colors duration-200'
         href='/'
         title='Curriculum Vitae'
+        data-umami-event="external-link"
+        data-umami-event-to="CV"
       >
         <Icon
           name='tabler:certificate'
@@ -98,6 +104,7 @@ const translatePath = useTranslatedPath(lang)
         class='group flex items-center justify-between rounded-xl bg-neutral-400 p-6 text-neutral-800 shadow-md'
         href={translatePath('/contact')}
         data-astro-prefetch
+        data-umami-event="try-contact"
       >
         <div class='font-title flex flex-col items-center'>
           <span class='text-2xl font-semibold'>Hey!</span>

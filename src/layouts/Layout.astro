@@ -6,6 +6,8 @@ import BackToTop from '@generics/BackToTop.astro'
 const currentLang = Astro.currentLocale
 import { type LayoutMetaProps as Props } from '@data/props'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
+import { UMAMI_URL, UMAMI_CODE } from 'astro:env/client'
+
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -62,6 +64,7 @@ const { title, description = 'meta.description.default' } = Astro.props
       rel='manifest'
       href='/site.webmanifest'
     />
+    <script defer src={UMAMI_URL} data-website-id={UMAMI_CODE}></script>
   </head>
   <body>
     <Navbar />

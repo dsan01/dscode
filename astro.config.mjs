@@ -38,6 +38,9 @@ export default defineConfig({
       CAP_URL: envField.string({ context: "client", access: "public" }),
       CAP_SITE: envField.string({ context: "client", access: "public" }),
       CAP_SECRET: envField.string({ context: "server", access: "secret" }),
+      EASTER_CODE: envField.string({ context: "client", access: "public" }),
+      UMAMI_URL: envField.string({ context: "client", access: "public" }),
+      UMAMI_CODE: envField.string({ context: "client", access: "public" }),
     }
   },
 

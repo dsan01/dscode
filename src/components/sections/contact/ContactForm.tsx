@@ -107,7 +107,7 @@ export const ContactForm: React.FC<BasicTranslateComponentProps> = ({
 
           <p className="text-xs lg:text-sm">{t("contact.page.disclaimer")}</p>
         </div>
-        <Button type="submit" variant="default" isLoading={isLoading}>
+        <Button type="submit" variant="default" isLoading={isLoading} data-umami-event="form-submit" data-umami-event-form="contact">
           {!isLoading ? t("contact.form.sendButton") : t("generic.loading")}
         </Button>
         <Toaster position="top-right" richColors className="font-body!" />
