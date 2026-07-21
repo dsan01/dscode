@@ -1,5 +1,5 @@
 ---
-import Modal from '@primitives/Modal.astro'
+import Modal from '@primitives/Modal'
 import ServiceCard from '@ui/ServiceCard.astro'
 import ProjectServiceInfo from '@ui/ProjectServiceInfo.astro'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
@@ -30,11 +30,13 @@ const t = useTranslations(lang)
           img={service.img}
         />
         <Modal
+          client:load
           id={`category-${service.Foundation}`}
           title={service.basicTitle}
           showDefaultHeader
+          url={Astro.url}
         >
-          <ProjectServiceInfo Service={service} />
+          <ProjectServiceInfo Service={service}/>
         </Modal>
       ))
     }

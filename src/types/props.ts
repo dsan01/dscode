@@ -15,6 +15,8 @@ import type {
   InputHTMLAttributes,
   SelectHTMLAttributes,
   TextareaHTMLAttributes,
+  ReactNode,
+  HTMLAttributes
 } from "react";
 import type { VariantProps } from "class-variance-authority";
 import type { buttonVariants } from "@primitives/Button";
@@ -38,6 +40,10 @@ export interface BasicTranslateComponentProps {
 }
 
 export interface TrajectoryCardProps {
+  trajectory: TrajectoryModel;
+  url: URL;
+}
+export interface TrajectoryModalProps {
   trajectory: TrajectoryModel;
   url: URL;
 }
@@ -90,12 +96,22 @@ export interface ServiceCardProps {
   img?: string;
 }
 
-export interface ModalProps {
-  id: string;
-  title?: TranslationKey;
-  showCloseButton?: boolean;
-  showDefaultHeader?: boolean;
-  showDefaultFooter?: boolean;
+export interface ModalProps
+  extends Omit<HTMLAttributes<HTMLDialogElement>, "title" | "children"> {
+  id?: string;
+  title?: TranslationKey
+  children: ReactNode
+  footer?: ReactNode
+  showCloseButton?: boolean
+  showDefaultHeader?: boolean
+  showDefaultFooter?: boolean
+  url: URL;
+  onClose?: () => void
+}
+
+export interface ModalRef {
+  open: () => void
+  close: () => void
 }
 
 export interface ProjectServiceProps {
