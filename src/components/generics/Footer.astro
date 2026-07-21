@@ -3,11 +3,12 @@ import { FoundationType } from '@data/enums'
 import Foundations from './Foundations.astro'
 import { Icon } from 'astro-icon/components'
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '@i18n/utils'
+import Modal from '@primitives/Modal'
+import EasterModalForm from '@ui/EasterModalForm.astro'
+
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
-import Modal from '@primitives/Modal.astro'
-import EasterModalForm from '@ui/EasterModalForm.astro'
 ---
 
 <footer
@@ -106,9 +107,11 @@ import EasterModalForm from '@ui/EasterModalForm.astro'
     </div>
   </div>
   <Modal
+    client:load
     id='easter-modal'
     title='easter.modal.title'
     showDefaultHeader
+    url={Astro.url}
   >
     <EasterModalForm />
   </Modal>

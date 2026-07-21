@@ -111,7 +111,10 @@ export const labels = {
     "trajectory.api.loadingTrajectories":
       "Compilando mi historial y certificaciones...",
     "trajectory.api.notFoundTrajectories":
-      "Aún no hay elementos en esta sección. ¡Es un área en constante crecimiento!",
+    "Aún no hay elementos en esta sección. ¡Es un área en constante crecimiento!",
+
+    "trajectory.modal.contributions":"Contribuciones",
+    "trajectory.modal.projects": "Proyectos destacados",
 
     "enum.ProjectProcess.Discover": "Descubro",
     "enum.ProjectProcess.Desing": "Diseño",
@@ -394,6 +397,9 @@ export const labels = {
       "Compiling my experience and certifications...",
     "trajectory.api.notFoundTrajectories":
       "There are no items in this section yet. It's an area that's always growing!",
+
+    "trajectory.modal.contributions": "Contributions",
+    "trajectory.modal.projects": "Featured Projects",
 
     "enum.ProjectProcess.Discover": "Discover",
     "enum.ProjectProcess.Desing": "Desing",
