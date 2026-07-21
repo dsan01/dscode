@@ -8,14 +8,16 @@ type TechStack = {
   icon: string;
 };
 
-export interface TrajectoryModel {
+export interface TrajectoryModel extends StrapiBase{
   title: string;
-  thumbnail: any;
+  thumbnail: MediaType;
   successes?: string;
   company: string;
   startDate: string;
   endDate?: string;
   type: TrajectoryType;
+  showEnd: boolean;
+  projects?: ProjectType[];
 }
 
 export interface TrajectoryColection {

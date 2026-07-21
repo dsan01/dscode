@@ -53,7 +53,10 @@ const TrajectorySection: React.FC<BasicTranslateComponentProps> = ({ url }) => {
         const filteredTrajectories = await fetchApi<TrajectoryModel[]>({
           endpoint: "trajectories",
           query: {
-            populate: "thumbnail",
+            populate: [
+              "thumbnail",
+              "projects",
+            ],
             filters: {
               trajectories: {
                 $containsi: String(activeFilter),
