@@ -209,3 +209,10 @@ export interface PostItCardProps {
   rotation: number;
   zIndex: number;
 }
+
+
+export interface ContactConfirmationEmailProps {
+  lang: "es" | "en";
+  name: string;
+  message: string;
+}

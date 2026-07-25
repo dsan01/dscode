@@ -294,6 +294,23 @@ export const labels = {
 
 
     "easter.modal.title": "¡Felicidades!",
+    
+    "email.contact.subject": "Hemos recibido tu mensaje",
+    "email.contact.title": "¡Gracias por escribir!",
+    "email.contact.subtitle": "Tu mensaje ha sido recibido correctamente.",
+    "email.contact.hello": "Hola",
+    "email.contact.body": `Gracias por contactar con DSCode.
+    
+    He recibido correctamente tu mensaje y revisaré la información lo antes posible. Si tu consulta requiere una respuesta, me pondré en contacto contigo por este mismo medio.`,
+    
+    "email.contact.card": "Resumen de tu solicitud",
+    "email.contact.close": `¿Olvidaste mencionar algún detalle?
+
+Puedes responder directamente a este correo y el mensaje se añadirá al mismo hilo de conversación.`,
+    
+    "email.base.footer": "Hecho con ❤️ y mucho ☕ desde Colombia.",
+    
+
   },
   en: {
     demo: "demo",
@@ -580,5 +597,21 @@ export const labels = {
     "about.github.sat": "Sat",
 
     "easter.modal.title": "¡Felicidades!",
+
+    "email.contact.subject": "We've received your message",
+    "email.contact.title": "Thanks for reaching out!",
+    "email.contact.subtitle": "Your message has been received successfully.",
+    "email.contact.hello": "Hi",
+    "email.contact.body": `Thank you for contacting DSCode.
+
+I've successfully received your message and will review it as soon as possible. If your inquiry requires a response, I'll get back to you through this same email.`,
+    
+    "email.contact.card": "Summary of your request",
+    "email.contact.close": `Forgot to mention something?
+
+Simply reply to this email and your message will be added to the same conversation thread.`,
+    
+    "email.base.footer": "Made with ❤️ and lots of ☕ from Colombia.",
+
   },
 } as const;
