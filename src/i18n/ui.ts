@@ -12,7 +12,7 @@ export const labels = {
 
     "meta.title.home": "Desarrollador de Productos Digitales",
     "meta.title.projetcs": "Proyectos",
-    "meta.title.about": "Sobre mi",
+    "meta.title.about": "Sobre mí",
     "meta.title.blog": "Blog",
     "meta.title.contact": "Contacto",
 
@@ -29,7 +29,7 @@ export const labels = {
       "¿Tienes un proyecto, una idea o una oportunidad? Hablemos. Encuentra aquí mi formulario de contacto, correo y redes para iniciar la conversación.",
 
     "nav.projects": "Proyectos",
-    "nav.about": "Sobre Mi",
+    "nav.about": "Sobre mí",
     "nav.blog": "Blog",
 
     "hero.title": "Desarrollador Web & Diseñador de Experiencias Digitales",
@@ -46,7 +46,7 @@ export const labels = {
     "service.managment": "Gerencia",
     "service.data": "Data",
 
-    "service.long.develop": "Desarrollo Front - Back",
+    "service.long.develop": "Desarrollo front - back",
     "service.long.desing": "Diseño UI/UX",
     "service.long.managment": "Gerencia de proyectos",
     "service.long.data": "Análisis de datos",
@@ -77,7 +77,7 @@ export const labels = {
 
     "service.tech.title": "Tecnologías y herramientas",
 
-    "projectHelp.title": "¿Cómo Puedo Ayudarte a Impulsar tu Proyecto?",
+    "projectHelp.title": "¿Cómo puedo ayudarte a impulsar tu proyecto?",
     "projectHelp.Description":
       "Descubre cómo puedo ayudarte a impulsar tu transformación digital y llevar tu proyecto al siguiente nivel con servicios de Gestión, Diseño y Desarrollo a la medida.",
 
@@ -94,16 +94,16 @@ export const labels = {
       "Conecta y lleva tu proyecto al siguiente nivel",
     "contactBanner.description.default":
       "Contáctame y hagamos que tu proyecto se vuelva realidad. Nos encargaremos de todo lo necesario para que todo salga de acuerdo a tus necesidades.",
-    "contactBanner.button.default": "Contactame",
+    "contactBanner.button.default": "Contáctame",
 
-    "index.contactBanner.title": "¿Listo para Trabajar Juntos? ¡Contáctame!",
+    "index.contactBanner.title": "¿Listo para trabajar juntos? ¡Contáctame!",
 
     "enum.TrajectoryType.Experience": "Experiencia",
     "enum.TrajectoryType.Studies": "Estudios",
     "enum.TrajectoryType.Certificates": "Certificados",
 
     "trajectory.card.currently": "Actualidad",
-    "trajectory.title": "Mi Trayectoria y Experiencia",
+    "trajectory.title": "Mi trayectoria y experiencia",
 
     "trajectory.api.errorTitle": "¡Ups! Hubo un problema técnico.",
     "trajectory.api.errorDesc":
@@ -210,7 +210,7 @@ export const labels = {
     "contact.toast.captcha":
       "¡Ups! No pudimos verificar el CAPTCHA. Inténtalo de nuevo.",
 
-    "blogList.title": "Desde mi Teclado",
+    "blogList.title": "Desde mi teclado",
     "blogList.desc":
       "Más allá del código. En este espacio comparto artículos sobre lo que me apasiona: nuevas tecnologías, mi proceso creativo y aprendizajes del día a día en la industria tech.",
     "blogList.cta": "Explorar el Blog",
@@ -243,7 +243,7 @@ export const labels = {
     "image.noAltContetx": "Imagen relacionada al",
 
 
-    "hobbie.title": "Mi combustible Creativo",
+    "hobbie.title": "Mi combustible creativo",
 
     "hobbie.title.photo": "Fotografía",
     "hobbie.title.coffee": "Café de Especialidad",
@@ -259,7 +259,7 @@ export const labels = {
       "Recorrer el mundo y mi país es una de mis mayores pasiones. Cada viaje queda plasmado en mi journal, un tesoro lleno de anécdotas, fotografías y lugares inolvidables.",
 
     "about.intro.start":
-      "Hola soy <span class='font-hand text-xl font-bold'>David</span> y soy:",
+      "Hola, soy <span class='font-hand text-xl font-bold'>David</span> y soy:",
     
     "about.contact.title": "Ya conoces un poco de mí. Ahora quiero conocer tu proyecto.",
     "about.contact.desc": "Estoy a un mensaje de distancia para hablar sobre tu próxima idea.",
@@ -350,7 +350,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "service.managment": "Managment",
     "service.data": "Data",
 
-    "service.long.develop": "Front - Back Develop",
+    "service.long.develop": "front - back Develop",
     "service.long.desing": "UI/UX Desing",
     "service.long.managment": "Project Managment",
     "service.long.data": "Data analysis",
@@ -380,7 +380,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     
     "service.tech.title": "Technologies and tools",
 
-    "projectHelp.title": "How Can I Help You to Boost Your Project?",
+    "projectHelp.title": "How can I help you to boost your project?",
     "projectHelp.Description":
       "Find out how I can help you drive your digital transformation and take your project to the next level with customised Management, Design and Development services.",
     "footer.link.home": "Home",
@@ -405,7 +405,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "enum.TrajectoryType.Certificates": "Certificates",
 
     "trajectory.card.currently": "Present",
-    "trajectory.title": "My Career and Experience",
+    "trajectory.title": "My career and experience",
 
     "trajectory.api.errorTitle": "Oops! There was a technical issue.",
     "trajectory.api.errorDesc":
@@ -513,7 +513,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "contact.toast.captcha":
       "Oops! We couldn't verify the CAPTCHA. Please try again.",
     
-    "blogList.title": "From My Keyboard",
+    "blogList.title": "From my keyboard",
     "blogList.desc":
       "Beyond the code. In this space, I share articles about what I'm passionate about: new technologies, my creative process, and day-to-day learnings from the tech industry.",
     "blogList.cta": "Explore the Blog",
@@ -547,7 +547,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "image.errorCaption": "Error loading image",
     "image.noAltContetx": "Image related to",
     
-    "hobbie.title": "My Creative Fuel",
+    "hobbie.title": "My creative fuel",
 
     "hobbie.title.photo": "Photography",
     "hobbie.title.coffee": "Specialty Coffee",
@@ -563,7 +563,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
       "Traveling around the world and exploring my own country is one of my greatest passions. Every trip is captured in my journal, a collection of stories, photographs, and unforgettable places.",
 
     "about.intro.start":
-      "Hi I'm <span class='font-hand text-xl font-bold'>David</span> and I'm:",
+      "Hi, I'm <span class='font-hand text-xl font-bold'>David</span> and I'm:",
 
     "about.contact.title": "Now you know a little about me. I'd love to hear about your project.",
     "about.contact.desc": "I'm just one message away from discussing your next idea.",
