@@ -40,7 +40,7 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
           />
         </div>
         <div className="flex flex-col items-start justify-start">
-          <h4 className="font-title text-primary-800 text-center text-2xl font-medium">
+          <h4 className="font-title text-primary-800 text-2xl font-medium">
             {trajectory.title}
           </h4>
           <p className="text-center font-light">{trajectory.company}</p>

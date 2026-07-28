@@ -14,7 +14,7 @@ export const TrajectoryCard: React.FC<TrajectoryCardProps> = ({
   const lang = getLangFromUrl(url);
   const t = useTranslations(lang);
 
-  const modal = useRef<ModalRef>(null)
+  const modal = useRef<ModalRef>(null);
 
   const startDate = new Date(trajectory.startDate).toLocaleDateString(lang, {
     month: "short",
@@ -23,18 +23,30 @@ export const TrajectoryCard: React.FC<TrajectoryCardProps> = ({
 
   const endDate = trajectory.endDate
     ? new Date(trajectory.endDate).toLocaleDateString(lang, {
-      month: "short",
-      year: "numeric",
-    })
+        month: "short",
+        year: "numeric",
+      })
     : null;
 
   const createMarkUp = (val: string) => {
     return { __html: marked(val) };
   };
 
+  const Trasnlation = (type: number) => {
+    switch (type) {
+      case 0:
+        return t("enum.TrajectoryType.Experience");
+      case 1:
+        return t("enum.TrajectoryType.Studies");
+      case 2:
+        return t("enum.TrajectoryType.Certificates");
+    }
+  };
+
   return (
     <>
-      <div className="font-body relative flex flex-col items-center gap-3 rounded-lg bg-neutral-400 px-10 py-8 text-neutral-800 shadow-md cursor-pointer"
+      <div
+        className="font-body relative flex cursor-pointer flex-col items-center gap-3 rounded-lg bg-neutral-400 px-10 py-8 text-neutral-800 shadow-md"
         onClick={() => modal.current?.open()}
       >
         <div className="bg-alert-d-300 outline-neutral-w absolute -top-7 aspect-square size-14 overflow-clip rounded-full shadow-md outline-4">
@@ -53,8 +65,8 @@ export const TrajectoryCard: React.FC<TrajectoryCardProps> = ({
         </div>
         <p className="text-center font-medium">
           {trajectory.showEnd
-          ? `${startDate} - ${endDate ?? t("trajectory.card.currently")}`
-          : startDate}
+            ? `${startDate} - ${endDate ?? t("trajectory.card.currently")}`
+            : startDate}
         </p>
         {trajectory.successes && (
           <Prose>
@@ -66,14 +78,14 @@ export const TrajectoryCard: React.FC<TrajectoryCardProps> = ({
         )}
       </div>
 
-      <Modal ref={modal}
-        title={trajectory.title}
+      <Modal
+        ref={modal}
+        title={Trasnlation(Number(trajectory.trajectories[0]))}
         showDefaultHeader
         url={url}
       >
         <TrajectoryModal trajectory={trajectory} url={url} />
       </Modal>
     </>
-
   );
 };

@@ -6,9 +6,9 @@ export enum FoundationType {
 }
 
 export enum TrajectoryType {
-  Experience,
-  Studies,
-  Certificates,
+  Experience = 0,
+  Studies = 1,
+  Certificates = 2,
 }
 
 export enum CategoryFilterType {
