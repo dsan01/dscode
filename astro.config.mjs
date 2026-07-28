@@ -41,6 +41,11 @@ export default defineConfig({
       EASTER_CODE: envField.string({ context: "client", access: "public" }),
       UMAMI_URL: envField.string({ context: "client", access: "public" }),
       UMAMI_CODE: envField.string({ context: "client", access: "public" }),
+      SMTP_HOST: envField.string({ context: "server", access: "secret" }),
+      SMTP_PORT: envField.string({ context: "server", access: "secret" }),
+      SMTP_SECURE: envField.string({ context: "server", access: "secret" }),
+      SMTP_USER: envField.string({ context: "server", access: "secret" }),
+      SMTP_PASSWORD: envField.string({ context: "server", access: "secret" }),
     }
   },
 

@@ -12,7 +12,8 @@ interface SubmissionResponse {
  */
 export async function sendContactForm(
   formData: ContactType,
-  token?:string
+  token?: string,
+  lang:string = 'es'
 ): Promise<SubmissionResponse> {
   const endpoint = "/api/contact";
   if (!token) {
@@ -25,7 +26,7 @@ export async function sendContactForm(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({formData, token}),
+      body: JSON.stringify({formData, token, lang}),
     });
 
     if (!res.ok) {

@@ -53,7 +53,7 @@ export const ContactForm: React.FC<BasicTranslateComponentProps> = ({
         toast.error(t("contact.toast.captcha"));
       }
 
-      const success = await sendContactForm(data, solution.token);
+      const success = await sendContactForm(data, solution.token, lang);
       if (success) {
         toast.success(t("contact.toast.success"));
         resetCaptcha()

@@ -15,7 +15,7 @@ export interface TrajectoryModel extends StrapiBase{
   company: string;
   startDate: string;
   endDate?: string;
-  type: TrajectoryType;
+  trajectories: [TrajectoryType];
   showEnd: boolean;
   projects?: ProjectType[];
 }
