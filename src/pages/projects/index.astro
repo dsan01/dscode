@@ -8,8 +8,11 @@ export const prerender = true
 ---
 
 <Layout
-  title={'meta.title.projetcs'}
-  description={'meta.description.projects'}
+  seo={{
+    title: 'meta.title.projetcs',
+    description: 'meta.description.projects',
+    showAlternates:true
+  }}
 >
   <PageTitle
     title='projects.page.title'

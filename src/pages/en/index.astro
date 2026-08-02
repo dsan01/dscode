@@ -10,8 +10,11 @@ import BlogList from '@sections/index/BlogList.astro'
 ---
 
 <Layout
-  title={'meta.title.home'}
-  description={'meta.description.default'}
+  seo={{
+    title: 'meta.title.home',
+    description: 'meta.description.default',
+    showAlternates:true
+  }}
 >
   <Hero />
   <ServicesSlider />

@@ -44,7 +44,18 @@ try {
 }
 ---
 
-<Layout title={project.title}>
+<Layout
+  seo={{
+    title: project.title,
+    description: project.description,
+    showAlternates:false,
+    publishedTime:project.publishedAt.toISOString(),
+    modifiedTime:project.updatedAt.toISOString(),
+    image:project.thumbnail.url,
+    type:'article'
+  }}
+
+>
   <ProjectHeader project={project} />
   {project.content && <ProjectContent content={project.content} />}
   <ContactBanner

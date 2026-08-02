@@ -40,7 +40,17 @@ try {
 }
 ---
 
-<Layout title={blog.title}>
+<Layout   
+  seo={{
+    title: blog.title,
+    description: blog.description,
+    showAlternates:false,
+    publishedTime:blog.publishedAt.toISOString(),
+    modifiedTime:blog.updatedAt.toISOString(),
+    image:blog.thumbnail.url,
+    author:`${blog.createdBy.firstname} ${blog.createdBy.lastname ?? ''}`,
+    type:'article'
+  }}>
   <BlogHeader blog={blog} />
   {blog.content && <BlogContent content={blog.content} />}
   <ContactBanner
