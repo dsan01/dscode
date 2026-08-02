@@ -16,7 +16,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://www.devdscode.com',
+  site: 'https://devdscode.com',
   integrations: [icon(), react()],
 
   i18n: {
