@@ -38,7 +38,7 @@ const alternates = seo?.showAlternates ? [
   },
 ] : []
 
-const ogImgage = seo?.image ? `${STRAPI_URL}${seo?.image}` : new URL((lang === "es" ? "/og-seo-es.jpg" : "/og-seo-en.jpg"), Astro.site).toString()
+const ogImgage = seo?.image ? `${STRAPI_URL}${seo?.image}` : new URL((lang === "es" ? "/img/seo/og-seo-es.jpg" : "/img/seo/og-seo-en.jpg"), Astro.site).toString()
 ---
 
 <title> DSCode {title && ` | ${title}`}</title>
