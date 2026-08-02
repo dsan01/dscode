@@ -6,6 +6,7 @@ import type {
   HobbiesType,
   MediaType,
   ProjectType,
+  SEOData,
   ServiceInfo,
   TrajectoryModel,
 } from "./data";
@@ -138,8 +139,7 @@ export interface ProjectCategoryFilterProp {
 }
 
 export interface LayoutMetaProps {
-  title?: TranslationKey | string;
-  description?: TranslationKey | string;
+  seo?: SEOData;
 }
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

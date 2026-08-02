@@ -1,40 +1,25 @@
 ---
 import Navbar from '@generics/Navbar.astro'
+import SEO from '@generics/SEO.astro'
 import '../styles/global.css'
 import Footer from '@generics/Footer.astro'
 import BackToTop from '@generics/BackToTop.astro'
 const currentLang = Astro.currentLocale
 import { type LayoutMetaProps as Props } from '@data/props'
-import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { UMAMI_URL, UMAMI_CODE } from 'astro:env/client'
 
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
-const { title, description = 'meta.description.default' } = Astro.props
+const { seo } = Astro.props
 ---
 
 <!doctype html>
 <html lang={currentLang}>
   <head>
-    <meta charset='UTF-8' />
-    <meta
-      name='viewport'
-      content='width=device-width'
-    />
     <meta
       name='generator'
       content={Astro.generator}
     />
 
-    <title>
-      DSCode {title && ` | ${t(title) ?? title}`}
-    </title>
-
-    <meta
-      name='description'
-      content={t(description) ?? description}
-    />
+    <SEO {seo} />
 
     <link
       rel='icon'
@@ -64,7 +49,7 @@ const { title, description = 'meta.description.default' } = Astro.props
       rel='manifest'
       href='/site.webmanifest'
     />
-    <script defer src={UMAMI_URL} data-website-id={UMAMI_CODE}></script>
+    <script defer src={UMAMI_URL} data-website-id={UMAMI_CODE} data-performance="true"></script>
   </head>
   <body>
     <Navbar />
