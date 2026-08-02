@@ -10,7 +10,11 @@ const translatePath = useTranslatedPath(lang)
 export const prerender = true
 ---
 
-<Layout>
+<Layout   
+  seo={{
+    showAlternates:false,
+    robots:'noindex,nofollow'
+  }}>
   <section
     class='font-body container flex min-h-svh flex-col gap-4 py-4 md:flex-row md:gap-12 md:py-10'
   >

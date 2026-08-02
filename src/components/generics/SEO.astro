@@ -1,0 +1,86 @@
+---
+import { type LayoutMetaProps as Props } from '@data/props'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+import { STRAPI_URL } from "astro:env/client";
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const { seo } = Astro.props
+
+const title = t(seo?.title) ?? seo?.title ?? null
+const description = seo?.description 
+  ? (t(seo?.description) ?? seo?.description)
+  : t('meta.description.default' )
+
+const locale = lang === "es" ? 'es_CO' : 'en_US'
+
+const pathname = Astro.url.pathname
+
+const canonical = new URL(pathname, Astro.site).toString()
+
+const normalizedPath = pathname.startsWith('/en')
+  ? pathname.replace(/^\/en/, '')
+  : pathname
+
+const alternates = seo?.showAlternates ? [
+  {
+    hreflang: 'es',
+    href: new URL(normalizedPath, Astro.site).toString(),
+  },
+  {
+    hreflang: 'en',
+    href: new URL(`/en${normalizedPath}`, Astro.site).toString(),
+  },
+  {
+    hreflang: 'x-default',
+    href: new URL(normalizedPath, Astro.site).toString(),
+  },
+] : []
+
+const ogImgage = seo?.image ? `${STRAPI_URL}${seo?.image}` : new URL((lang === "es" ? "/og-seo-es.jpg" : "/og-seo-en.jpg"), Astro.site).toString()
+---
+
+<title> DSCode {title && ` | ${title}`}</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="description" content={description} />
+<meta name="author" content={seo?.author ?? "David Sanchez Collazos"} />
+<meta name="robots" content={seo?.robots ?? 'index,follow'} />
+
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph -->
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImgage} />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content={seo?.type ?? "website"} />
+<meta property="og:locale" content={locale} />
+<meta property="og:site_name" content={title} />
+
+{ seo?.publishedTime && (<meta property="article:published_time" content={seo?.publishedTime} />) }
+{ seo?.modifiedTime && (<meta property="article:modified_time" content={seo?.modifiedTime} />) }
+
+
+<!-- Twitter -->
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImgage} />
+
+<!-- Alternate languages -->
+
+{
+  alternates?.map((alternate) => (
+    <link
+      rel="alternate"
+      hreflang={alternate.hreflang}
+      href={alternate.href}
+    />
+  ))
+}

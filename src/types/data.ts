@@ -150,3 +150,35 @@ export interface AboutMePageType extends StrapiBase {
   description: string;
   thumbnail: MediaType[];
 }
+
+export interface AlternateLanguage {
+  href: string
+  hreflang: string
+}
+export interface SEOData {
+  title?: TranslationKey | string
+  description?: TranslationKey | string
+  image?: string
+  type?: 'website' | 'article'
+  locale?: string
+  author?: string
+  robots?: string
+  publishedTime?: string
+  modifiedTime?: string
+  showAlternates?: boolean
+  schema?: object[]
+}
+
+export interface SitemapUrl {
+  loc: string
+  lastmod?: string
+  changefreq?:
+    | 'always'
+    | 'hourly'
+    | 'daily'
+    | 'weekly'
+    | 'monthly'
+    | 'yearly'
+    | 'never'
+  priority?: number
+}

@@ -8,8 +8,11 @@ import ContactBanner from '@generics/ContactBanner.astro'
 ---
 
 <Layout
-  title='meta.title.about'
-  description='meta.description.about'
+  seo={{
+    title: 'meta.title.about',
+    description: 'meta.description.about',
+    showAlternates:true
+  }}
 >
   <MyHeader />
   <Hobbies />
@@ -23,7 +26,7 @@ import ContactBanner from '@generics/ContactBanner.astro'
   />
   <ContactBanner
     title={'about.contact.title'}
-    description="about.contact.desc"
+    description='about.contact.desc'
     showDesc
   />
 </Layout>
