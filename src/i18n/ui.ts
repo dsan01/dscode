@@ -39,7 +39,7 @@ export const labels = {
     "hero.bento.ExperienceYears": "Años de experiencia",
     "hero.bento.Tagline": "Hazlo a tu manera, con tus reglas",
     "hero.bento.Description": "Diseños y desarrollo totalmente personalizados",
-    "hero.bento.contact": "Contactame",
+    "hero.bento.contact": "Contáctame",
 
     "service.develop": "Desarrollo",
     "service.desing": "Diseño",
@@ -144,7 +144,7 @@ export const labels = {
 
     "modal.close": "Cerrar modal",
 
-    "projects.contact.title": "¿Quieres Ver Tu Proyecto Aquí? ¡Hablemos!",
+    "projects.contact.title": "¿Quieres ver tu proyecto aquí? ¡Hablemos!",
     "projects.contact.desc":
       "Tu idea puede ser el próximo gran proyecto en esta lista. Contáctame y hagámoslo realidad juntos.",
 
@@ -398,7 +398,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
       "Contact me and let's make your project a reality. We will take care of everything so that everything goes according to your needs.",
     "contactBanner.button.default": "Contact me",
 
-    "index.contactBanner.title": "Ready to Work Together? Contact me!",
+    "index.contactBanner.title": "Ready to work together? Contact me!",
 
     "enum.TrajectoryType.Experience": "Experience",
     "enum.TrajectoryType.Studies": "Studies",
@@ -444,7 +444,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
 
     "projects.filter.all": "All",
 
-    "projects.contact.title": "Want to See Your Project Here? Let's Talk!",
+    "projects.contact.title": "Want to see your project here? Let's talk!",
     "projects.contact.desc":
       "Your idea can be the next big project on this list. Contact me and let's make it happen together.",
 

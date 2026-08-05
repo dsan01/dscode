@@ -30,21 +30,23 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
 
   return (
     <div className="font-body">
-      <div className="flex items-center gap-2 md:gap-6">
-        <div className="bg-alert-d-300 aspect-square size-18 overflow-clip rounded-full shadow-md md:size-22">
-          <img
-            src={`${STRAPI_URL}${trajectory.thumbnail.url}`}
-            alt={trajectory.company}
-            draggable={false}
-            loading="lazy"
-          />
-        </div>
-        <div className="flex flex-col items-start justify-start">
-          <h4 className="font-title text-primary-800 text-2xl font-medium">
+      <div className="flex flex-col gap-2 md:gap-4">
+        <div className="flex gap-2 w-full items-center">
+          <div className="bg-alert-d-300 aspect-square size-17 overflow-clip rounded-full shadow-md md:size-22">
+            <img
+              src={`${STRAPI_URL}${trajectory.thumbnail.url}`}
+              alt={trajectory.company}
+              draggable={false}
+              loading="lazy"
+            />
+          </div>
+          <h4 className="font-title text-primary-800 text-xl/6 font-semibold md:text-3xl">
             {trajectory.title}
           </h4>
-          <p className="text-center font-light">{trajectory.company}</p>
-          <p className="text-center text-sm font-light">
+        </div>
+        <div className="flex flex-col items-start justify-start w-full text-neutral-800">
+          <p className="text-base/tight ">{trajectory.company}</p>
+          <p className="text-sm font-light">
             {trajectory.showEnd
               ? `${startDate} - ${endDate ?? t("trajectory.card.currently")}`
               : startDate}
@@ -52,7 +54,9 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
         </div>
       </div>
       <div className="mt-4">
-        <h5 className="font-title text-primary-800 text-xl">{t("trajectory.modal.contributions") }</h5>
+        <h5 className="font-title text-lg text-primary-800 md:text-xl">
+          {t("trajectory.modal.contributions")}
+        </h5>
         {trajectory.successes && (
           <Prose>
             <div
@@ -65,10 +69,10 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
       <div>
         {trajectory.projects?.length ? (
           <div className="flex flex-col gap-4">
-            <h5 className="font-title text-primary-800 text-xl">
-              {t("trajectory.modal.projects") }
+            <h5 className="font-title text-lg text-primary-800 md:text-xl">
+              {t("trajectory.modal.projects")}
             </h5>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
               {trajectory.projects.map((project) => (
                 <a
                   className="group flex items-center justify-between gap-3 rounded bg-neutral-400 p-4 shadow-md transition-shadow hover:shadow-lg"
@@ -79,7 +83,9 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
                     <h6 className="text-lg font-semibold text-neutral-700 group-hover:underline">
                       {project.title}
                     </h6>
-                    <span className="font-light text-sm">{project.company} </span>
+                    <span className="text-sm font-light">
+                      {project.company}{" "}
+                    </span>
                   </div>
                   <TbArrowNarrowRight className="text-2xl transition-transform group-hover:-rotate-45" />
                 </a>

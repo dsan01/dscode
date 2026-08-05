@@ -46,7 +46,7 @@ export const TrajectoryCard: React.FC<TrajectoryCardProps> = ({
   return (
     <>
       <div
-        className="font-body relative flex cursor-pointer flex-col items-center gap-3 rounded-lg bg-neutral-400 px-10 py-8 text-neutral-800 shadow-md"
+        className="font-body relative flex cursor-pointer flex-col items-center gap-3 rounded-lg bg-neutral-400 px-6 md:px-10 py-8 text-neutral-800 shadow-md"
         onClick={() => modal.current?.open()}
       >
         <div className="bg-alert-d-300 outline-neutral-w absolute -top-7 aspect-square size-14 overflow-clip rounded-full shadow-md outline-4">
@@ -58,12 +58,12 @@ export const TrajectoryCard: React.FC<TrajectoryCardProps> = ({
           />
         </div>
         <div>
-          <h4 className="font-title text-primary-800 text-center text-2xl">
+          <h4 className="font-title text-primary-800 text-center text-2xl font-medium">
             {trajectory.title}
           </h4>
-          <p className="text-center text-sm font-light">{trajectory.company}</p>
+          <p className="text-center text-sm ">{trajectory.company}</p>
         </div>
-        <p className="text-center font-medium">
+        <p className="text-center font-light">
           {trajectory.showEnd
             ? `${startDate} - ${endDate ?? t("trajectory.card.currently")}`
             : startDate}
