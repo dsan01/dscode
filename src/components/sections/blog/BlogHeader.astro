@@ -3,11 +3,14 @@ import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { type BlogBasicProps as Props } from '@data/props'
 import StrapiImage from '@primitives/StrapiImage'
 import { ImageFormat } from '@data/enums'
+import { marked } from 'marked'
+import { Prose } from '@primitives/Prose'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
 const { blog } = Astro.props
+const htmlContent = marked.parse(blog.description)
 ---
 
 <header class='font-body bg-neutral-300 py-10'>
@@ -57,9 +60,9 @@ const { blog } = Astro.props
     <h4 class='text-primary-700 font-title w-full text-xl font-semibold'>
       {t('projects.header.summary')}
     </h4>
-    <p>
-      {blog.description}
-    </p>
+      <Prose>
+        <div set:html={htmlContent} />
+      </Prose>
   </div>
 
   <div class='basis-1/2'>
