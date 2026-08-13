@@ -1,6 +1,7 @@
 ---
 import Prose from '@primitives/Prose.astro'
 import { marked } from 'marked'
+import  markedFootnote  from "marked-footnote";
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { type BlogContentProps as Props } from '@data/props'
 
@@ -30,14 +31,28 @@ const tableOfContents = headings.map((heading) => ({
   slug: slugify(heading.text),
 }))
 
+const hasFootnotes = tokens.some((token) => token.type === 'footnote');
+
+if (hasFootnotes) {
+  tableOfContents.push({
+    text: t("prose.footnote.title"),
+    depth: 2,
+    slug: 'footnotes',
+  });
+}
+
 const renderer = new marked.Renderer()
 renderer.heading = ({ depth, raw, text }) => {
   const slug = slugify(raw)
   return `<h${depth} id="${slug}">${text}</h${depth}>`
 }
 
-marked.use({ renderer })
-const htmlContent = marked.parse(content)
+marked.use(markedFootnote());
+marked.use({ renderer})
+const htmlContent = (await marked.parse(content)).replace(
+  '<section class="footnotes" data-footnotes>',
+  '<section class="footnotes" id="footnotes" data-footnotes>'
+)
 ---
 
 <div class='container flex flex-col gap-8 py-8 md:flex-row'>

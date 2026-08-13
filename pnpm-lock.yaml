@@ -50,6 +50,9 @@ importers:
       marked:
         specifier: ^15.0.12
         version: 15.0.12
+      marked-footnote:
+        specifier: ^1.4.0
+        version: 1.4.0(marked@15.0.12)
       nodemailer:
         specifier: ^9.0.3
         version: 9.0.3
@@ -1862,6 +1865,11 @@ packages:
 
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
+
+  marked-footnote@1.4.0:
+    resolution: {integrity: sha512-fZTxAhI1TcLEs5UOjCfYfTHpyKGaWQevbxaGTEA68B51l7i87SctPFtHETYqPkEN0ka5opvy4Dy1l/yXVC+hmg==}
+    peerDependencies:
+      marked: '>=7.0.0'
 
   marked@15.0.12:
     resolution: {integrity: sha512-8dD6FusOQSrpv9Z1rdNMdlSgQOIP880DHqnohobOmYLElGEqAL/JvxvuxZO16r4HtjTlfPRDC1hbvxC9dPN2nA==}
@@ -4378,6 +4386,10 @@ snapshots:
       source-map-js: 1.2.1
 
   markdown-table@3.0.4: {}
+
+  marked-footnote@1.4.0(marked@15.0.12):
+    dependencies:
+      marked: 15.0.12
 
   marked@15.0.12: {}
 
