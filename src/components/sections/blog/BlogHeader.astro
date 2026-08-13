@@ -10,7 +10,7 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
 const { blog } = Astro.props
-const htmlContent = marked.parse(blog.description)
+const htmlContent = blog.description ? marked.parse(blog.description) : null
 ---
 
 <header class='font-body bg-neutral-300 py-10'>

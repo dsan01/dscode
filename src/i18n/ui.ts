@@ -311,6 +311,8 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "email.base.footer": "Hecho con ❤️ y mucho ☕ desde Colombia.",
     
 
+    "prose.footnote.title":"Notas adicionales",
+
   },
   en: {
     demo: "demo",
@@ -612,6 +614,8 @@ I've successfully received your message and will review it as soon as possible. 
 Simply reply to this email and your message will be added to the same conversation thread.`,
     
     "email.base.footer": "Made with ❤️ and lots of ☕ from Colombia.",
+
+    "prose.footnote.title":"Additional notes"
 
   },
 } as const;
