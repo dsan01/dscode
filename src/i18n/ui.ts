@@ -311,7 +311,17 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "email.base.footer": "Hecho con ❤️ y mucho ☕ desde Colombia.",
     
 
-    "prose.footnote.title":"Notas adicionales",
+    "prose.footnote.title": "Notas adicionales",
+    
+    "aside.share.title": "Te comparto esta publicación",
+    "aside.share.description": "Hey, mira esta publicación",
+    "aside.share.email": "Compartir por correo electrónico",
+    "aside.share.linkedIn": "Compartir en LinkedIn",
+    "aside.share.whatsApp": "Compartir en WhatsApp",
+    "aside.share.shareApi": "Compartir",
+    "aside.share.warning": "Cancelaste el uso compartido del contenido",
+    "aside.share.error": "Ocurrió un error al compartir el contenido",
+    "aside.share.clipboard": "Enlace copiado al portapapeles",
 
   },
   en: {
@@ -615,7 +625,16 @@ Simply reply to this email and your message will be added to the same conversati
     
     "email.base.footer": "Made with ❤️ and lots of ☕ from Colombia.",
 
-    "prose.footnote.title":"Additional notes"
-
+    "prose.footnote.title": "Additional notes",
+    
+    "aside.share.title": "I'm sharing this post with you",
+    "aside.share.description": "Hey, check out this post",
+    "aside.share.email": "Share via email",
+    "aside.share.linkedIn": "Share on LinkedIn",
+    "aside.share.whatsApp": "Share on WhatsApp",
+    "aside.share.shareApi": "Share",
+    "aside.share.warning": "You canceled sharing the content",
+    "aside.share.error": "An error occurred while sharing the content",
+    "aside.share.clipboard": "Link copied to clipboard",
   },
 } as const;

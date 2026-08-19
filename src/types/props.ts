@@ -1,5 +1,6 @@
 import type { defaultLang, labels } from "@i18n/ui";
 import type {
+  AsideHeader,
   BlogType,
   ContactBenfitType,
   ContactSocialLinksType,
@@ -17,7 +18,7 @@ import type {
   SelectHTMLAttributes,
   TextareaHTMLAttributes,
   ReactNode,
-  HTMLAttributes
+  HTMLAttributes,
 } from "react";
 import type { VariantProps } from "class-variance-authority";
 import type { buttonVariants } from "@primitives/Button";
@@ -97,22 +98,24 @@ export interface ServiceCardProps {
   img?: string;
 }
 
-export interface ModalProps
-  extends Omit<HTMLAttributes<HTMLDialogElement>, "title" | "children"> {
+export interface ModalProps extends Omit<
+  HTMLAttributes<HTMLDialogElement>,
+  "title" | "children"
+> {
   id?: string;
-  title?: TranslationKey
-  children: ReactNode
-  footer?: ReactNode
-  showCloseButton?: boolean
-  showDefaultHeader?: boolean
-  showDefaultFooter?: boolean
+  title?: TranslationKey;
+  children: ReactNode;
+  footer?: ReactNode;
+  showCloseButton?: boolean;
+  showDefaultHeader?: boolean;
+  showDefaultFooter?: boolean;
   url: URL;
-  onClose?: () => void
+  onClose?: () => void;
 }
 
 export interface ModalRef {
-  open: () => void
-  close: () => void
+  open: () => void;
+  close: () => void;
 }
 
 export interface ProjectServiceProps {
@@ -124,7 +127,8 @@ export interface ProjectContentProps {
 }
 
 export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   variant?: "default" | "outlined";
   ref: string;
@@ -151,8 +155,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   ref: string;
 }
 
-export interface TextboxProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextboxProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   label: string;
   placeholder?: string;
@@ -161,8 +164,9 @@ export interface TextboxProps
   ref: string;
 }
 
-export interface SelectProps<T>
-  extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps<
+  T,
+> extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
   label: string;
   placeholder?: string;
@@ -191,8 +195,11 @@ export interface BlogBasicProps {
   blog: BlogType;
 }
 
-export interface BlogContentProps {
-  content: string;
+export interface ShareButtonsProps {
+  title?: string;
+  description?: string;
+  url: URL;
+
 }
 
 export interface LazyImageProps {
@@ -210,9 +217,15 @@ export interface PostItCardProps {
   zIndex: number;
 }
 
-
 export interface ContactConfirmationEmailProps {
   lang: "es" | "en";
   name: string;
   message: string;
+}
+
+export interface AsideMenuProps {
+  headers?: AsideHeader[];
+  tags?: string[];
+  title?: string;
+  description?:string
 }

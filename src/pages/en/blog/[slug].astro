@@ -20,7 +20,7 @@ try {
   blog = await fetchApi<BlogType>({
     endpoint: 'blogs',
     query: {
-      populate: ['thumbnail', 'category', 'createdBy'],
+      populate: ['thumbnail', 'category', 'createdBy', 'tags'],
       filters: {
         slug: {
           $eq: slug,
@@ -52,7 +52,7 @@ try {
     type:'article'
   }}>
   <BlogHeader blog={blog} />
-  {blog.content && <BlogContent content={blog.content} />}
+  {blog.content && <BlogContent blog={blog} />}
   <ContactBanner
     title='blog.contact.title'
     description='blog.contact.desc'
