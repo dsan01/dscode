@@ -79,9 +79,16 @@ export interface BlogType extends StrapiBase {
   createdBy: StrapiUser;
   category?: CategoryType;
   thumbnail: MediaType;
+  tags?: TagType[];
+  related?: BlogType[];
 }
 
 export interface CategoryType extends StrapiBase {
+  title: string;
+  slug?: string;
+}
+
+export interface TagType extends StrapiBase {
   title: string;
   slug?: string;
 }
@@ -181,4 +188,16 @@ export interface SitemapUrl {
     | 'yearly'
     | 'never'
   priority?: number
+}
+
+export interface AsideHeader{
+  text: string,
+  depth: number,
+  slug: string,
+}
+
+export interface ShareData {
+  icon: string,
+  nativeLink: string,
+  title:string
 }
