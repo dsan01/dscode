@@ -9,6 +9,7 @@ import type {
   ProjectType,
   SEOData,
   ServiceInfo,
+  TagType,
   TrajectoryModel,
 } from "./data";
 import type { CategoryFilterType, FoundationType, ImageFormat } from "./enums";
@@ -22,6 +23,7 @@ import type {
 } from "react";
 import type { VariantProps } from "class-variance-authority";
 import type { buttonVariants } from "@primitives/Button";
+import type { BadgeVariants } from "@primitives/Badge";
 
 type TranslationKey = keyof (typeof labels)[typeof defaultLang];
 
@@ -135,6 +137,16 @@ export interface ButtonProps
   isLoading?: boolean;
 }
 
+export interface BadgeProps
+  extends
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof BadgeVariants> {
+  state?: "default" | "active";
+  ref: string;
+  isActive?: boolean;
+}
+
+
 export interface ProjectCategoryFilterProp {
   url: URL;
   category: CategoryFilterType;
@@ -225,7 +237,12 @@ export interface ContactConfirmationEmailProps {
 
 export interface AsideMenuProps {
   headers?: AsideHeader[];
-  tags?: string[];
+  tags?: TagType[];
   title?: string;
   description?:string
 }
+
+export interface TagsContainerProps {
+  tags?: TagType[];
+}
+
