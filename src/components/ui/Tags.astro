@@ -1,0 +1,43 @@
+---
+import { type TagsContainerProps as Props } from '@data/props'
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '@i18n/utils'
+import Badge from '@primitives/Badge'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+
+const { tags } = Astro.props
+
+---
+
+<div>
+  <h3 class='font-title text-primary-700 mb-4 text-xl font-medium'>{t('aside.tags.title')}</h3>
+  {
+    tags && tags.length > 0 && (
+      <div class='font-body flex gap-2 text-neutral-800 hover:text-neutral-700'>
+        {tags.map((tag) => (
+          <Badge
+            data-href={translatePath(`/blog?tag=${tag.slug}`)}
+            key={tag.slug}
+            title={`${t('aside.tags.filter')} ${tag.title}`}
+          >
+            {tag.title}
+          </Badge>
+        ))}
+      </div>
+    )
+  }
+</div>
+
+<script>
+import { getElements } from '@lib/dom-selector'
+  const badges = getElements('.badge') as NodeListOf<HTMLButtonElement>
+  badges.forEach((badge) => {
+    badge.addEventListener('click', () => {
+      const href = badge.dataset.href;
+      if (!href) return
+      window.location.href = href
+    })
+  })
+</script>

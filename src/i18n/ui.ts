@@ -322,6 +322,10 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "aside.share.warning": "Cancelaste el uso compartido del contenido",
     "aside.share.error": "Ocurrió un error al compartir el contenido",
     "aside.share.clipboard": "Enlace copiado al portapapeles",
+    "aside.tags.title": "Etiquetas",
+    "aside.tags.filter": "Filtrar por",
+    "aside.tags.clear": "Limpiar filtro por etiquetas",
+
 
   },
   en: {
@@ -636,5 +640,9 @@ Simply reply to this email and your message will be added to the same conversati
     "aside.share.warning": "You canceled sharing the content",
     "aside.share.error": "An error occurred while sharing the content",
     "aside.share.clipboard": "Link copied to clipboard",
+    "aside.tags.title": "Tags",
+    "aside.tags.filter": "Filter by",
+    "aside.tags.clear": "Clear tag filter",
+
   },
 } as const;

@@ -59,7 +59,7 @@ const htmlContent = (await marked.parse(blogContent)).replace(
 ---
 
 <div class='container flex flex-col gap-8 py-8 md:flex-row'>
-  <AsideMenu headers={tableOfContents} title={blog.title} description={blog.description} />
+  <AsideMenu headers={tableOfContents} title={blog.title} description={blog.description} tags={blog.tags} />
   <div
     class={tableOfContents && tableOfContents.length > 0
       ? 'basis-2/3'
