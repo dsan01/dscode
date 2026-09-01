@@ -30,6 +30,43 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
     CategoryFilterType.Managment,
   ];
 
+  const categoryFilterToString = (category: CategoryFilterType): string => {
+    return CategoryFilterType[category].toLowerCase();
+  };
+
+  const stringToCategoryFilter = (
+    category: string | null,
+  ): CategoryFilterType => {
+    if (!category) {
+      return CategoryFilterType.All;
+    }
+
+    const key = Object.keys(CategoryFilterType).find(
+      (key) => key.toLowerCase() === category.toLowerCase(),
+    );
+
+    if (!key) {
+      return CategoryFilterType.All;
+    }
+
+    return CategoryFilterType[
+      key as keyof typeof CategoryFilterType
+    ] as CategoryFilterType;
+  };
+
+  useEffect(() => {
+    const urlFilter = url.searchParams.get("category");
+    if (urlFilter) {
+      const validCategory = stringToCategoryFilter(urlFilter);
+      if (validCategory != CategoryFilterType.All) {
+        setActiveFilter(validCategory);
+      } else {
+        url.searchParams.delete("category");
+        window.history.replaceState(null, "", url.toString());
+      }
+    }
+  }, [lang]);
+
   // Este 'useEffect' se ejecutará cada vez que 'activeFilter' cambie
   useEffect(() => {
     const loadProjects = async () => {
@@ -65,6 +102,18 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
     loadProjects();
   }, [activeFilter]);
 
+  const handleCategoryChange = (slug: CategoryFilterType) => {
+    const url = new URL(window.location.href);
+    setActiveFilter(slug);
+    if (slug == CategoryFilterType.All) {
+      url.searchParams.delete("category");
+      window.history.replaceState(null, "", url.toString());
+      return;
+    }
+    url.searchParams.set("category", categoryFilterToString(slug));
+    window.history.replaceState(null, "", url.toString());
+  };
+
   return (
     <section className="container flex flex-col gap-4 py-7">
       <div className="flex flex-col gap-7">
@@ -77,7 +126,7 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
               key={type}
               category={type}
               isActive={activeFilter === type}
-              onClick={setActiveFilter}
+              onClick={handleCategoryChange}
               url={url}
             />
           ))}
