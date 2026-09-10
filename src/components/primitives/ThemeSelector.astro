@@ -1,0 +1,73 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div
+  class='inline-flex rounded-md shadow-xs'
+  role='group'
+>
+  <button
+    type='button'
+    class={`font-body border px-2 py-1 text-sm transition-colors rounded-s-xl border-r `}
+    id='btn-theme-light'
+  >
+    <Icon name='tabler:sun' />
+  </button>
+  <button
+    type='button'
+    class={`font-body border px-2 py-1 text-sm transition-colors rounded-e-xl border-l-0`}
+    id='btn-theme-dark'
+  >
+    <Icon name='tabler:moon' />
+  </button>
+</div>
+
+<script>
+  import { getElement } from '@lib/dom-selector'
+
+  const lightBtn = getElement('#btn-theme-light') as HTMLButtonElement
+  const darktBtn = getElement('#btn-theme-dark') as HTMLButtonElement
+
+  const activeClasses = ["bg-primary-700", "border-primary-800", "text-neutral-300"]
+  const inactiveClasses = ["text-primary-800", "border-primary-300", "cursor-pointer", "hover:bg-neutral-400", "bg-neutral-300"]
+
+  const updateButtonsTheme = (theme: 'dark' | 'light') => {
+    if (theme === 'dark') {
+      darktBtn?.classList.add(...activeClasses)
+      darktBtn?.classList.remove(...inactiveClasses)
+
+      lightBtn?.classList.remove(...activeClasses)
+      lightBtn?.classList.add(...inactiveClasses)
+    } else {
+      lightBtn?.classList.add(...activeClasses)
+      lightBtn?.classList.remove(...inactiveClasses)
+
+      darktBtn?.classList.remove(...activeClasses)
+      darktBtn?.classList.add(...inactiveClasses)
+    }
+  }
+
+  const initTheme = () => {
+    const savedTheme = typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const currentTheme = savedTheme === 'dark' || (!savedTheme && systemPrefersDark) ? 'dark' : 'light'
+
+    document.documentElement.classList.toggle('dark', currentTheme === 'dark')
+
+    updateButtonsTheme(currentTheme)
+  }
+
+  darktBtn?.addEventListener('click', () => {
+    document.documentElement.classList.add('dark')
+    localStorage.setItem('theme', 'dark')
+    updateButtonsTheme('dark')
+  })
+
+  lightBtn?.addEventListener('click', () => {
+    document.documentElement.classList.remove('dark')
+    localStorage.setItem('theme', 'light')
+    updateButtonsTheme('light')
+  })
+
+  initTheme()
+</script>

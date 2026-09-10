@@ -163,7 +163,7 @@ export const labels = {
       "Usaré tu correo únicamente para responderte. Odio el spam tanto como tú, así que puedes estar seguro de que tus datos están a salvo conmigo.",
     "contact.page.desc":
       "Me encantaría conocer más sobre tu proyecto o la vacante que tienes en mente. Creo en la comunicación clara y en las buenas alianzas. Elige tu canal preferido y empecemos la conversación.",
-    "contact.form.title": "Contactame por este medio",
+    "contact.form.title": "Contáctame por este medio",
     "contact.formLabel.name": "Tu nombre",
     "contact.formPlace.name": "Escribe tu nombre y apellido",
     "contact.formErrorRequired.name": "Por favor, dime cómo te llamas.",

@@ -1,4 +1,4 @@
-import type React from "react";
+import React, { useEffect, useState } from "react";
 import { type Props, default as GitHubCalendar } from "react-github-calendar";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import type { BasicTranslateComponentProps } from "@data/props";
@@ -40,6 +40,31 @@ const CommitHistory: React.FC<BasicTranslateComponentProps> = ({ url }) => {
     },
   } satisfies Props["labels"];
 
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const updateTheme = () => {
+      setTheme(
+        document.documentElement.classList.contains("dark")
+          ? "dark"
+          : "light",
+      );
+    };
+
+    // Estado inicial
+    updateTheme();
+
+    // Detectar cambios en <html class="dark">
+    const observer = new MutationObserver(updateTheme);
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="font-body container flex flex-col gap-4 py-10 text-neutral-800">
       <h3 className="font-title text-primary-700 text-4xl font-medium">
@@ -49,7 +74,7 @@ const CommitHistory: React.FC<BasicTranslateComponentProps> = ({ url }) => {
       <div className="flex justify-center">
         <GitHubCalendar
           username="dsan01"
-          colorScheme="light"
+          colorScheme={theme}
           labels={labels}
           year={actualYear}
         />

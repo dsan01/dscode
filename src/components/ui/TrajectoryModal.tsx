@@ -83,11 +83,11 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
                     <h6 className="text-lg font-semibold text-neutral-700 group-hover:underline">
                       {project.title}
                     </h6>
-                    <span className="text-sm font-light">
-                      {project.company}{" "}
+                    <span className="text-sm font-light text-neutral-800">
+                      {project.company}
                     </span>
                   </div>
-                  <TbArrowNarrowRight className="text-2xl transition-transform group-hover:-rotate-45" />
+                  <TbArrowNarrowRight className="text-2xl transition-transform group-hover:-rotate-45 text-neutral-800" />
                 </a>
               ))}
             </div>

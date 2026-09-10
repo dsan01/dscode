@@ -2,7 +2,9 @@
 @import "tailwindcss";
 @source "../components/";
 
-@plugin '@tailwindcss/typography';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-*: initial;
@@ -70,6 +72,71 @@
   }
 
   /* Gradients */
+}
+
+.dark {
+  --color-primary-800: #97d6a0;
+  --color-primary-700: #91dfa7;
+  --color-primary-600: #237a5a;
+  --color-primary-500: #12544f;
+  --color-primary-400: #0e3d3a;
+  --color-primary-300: #092328;
+
+  --color-secondary-300: #d39ad5;
+  --color-secondary-400: #b75fbb;
+  --color-secondary-500: #963d98;
+  --color-secondary-600: #752d79;
+  --color-secondary-700: #5a285f;
+  --color-secondary-800: #24152a;
+
+  --color-neutral-800: #e4f5ea;
+  --color-neutral-700: #b5eecd;
+  --color-neutral-600: #386148;
+  --color-neutral-500: #315c4b;
+  --color-neutral-400: #102c23;
+  --color-neutral-300: #07110e;
+
+  --color-alert-d-300: #ffb5b2;
+  --color-alert-d-400: #ff9b99;
+  --color-alert-d-500: #ff8080;
+  --color-alert-d-600: #d10d0d;
+
+  --color-alert-s-300: #b8ffc1;
+  --color-alert-s-400: #9dffac;
+  --color-alert-s-500: #7dff95;
+  --color-alert-s-600: #1f753f;
+
+  --color-alert-w-300: #ffd8a4;
+  --color-alert-w-400: #ffca83;
+  --color-alert-w-500: #ffbc5e;
+  --color-alert-w-600: #ffcd09;
+
+  --color-alert-i-300: #b9e4ff;
+  --color-alert-i-400: #a1dbff;
+  --color-alert-i-500: #87d1ff;
+  --color-alert-i-600: #194080;
+
+}
+
+.dark img {
+  filter: contrast(0.92);
+}
+
+@layer base {
+
+  html {
+    scrollbar-color: var(--color-neutral-600) var(--color-neutral-300);
+    scrollbar-width: thin;
+  }
+
+  html.dark {
+    scrollbar-color: var(--color-neutral-600) var(--color-neutral-300);
+  }
+}
+
+::selection {
+  background-color: var(--color-secondary-300);
+  color: var(--color-neutral-800);
 }
 
 @utility container {

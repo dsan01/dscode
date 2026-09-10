@@ -33,23 +33,23 @@ if (!serviceImages[imagePath])
 
   <div class='flex h-full flex-col justify-between gap-5 p-3.5'>
     <div
-      class='bg-primary-300/10 flex items-center justify-between rounded-md p-1.5 backdrop-blur-xs'
+      class='bg-neutral-400/30 flex items-center justify-between rounded-md p-1.5 backdrop-blur-xs'
     >
       <div class='basis-1/4'>
         <Foundations
           Foundation={FoundationCategory}
           ClassSize='size-10'
-          ClassColor='fill-neutral-300'
+          ClassColor='fill-neutral-300 dark:fill-neutral-800'
         />
       </div>
       <h6
-        class='font-title basis-3/4 text-right text-2xl font-semibold text-neutral-300'
+        class='font-title basis-3/4 text-right text-2xl font-semibold text-neutral-300 dark:text-neutral-800'
       >
         {t(title)}
       </h6>
     </div>
     <button
-      class='show-modal flex cursor-pointer items-center justify-between rounded-md bg-neutral-400/40 px-4 py-1.5 backdrop-blur-xs transition-opacity duration-200 group-hover:opacity-100 md:opacity-0'
+      class='show-modal flex cursor-pointer items-center justify-between rounded-md text-neutral-300 bg-neutral-400/40 px-4 py-1.5 backdrop-blur-xs transition-opacity duration-200 group-hover:opacity-100 md:opacity-0 dark:text-neutral-800'
       data-category={FoundationCategory}
     >
       <span>{t('projectList.seeMore')}</span>

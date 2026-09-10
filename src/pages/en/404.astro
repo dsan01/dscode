@@ -22,7 +22,8 @@ export const prerender = true
       <Picture
         src={ErrorImg}
         formats={['avif', 'webp']}
-        alt='A description of my image.'
+        alt='Error img 404'
+        loading="lazy"
       />
     </div>
     <div class='flex basis-2/3 flex-col justify-center gap-4'>
@@ -30,7 +31,7 @@ export const prerender = true
       <h1 class='font-title text-primary-600 text-4xl font-medium'>
         {t('errorPage.error404.title')}
       </h1>
-      <p>{t('errorPage.error404.description')}</p>
+      <p class="text-neutral-800">{t('errorPage.error404.description')}</p>
       <div class='flex gap-4'>
         <a href={translatePath('/')}>
           <Button> {t('errorPage.error404.homePage')} </Button>

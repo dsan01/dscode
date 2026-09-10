@@ -49,10 +49,10 @@ try {
             className='h-[300px] md:h-[250px] rounded-md '
             url={Astro.url}
             context={t('meta.title.projetcs')}
-            client:only
+            client:visible
           />
-          <div class='group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all duration-300 hover:backdrop-blur-xs'>
-            <span class='hidden font-bold text-neutral-300 group-hover:block'>
+          <div class='group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all duration-300 hover:backdrop-blur-xs dark:hover:bg-primary-400/60'>
+            <span class='hidden font-bold text-neutral-300 group-hover:block dark:text-neutral-800'>
               {t('projectCard.project.seeMore')}
             </span>
           </div>

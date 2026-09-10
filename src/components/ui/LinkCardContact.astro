@@ -13,7 +13,7 @@ const t = useTranslations(lang)
 <a
   href={link.link}
   target='_blank'
-  class='bg-primary-400 group flex flex-col gap-4 rounded-lg px-4 py-3 shadow-md'
+  class='bg-primary-400 group flex flex-col gap-4 rounded-lg px-4 py-3 shadow-md dark:bg-neutral-400'
   data-umami-event="external-link"
   data-umami-event-to={link.title}
 >
@@ -39,7 +39,7 @@ const t = useTranslations(lang)
     </div>
   </div>
   <div>
-    <p class='font-body'>
+    <p class='font-body text-neutral-800'>
       {t(link.description)}
     </p>
   </div>

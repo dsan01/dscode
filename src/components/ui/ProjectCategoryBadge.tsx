@@ -27,7 +27,7 @@ export const ProjectCategoryBadge: React.FC<CategoryFoundationProps> = ({
       <div>
         <FoundationIcon Foundation={FinalCategory} ClassSize="size-4" />
       </div>
-      <span className="font-body text-xs whitespace-nowrap transition-all duration-300 ease-in-out md:max-w-0 md:opacity-0 group-hover:md:max-w-xs group-hover:md:opacity-100">
+      <span className="font-body text-xs whitespace-nowrap transition-all duration-300 ease-in-out md:max-w-0 md:opacity-0 group-hover:md:max-w-xs group-hover:md:opacity-100 text-neutral-800">
         {Trasnlation(FinalCategory)}
       </span>
     </div>

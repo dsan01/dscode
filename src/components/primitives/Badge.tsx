@@ -8,7 +8,7 @@ export const BadgeVariants = cva(
     variants: {
       state: {
         default:
-          "cursor-pointer bg-neutral-400 text-neutral-600 hover:bg-neutral-500",
+          "cursor-pointer bg-primary-800 text-neutral-400 hover:bg-primary-400 dark:hover:bg hover:text-neutral-700",
         active: " bg-primary-300 text-neutral-700",
       },
     },

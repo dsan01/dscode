@@ -150,7 +150,6 @@ export const BlogList: React.FC<BasicTranslateComponentProps> = ({ url }) => {
           </h3>
           <Select<CategoryType>
             name="category-filter"
-            // label={t("blog.page.categoryFilter")}
             value={activeCatFilter || ""}
             onChange={(e) => {
               handleCategoryChange(e.target.value || undefined);
