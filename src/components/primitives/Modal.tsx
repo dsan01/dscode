@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { TbX } from "react-icons/tb";
-import { type ModalProps , type ModalRef } from '@data/props'
+import { type ModalProps, type ModalRef } from "@data/props";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import "./Modal.css";
 
@@ -20,7 +20,6 @@ export const Modal = forwardRef<ModalRef, ModalProps>(
     },
     ref,
   ) => {
-
     const dialogRef = useRef<HTMLDialogElement>(null);
     const lang = getLangFromUrl(url);
     const t = useTranslations(lang);
@@ -29,15 +28,19 @@ export const Modal = forwardRef<ModalRef, ModalProps>(
       dialogRef.current?.classList.add("hide");
     };
 
-    useImperativeHandle(ref, () => ({
-      open() {
-        dialogRef.current?.showModal();
-      },
+    useImperativeHandle(
+      ref,
+      () => ({
+        open() {
+          dialogRef.current?.showModal();
+        },
 
-      close() {
-        hideModal();
-      },
-    }), [hideModal]);
+        close() {
+          hideModal();
+        },
+      }),
+      [hideModal],
+    );
 
     useEffect(() => {
       const dialog = dialogRef.current;
@@ -77,12 +80,12 @@ export const Modal = forwardRef<ModalRef, ModalProps>(
       <dialog
         {...props}
         ref={dialogRef}
-        className="container m-auto space-y-8 overscroll-contain rounded-lg py-8 shadow backdrop:bg-neutral-400/20 backdrop:backdrop-blur-sm"
+        className="container m-auto scrollbar-thin space-y-8 overscroll-contain rounded-lg py-8 shadow backdrop:bg-neutral-400/20 backdrop:backdrop-blur-sm dark:bg-[#111513]"
         id={id ? `modal-${id}` : undefined}
       >
         {showDefaultHeader && (
           <div className="flex grow items-center justify-between">
-            <h4 className="font-title text-2xl font-medium text-pretty">
+            <h4 className="font-title text-2xl font-medium text-pretty text-neutral-800">
               {t(title) ?? title}
             </h4>
 
@@ -90,10 +93,10 @@ export const Modal = forwardRef<ModalRef, ModalProps>(
               <button
                 className="cursor-pointer text-xl font-bold text-neutral-800 outline-0 hover:text-neutral-700"
                 onClick={hideModal}
-                title={t('modal.close')}
+                title={t("modal.close")}
               >
-                <TbX aria-hidden='true' />
-                <span className='sr-only'>{t('modal.close')}</span>
+                <TbX aria-hidden="true" />
+                <span className="sr-only">{t("modal.close")}</span>
               </button>
             )}
           </div>
@@ -107,4 +110,4 @@ export const Modal = forwardRef<ModalRef, ModalProps>(
   },
 );
 
-export default Modal
+export default Modal;

@@ -108,7 +108,7 @@ const StrapiImage: React.FC<LazyImageProps> = ({
       </div>
 
       {showCaption && media.caption && (
-        <figcaption className="font-body mt-2 text-center text-sm text-neutral-600 italic">
+        <figcaption className="font-body mt-2 text-center text-sm text-neutral-600 italic dark:text-neutral-700">
           {media.caption}
         </figcaption>
       )}

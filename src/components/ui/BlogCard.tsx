@@ -13,7 +13,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, url }) => {
   const translatePath = useTranslatedPath(lang);
 
   return (
-    <div className="group/all font-body flex flex-col gap-7">
+    <div className="group/all font-body flex flex-col gap-7 text-neutral-800">
       <a
         href={translatePath(`/blog/${blog.slug}`)}
         className="group relative transition-all"
@@ -21,13 +21,13 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, url }) => {
       >
         <StrapiImage
           media={blog.thumbnail}
-          displayFormat={ImageFormat.Medium}
+          displayFormat={ImageFormat.Small}
           className="h-[180px] w-full rounded-t-xl object-cover object-center"
           url={url}
           context={t("meta.title.blog")}
         />
-        <div className="group-hover:bg-primary-700/30 absolute bottom-0 flex h-[50px] w-full items-center justify-center rounded-md transition-all duration-300 group-hover:backdrop-blur-xs">
-          <span className="hidden font-bold text-neutral-300 transition-all group-hover:block">
+        <div className="group-hover:bg-primary-700/30 absolute bottom-0 flex h-[50px] w-full items-center justify-center rounded-md transition-all duration-300 group-hover:backdrop-blur-xs dark:group-hover:bg-primary-400/60">
+          <span className="hidden font-bold text-neutral-300 transition-all group-hover:block dark:text-neutral-800">
             {t("blog.card.cta")}
           </span>
         </div>

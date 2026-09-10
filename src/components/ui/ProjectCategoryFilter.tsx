@@ -12,8 +12,10 @@ export const ProjectCategoryFilter: React.FC<ProjectCategoryFilterProp> = ({
   const lang = getLangFromUrl(url);
   const t = useTranslations(lang);
 
+  const defaultClasses =
+    "cursor-pointer text-neutral-500 border-neutral-500 *:fill-neutral-500 *:group-hover:fill-neutral-600 hover:border-neutral-600 hover:bg-neutral-300 hover:text-neutral-600 bg-transparent dark:hover:bg-neutral-400";
   const activeClasses =
-    "cursor-default! border-neutral-700! text-neutral-700! *:fill-neutral-700! bg-primary-300!";
+    "cursor-default border-neutral-700 text-neutral-700 *:fill-neutral-700 bg-primary-300 ";
 
   const FoundationTypeTrans = () => {
     switch (category) {
@@ -45,7 +47,7 @@ export const ProjectCategoryFilter: React.FC<ProjectCategoryFilterProp> = ({
   return (
     <button
       onClick={() => onClick(category)}
-      className={`group font-body text-primary-400 border-primary-400 *:fill-primary-400 flex cursor-pointer items-center gap-2.5 rounded-full border bg-transparent px-3 py-1 text-xs transition-colors *:group-hover:fill-neutral-600 hover:border-neutral-600 hover:bg-neutral-400 hover:text-neutral-600 ${isActive && activeClasses}`}
+      className={`group font-body flex items-center gap-2.5 rounded-full border px-3 py-1 text-xs transition-colors ${isActive ? activeClasses : defaultClasses}`}
     >
       {FoundationTypeTrans().Foundation != null ? (
         <FoundationIcon

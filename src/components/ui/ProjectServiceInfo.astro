@@ -33,10 +33,10 @@ const t = useTranslations(lang)
 
   <div class='flex flex-col gap-4'>
     <div class='space-y-2'>
-      <h5 class='font-title text-primary-500 text-3xl font-medium'>
+      <h5 class='font-title text-primary-700 text-3xl font-medium'>
         {t(Service.title)}
       </h5>
-      <h6 class='font-title text-sm font-light text-neutral-500'>
+      <h6 class='font-title text-sm font-light text-neutral-700'>
         {t(Service.subtitle)}
       </h6>
     </div>
@@ -47,13 +47,13 @@ const t = useTranslations(lang)
     {
       Service.tech && Service.tech.length > 0 && (
         <div class='flex flex-col gap-2'>
-          <h6 class='font-title text-primary-500 text-xl font-medium'>
+          <h6 class='font-title text-primary-700 text-xl font-medium'>
             {t('service.tech.title')}
           </h6>
           <div class='flex flex-wrap gap-2'>
             {Service.tech.map((tech) => (
               <div
-                class='aspect-square rounded-2xl bg-neutral-400 p-2'
+                class='aspect-square rounded-2xl bg-neutral-400 p-2 dark:bg-neutral-600'
                 title={tech.title}
               >
                 <Icon

@@ -52,8 +52,24 @@ const { seo } = Astro.props
     <meta name="google-site-verification" content="41bnG4NYya70BCgokCI1D1yMQu7eWCuw9z_4ck-qkjQ" />
 
     <script defer src={UMAMI_URL} data-website-id={UMAMI_CODE} data-performance="true"></script>
+
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+
+      if (getTheme() === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
-  <body>
+  <body class="dark:bg-[#121212]">
     <Navbar />
         <!-- Mira más allá de tu corazón,
 allí comienza la misión.

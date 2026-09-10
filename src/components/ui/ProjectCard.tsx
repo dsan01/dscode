@@ -23,13 +23,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, url }) => {
       >
         <StrapiImage
           media={project.thumbnail}
-          displayFormat={ImageFormat.Medium}
+          displayFormat={ImageFormat.Small}
           className="h-[300px] rounded-md md:h-[250px]"
           url={url}
           context={t("meta.title.projetcs")}
         />
-        <div className="group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all duration-300 hover:backdrop-blur-xs">
-          <span className="hidden font-bold text-neutral-300 group-hover:block">
+        <div className="group hover:bg-primary-700/60 absolute inset-0 flex items-center justify-center rounded-md transition-all duration-300 hover:backdrop-blur-xs dark:hover:bg-primary-400/60">
+          <span className="hidden font-bold text-neutral-300 group-hover:block dark:text-neutral-800">
             {t("projectCard.project.seeMore")}
           </span>
         </div>
