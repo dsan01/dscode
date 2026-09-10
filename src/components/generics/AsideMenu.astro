@@ -25,12 +25,12 @@ const { headers, tags, title, description } = Astro.props
             {t('projects.content.contentsTable')}
           </h4>
           <div
-            class={`font-body flex flex-col gap-2 text-neutral-800 hover:text-neutral-700 ${tags && tags.length > 0 && headers.length > 10 && 'max-h-50 overflow-y-scroll'} scrollbar-thin `}
+            class={`font-body flex flex-col gap-2 text-neutral-800 ${tags && tags.length > 0 && headers.length > 10 && 'max-h-50 overflow-y-scroll'} scrollbar-thin `}
           >
             {headers.map((link) => (
               <a
                 href={`#${link.slug}`}
-                class='toc-link transition-all duration-200 hover:underline'
+                class='toc-link transition-all duration-200 hover:underline hover:text-neutral-700'
                 style={`padding-left: ${link.depth > 1 ? (link.depth - 1) * 10 : 0}px;`}
               >
                 {link.text}
@@ -62,6 +62,11 @@ const { headers, tags, title, description } = Astro.props
               link.classList.remove('font-bold')
             })
             correspondingLink?.classList.add('font-bold')
+
+            correspondingLink?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+            })
           }
         })
       },
