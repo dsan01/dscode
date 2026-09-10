@@ -21,11 +21,11 @@ const { headers, tags, title, description } = Astro.props
     {
       headers && headers.length > 0 && (
         <div>
-          <h3 class='font-title text-primary-700 mb-4 text-xl font-medium'>
+          <h4 class='font-title text-primary-700 mb-4 text-xl font-medium'>
             {t('projects.content.contentsTable')}
-          </h3>
+          </h4>
           <div
-            class={`font-body flex flex-col gap-2 text-neutral-800 hover:text-neutral-700 ${tags && tags.length > 0 && headers.length > 10 && 'max-h-50 overflow-y-scroll'} `}
+            class={`font-body flex flex-col gap-2 text-neutral-800 hover:text-neutral-700 ${tags && tags.length > 0 && headers.length > 10 && 'max-h-50 overflow-y-scroll'} scrollbar-thin `}
           >
             {headers.map((link) => (
               <a

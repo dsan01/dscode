@@ -59,9 +59,9 @@ const ShareButtons = ({
   return (
     <>
       <div className="">
-        <h3 className="font-title text-primary-700 mb-4 text-xl font-medium">
+        <h4 className="font-title text-primary-700 mb-4 text-xl font-medium">
           {t("aside.share.shareApi")}
-        </h3>
+        </h4>
         <div className="flex gap-4">
           <a
             className="flex aspect-square items-center justify-center rounded-full bg-neutral-300 p-1.5 align-middle transition-colors hover:bg-neutral-400"

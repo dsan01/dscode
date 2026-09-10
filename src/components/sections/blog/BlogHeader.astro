@@ -4,21 +4,21 @@ import { type BlogBasicProps as Props } from '@data/props'
 import StrapiImage from '@primitives/StrapiImage'
 import { ImageFormat } from '@data/enums'
 import { marked } from 'marked'
-import { Prose } from '@primitives/Prose'
+import Prose from '@primitives/Prose.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
 const { blog } = Astro.props
-const htmlContent = blog.description ? marked.parse(blog.description) : null
+const htmlContent = blog.description ? marked.parse(blog.description) : ""
 ---
 
-<header class='font-body bg-neutral-300 py-10'>
+<header class='font-body bg-neutral-300 py-10 dark:bg-neutral-400'>
   <div class='container flex flex-col gap-4'>
     {
       blog.category?.title && (
         <span class='text-primary-700 border-primary-700 w-min rounded-xl border px-2 py-1 text-xs'>
-          {blog.category?.title ?? 'son categoria'}
+          {blog.category?.title ?? 'N/A'}
         </span>
       )
     }
@@ -57,12 +57,10 @@ const htmlContent = blog.description ? marked.parse(blog.description) : null
   <div
     class='flex basis-1/2 flex-col items-center justify-center gap-4 text-balance'
   >
-    <h4 class='text-primary-700 font-title w-full text-xl font-semibold'>
+    <h3 class='text-primary-700 font-title w-full text-xl font-semibold'>
       {t('projects.header.summary')}
-    </h4>
-      <Prose>
-        <div set:html={htmlContent} />
-      </Prose>
+    </h3>
+    <Prose set:html={htmlContent} />
   </div>
 
   <div class='basis-1/2'>
@@ -73,7 +71,7 @@ const htmlContent = blog.description ? marked.parse(blog.description) : null
       url={Astro.url}
       context={t('meta.title.blog')}
       showCaption
-      client:only
+      client:visible
     />
   </div>
 </div>

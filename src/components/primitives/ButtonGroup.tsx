@@ -11,7 +11,7 @@ export const ButtonGroup = <T,>({
       {items.map((item, index) => (
         <button
           type="button"
-          className={`font-body border px-3 py-1 text-sm transition-colors first:rounded-s-xl first:border-r-0 last:rounded-e-xl last:border-l-0 md:text-xl ${
+          className={`font-body border px-3 py-1 text-sm transition-colors first:rounded-s-xl first:border-r-0 last:rounded-e-xl last:border-l-0 md:text-base ${
             Selected === item
               ? "bg-primary-700 border-primary-800 text-neutral-300"
               : "text-primary-800 border-primary-300 cursor-pointer bg-neutral-300 hover:bg-neutral-400"
