@@ -16,7 +16,7 @@ const { slug } = Astro.params
 let project: ProjectType
 
 try {
-  project = await fetchApi<ProjectType>({
+  const {items} = await fetchApi<ProjectType>({
     endpoint: 'projects',
     query: {
       populate: {
@@ -34,6 +34,8 @@ try {
     lang: lang,
     wrappedByList: true,
   })
+
+  project = items
 
   if (!project) {
     return Astro.redirect(translatePath('/404'))

@@ -22,7 +22,8 @@ export const labels = {
     "meta.description.projects":
       "Explora una selección de mis proyectos. Cada caso de estudio detalla mi trabajo en diseño UI/UX, desarrollo full-stack y gestión para lograr resultados exitosos.",
 
-    "meta.description.about": "Conoce más sobre David, desarrollador Full Stack e ingeniero informático. Descubre mi experiencia, trayectoria, tecnologías, proyectos y la pasión que impulsa mi trabajo.",
+    "meta.description.about":
+      "Conoce más sobre David, desarrollador Full Stack e ingeniero informático. Descubre mi experiencia, trayectoria, tecnologías, proyectos y la pasión que impulsa mi trabajo.",
     "meta.description.blog":
       "Ideas y reflexiones más allá del código. Un blog personal donde escribo sobre lo que me apasiona: tecnología, herramientas y la vida en la industria del desarrollo.",
     "meta.description.contact":
@@ -111,9 +112,9 @@ export const labels = {
     "trajectory.api.loadingTrajectories":
       "Compilando mi historial y certificaciones...",
     "trajectory.api.notFoundTrajectories":
-    "Aún no hay elementos en esta sección. ¡Es un área en constante crecimiento!",
+      "Aún no hay elementos en esta sección. ¡Es un área en constante crecimiento!",
 
-    "trajectory.modal.contributions":"Contribuciones",
+    "trajectory.modal.contributions": "Contribuciones",
     "trajectory.modal.projects": "Proyectos destacados",
 
     "enum.ProjectProcess.Discover": "Descubro",
@@ -242,7 +243,6 @@ export const labels = {
     "image.errorCaption": "Error al cargar la imagen",
     "image.noAltContetx": "Imagen relacionada al",
 
-
     "hobbie.title": "Mi combustible creativo",
 
     "hobbie.title.photo": "Fotografía",
@@ -260,9 +260,11 @@ export const labels = {
 
     "about.intro.start":
       "Hola, soy <span class='font-hand text-xl font-bold'>David</span> y soy:",
-    
-    "about.contact.title": "Ya conoces un poco de mí. Ahora quiero conocer tu proyecto.",
-    "about.contact.desc": "Estoy a un mensaje de distancia para hablar sobre tu próxima idea.",
+
+    "about.contact.title":
+      "Ya conoces un poco de mí. Ahora quiero conocer tu proyecto.",
+    "about.contact.desc":
+      "Estoy a un mensaje de distancia para hablar sobre tu próxima idea.",
 
     "about.github.title": "Mi Código y yo",
     "about.github.desc":
@@ -292,9 +294,15 @@ export const labels = {
     "about.github.fri": "Vie",
     "about.github.sat": "Sab",
 
+    "paginator.text.pages": "Página {{1}} de {{2}}",
+
+    "paginator.actions.first": "Primera página",
+    "paginator.actions.last": "Última página",
+    "paginator.actions.next": "Siguiente",
+    "paginator.actions.prev": "Anterior",
 
     "easter.modal.title": "¡Felicidades!",
-    
+
     "email.contact.subject": "Hemos recibido tu mensaje",
     "email.contact.title": "¡Gracias por escribir!",
     "email.contact.subtitle": "Tu mensaje ha sido recibido correctamente.",
@@ -302,17 +310,16 @@ export const labels = {
     "email.contact.body": `Gracias por contactar con DSCode.
     
     He recibido correctamente tu mensaje y revisaré la información lo antes posible. Si tu consulta requiere una respuesta, me pondré en contacto contigo por este mismo medio.`,
-    
+
     "email.contact.card": "Resumen de tu solicitud",
     "email.contact.close": `¿Olvidaste mencionar algún detalle?
 
 Puedes responder directamente a este correo y el mensaje se añadirá al mismo hilo de conversación.`,
-    
+
     "email.base.footer": "Hecho con ❤️ y mucho ☕ desde Colombia.",
-    
 
     "prose.footnote.title": "Notas adicionales",
-    
+
     "aside.share.title": "Te comparto esta publicación",
     "aside.share.description": "Hey, mira esta publicación",
     "aside.share.email": "Compartir por correo electrónico",
@@ -325,8 +332,6 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "aside.tags.title": "Etiquetas",
     "aside.tags.filter": "Filtrar por",
     "aside.tags.clear": "Limpiar filtro por etiquetas",
-
-
   },
   en: {
     demo: "demo",
@@ -343,7 +348,8 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "meta.description.projects":
       "Explore a selection of my projects. Each case study details my work in UI/UX design, full-stack development, and project management to achieve successful outcomes.",
 
-    "meta.description.about": "Learn more about David Sánchez, a Full Stack Developer and Software Engineer. Explore my experience, projects, technologies, and the passion behind my work.",
+    "meta.description.about":
+      "Learn more about David Sánchez, a Full Stack Developer and Software Engineer. Explore my experience, projects, technologies, and the passion behind my work.",
     "meta.description.blog":
       "Ideas and insights beyond the code. A personal blog where I write about my passions: technology, useful tools, and life within the development industry.",
     "meta.description.contact":
@@ -393,7 +399,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
       "I specialize in managing tech projects, ensuring success from planning to delivery. I use tools like Jira and MS Project to track progress, manage timelines, and optimize resources. I handle schedules, budgets, requirements, and stakeholders, anticipating risks and adapting to changes. My approach combines clarity, efficiency, and consistent communication to keep every project moving with purpose.",
     "service.desc.data.description":
       "I offer a comprehensive service ranging from efficient database management (SQL and NoSQL) to advanced data analysis. My approach ensures data integrity and performance, transforming information into actionable insights through reports and interactive dashboards. I collaborate with you to align every analysis with your business goals and empower your strategic decision-making.",
-    
+
     "service.tech.title": "Technologies and tools",
 
     "projectHelp.title": "How can I help you to boost your project?",
@@ -528,7 +534,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
       "Oops! Something interrupted the submission. If the problem persists, please contact me directly by email.",
     "contact.toast.captcha":
       "Oops! We couldn't verify the CAPTCHA. Please try again.",
-    
+
     "blogList.title": "From my keyboard",
     "blogList.desc":
       "Beyond the code. In this space, I share articles about what I'm passionate about: new technologies, my creative process, and day-to-day learnings from the tech industry.",
@@ -562,7 +568,7 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "image.errorCaptionContetx": "Error loading image of",
     "image.errorCaption": "Error loading image",
     "image.noAltContetx": "Image related to",
-    
+
     "hobbie.title": "My creative fuel",
 
     "hobbie.title.photo": "Photography",
@@ -581,8 +587,10 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "about.intro.start":
       "Hi, I'm <span class='font-hand text-xl font-bold'>David</span> and I'm:",
 
-    "about.contact.title": "Now you know a little about me. I'd love to hear about your project.",
-    "about.contact.desc": "I'm just one message away from discussing your next idea.",
+    "about.contact.title":
+      "Now you know a little about me. I'd love to hear about your project.",
+    "about.contact.desc":
+      "I'm just one message away from discussing your next idea.",
 
     "about.github.title": "My code and me",
     "about.github.desc":
@@ -612,6 +620,13 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "about.github.fri": "Fri",
     "about.github.sat": "Sat",
 
+    "paginator.text.pages": "Page {{1}} of {{2}}",
+
+    "paginator.actions.first": "First page",
+    "paginator.actions.last": "Last page",
+    "paginator.actions.next": "Next",
+    "paginator.actions.prev": "Previous",
+
     "easter.modal.title": "¡Felicidades!",
 
     "email.contact.subject": "We've received your message",
@@ -621,16 +636,16 @@ Puedes responder directamente a este correo y el mensaje se añadirá al mismo h
     "email.contact.body": `Thank you for contacting DSCode.
 
 I've successfully received your message and will review it as soon as possible. If your inquiry requires a response, I'll get back to you through this same email.`,
-    
+
     "email.contact.card": "Summary of your request",
     "email.contact.close": `Forgot to mention something?
 
 Simply reply to this email and your message will be added to the same conversation thread.`,
-    
+
     "email.base.footer": "Made with ❤️ and lots of ☕ from Colombia.",
 
     "prose.footnote.title": "Additional notes",
-    
+
     "aside.share.title": "I'm sharing this post with you",
     "aside.share.description": "Hey, check out this post",
     "aside.share.email": "Share via email",
@@ -643,6 +658,5 @@ Simply reply to this email and your message will be added to the same conversati
     "aside.tags.title": "Tags",
     "aside.tags.filter": "Filter by",
     "aside.tags.clear": "Clear tag filter",
-
   },
 } as const;

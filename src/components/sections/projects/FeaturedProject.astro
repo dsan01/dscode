@@ -15,7 +15,7 @@ const translatePath = useTranslatedPath(lang)
 let filteredProject: ProjectType | null = null
 
 try {
-  filteredProject = await fetchApi<ProjectType>({
+  const {items} = await fetchApi<ProjectType>({
     endpoint: 'projects',
     query: {
       populate: 'thumbnail',
@@ -29,6 +29,7 @@ try {
     lang: lang,
     wrappedByList: true,
   })
+  filteredProject = items
 } catch (error) {
   console.error('Error al obtener los proyectos destacados:', error)
   filteredProject = null

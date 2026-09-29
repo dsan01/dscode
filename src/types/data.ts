@@ -130,6 +130,13 @@ export interface AlterImg {
   sizeInBytes: number;
 }
 
+export interface StrapiPagination{
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
+}
+
 export interface StrapiBase {
   id: number;
   documentId: string;

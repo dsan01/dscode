@@ -50,7 +50,7 @@ const TrajectorySection: React.FC<BasicTranslateComponentProps> = ({ url }) => {
       setLoading(true);
       setError(null);
       try {
-        const filteredTrajectories = await fetchApi<TrajectoryModel[]>({
+        const {items:filteredTrajectories} = await fetchApi<TrajectoryModel[]>({
           endpoint: "trajectories",
           query: {
             populate: [
