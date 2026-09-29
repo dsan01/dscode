@@ -85,7 +85,7 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
           };
         }
 
-        const filteredProjects = await fetchApi<ProjectType[]>({
+        const {items:filteredProjects} = await fetchApi<ProjectType[]>({
           endpoint: "projects",
           query: query,
           wrappedByKey: "data",

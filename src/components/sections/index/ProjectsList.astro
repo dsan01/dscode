@@ -10,7 +10,7 @@ const translatePath = useTranslatedPath(lang)
 
 let projects: ProjectType[] = []
 try {
-  projects = await fetchApi<ProjectType[]>({
+  const {items} = await fetchApi<ProjectType[]>({
     endpoint: 'projects',
     query: {
       populate: 'thumbnail',
@@ -23,6 +23,7 @@ try {
     wrappedByKey: 'data',
     lang: lang,
   })
+  projects=items
 } catch (error) {
   console.log(error)
 }

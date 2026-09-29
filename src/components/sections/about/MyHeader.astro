@@ -10,14 +10,12 @@ import { marked } from 'marked'
 
 let page: AboutMePageType | null = null
 try {
-  page = await fetchApi<AboutMePageType>({
+  const {items} = await fetchApi<AboutMePageType>({
     endpoint: 'about',
-    // query: {
-    //   populate: 'thumbnail',
-    // },
     wrappedByKey: 'data',
     lang: lang,
   })
+  page = items
 } catch (error) {
   console.log(error)
 }

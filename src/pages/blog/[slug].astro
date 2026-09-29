@@ -17,7 +17,7 @@ const { slug } = Astro.params
 let blog: BlogType
 
 try {
-  blog = await fetchApi<BlogType>({
+  const {items} = await fetchApi<BlogType>({
     endpoint: 'blogs',
     query: {
       populate: ['thumbnail', 'category', 'createdBy', 'tags'],
@@ -31,6 +31,8 @@ try {
     lang: lang,
     wrappedByList: true,
   })
+
+  blog=items
 
   if (!blog) {
     return Astro.redirect(translatePath('/404'))

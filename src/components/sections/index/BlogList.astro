@@ -10,7 +10,7 @@ const translatePath = useTranslatedPath(lang)
 
 let blogs: BlogType[] = []
 try {
-  blogs = await fetchApi<BlogType[]>({
+  const {items} = await fetchApi<BlogType[]>({
     endpoint: 'blogs',
     query: {
       populate: 'thumbnail',
@@ -23,6 +23,7 @@ try {
     wrappedByKey: 'data',
     lang: lang,
   })
+  blogs=items
 } catch (error) {
   console.log(error)
 }

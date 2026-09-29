@@ -9,6 +9,7 @@ import type {
   ProjectType,
   SEOData,
   ServiceInfo,
+  StrapiPagination,
   TagType,
   TrajectoryModel,
 } from "./data";
@@ -85,6 +86,11 @@ export interface FoundationProps {
   ClassColor?: string;
 }
 
+export interface PaginatorProps extends BasicTranslateComponentProps {
+  Pagination: StrapiPagination;
+  onChangePage: (page: number) => void;
+}
+
 export interface PageTitleProps {
   title: TranslationKey;
   description?: TranslationKey;
@@ -145,7 +151,6 @@ export interface BadgeProps
   ref: string;
   isActive?: boolean;
 }
-
 
 export interface ProjectCategoryFilterProp {
   url: URL;
@@ -211,7 +216,6 @@ export interface ShareButtonsProps {
   title?: string;
   description?: string;
   url: URL;
-
 }
 
 export interface LazyImageProps {
@@ -239,10 +243,9 @@ export interface AsideMenuProps {
   headers?: AsideHeader[];
   tags?: TagType[];
   title?: string;
-  description?:string
+  description?: string;
 }
 
 export interface TagsContainerProps {
   tags?: TagType[];
 }
-

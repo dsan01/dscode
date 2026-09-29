@@ -9,6 +9,7 @@ import { createPortal } from "react-dom";
 import type { ShareButtonsProps } from "@data/props";
 import { Toaster, toast } from "sonner";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import ButtonIcon from "@primitives/ButtonIcon";
 
 const ShareButtons = ({
   title = "",
@@ -56,6 +57,13 @@ const ShareButtons = ({
     }
   }, [title, description, url]);
 
+  const handleShareSocial = useCallback(
+    async (url: string) => {
+      window.open(url, "_blank", "noopener,noreferrer");
+    },
+    [title, description, url],
+  );
+
   return (
     <>
       <div className="">
@@ -63,59 +71,42 @@ const ShareButtons = ({
           {t("aside.share.shareApi")}
         </h4>
         <div className="flex gap-4">
-          <a
-            className="flex aspect-square items-center justify-center rounded-full bg-neutral-300 p-1.5 align-middle transition-colors hover:bg-neutral-400"
-            href={shareByEmail}
+          <ButtonIcon
+            onClick={() => handleShareSocial(shareByEmail)}
             title={t("aside.share.email")}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
             data-umami-event="share-content"
             data-umami-event-to="Email"
           >
-            <TbMail className="text-2xl text-neutral-800" aria-hidden="true" />
-          </a>
+            <TbMail aria-hidden="true" />
+          </ButtonIcon>
 
-          <a
-            className="flex aspect-square items-center justify-center rounded-full bg-neutral-300 p-1.5 align-middle transition-colors hover:bg-neutral-400"
-            href={shareByLinkedIn}
+          <ButtonIcon
+            onClick={() => handleShareSocial(shareByLinkedIn)}
             title={t("aside.share.linkedIn")}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
             data-umami-event="share-content"
             data-umami-event-to="Linkedin"
           >
-            <TbBrandLinkedin
-              className="text-2xl text-neutral-800"
-              aria-hidden="true"
-            />
-          </a>
+            <TbBrandLinkedin aria-hidden="true" />
+          </ButtonIcon>
 
-          <a
-            className="flex aspect-square items-center justify-center rounded-full bg-neutral-300 p-1.5 align-middle transition-colors hover:bg-neutral-400"
-            href={shareByWhatsapp}
+          <ButtonIcon
+            onClick={() => handleShareSocial(shareByWhatsapp)}
             title={t("aside.share.whatsApp")}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
             data-umami-event="share-content"
             data-umami-event-to="Whatsapp"
             data-action="share/whatsapp/share"
           >
-            <TbBrandWhatsapp
-              className="text-2xl text-neutral-800"
-              aria-hidden="true"
-            />
-          </a>
+            <TbBrandWhatsapp aria-hidden="true" />
+          </ButtonIcon>
 
-          <button
-            type="button"
-            className="flex aspect-square cursor-pointer items-center justify-center rounded-full bg-neutral-300 p-1.5 align-middle transition-colors hover:bg-neutral-400"
+          <ButtonIcon
             title={t("aside.share.shareApi")}
             onClick={handleShare}
             data-umami-event="share-content"
             data-umami-event-to="ShareApi"
           >
-            <TbShare className="text-2xl text-neutral-800" aria-hidden="true" />
-          </button>
+            <TbShare aria-hidden="true" />
+          </ButtonIcon>
         </div>
       </div>
 

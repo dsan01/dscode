@@ -1,7 +1,7 @@
 import qs from "qs";
 import type { ParsedQs } from "qs";
 import apiClient from "./apiClient";
-import type { StrapiBase } from "@data/data";
+import type { StrapiBase, StrapiPagination } from "@data/data";
 import { parseStrapiData } from "./parsers";
 
 interface Props {
@@ -10,6 +10,10 @@ interface Props {
   wrappedByKey?: string;
   wrappedByList?: boolean;
   lang?: string;
+}
+export interface FetchApiResponse<T> {
+  items: T;
+  pagination?: StrapiPagination;
 }
 
 type StrapiEntity = Record<string, any> & Partial<StrapiBase>;
@@ -28,7 +32,7 @@ export default async function fetchApi<T extends StrapiEntity>({
   wrappedByKey,
   wrappedByList,
   lang = "es",
-}: Props): Promise<T> {
+}: Props): Promise<FetchApiResponse<T>> {
   const fullQuery = {
     ...query,
     locale: lang,
@@ -40,19 +44,24 @@ export default async function fetchApi<T extends StrapiEntity>({
   const fullEndpoint = `${endpoint}?${queryString}`;
 
   // Delegamos la llamada de red a nuestro cliente genérico
-  let data = await apiClient<any>({
+  let response = await apiClient<any>({
     endpoint: fullEndpoint,
     method: "GET", // Siempre será GET para esta función
   });
 
+  let data
+
   // La lógica para desenvolver la respuesta de Strapi se mantiene
   if (wrappedByKey) {
-    data = data[wrappedByKey];
+    data = response[wrappedByKey];
   }
 
   if (wrappedByList) {
     data = data[0];
   }
 
-  return parseStrapiData(data) as T;
+  return {
+    items: parseStrapiData(data) as T,
+    pagination: response.meta?.pagination,
+  };
 }
