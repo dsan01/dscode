@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import type { BasicTranslateComponentProps } from "@data/props";
-import type { ProjectType } from "@data/data";
+import type { ProjectType, StrapiPagination } from "@data/data";
 import type { ParsedQs } from "qs";
 import { CategoryFilterType } from "@data/enums";
 
@@ -8,6 +8,7 @@ import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { ProjectCard } from "@ui/ProjectCard";
 import fetchApi from "@lib/strapi";
 import ProjectCategoryFilter from "@ui/ProjectCategoryFilter";
+import { Paginator } from "@generics/Paginator";
 
 export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
   url,
@@ -20,6 +21,10 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
   const [projects, setProjects] = useState<ProjectType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [paginationInfo, setPaginationInfo] = useState<
+    Partial<StrapiPagination | undefined>
+  >({ page: 1 });
 
   // Opciones para los botones de filtro
   const filterOptions = [
@@ -65,6 +70,9 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
         window.history.replaceState(null, "", url.toString());
       }
     }
+    const urlActualPage = url.searchParams.get("page");
+    const pageNumber = urlActualPage ? parseInt(urlActualPage, 10) : 1;
+    setCurrentPage(pageNumber);
   }, [lang]);
 
   // Este 'useEffect' se ejecutará cada vez que 'activeFilter' cambie
@@ -76,6 +84,10 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
         const query: ParsedQs = {
           populate: "thumbnail",
           sort: ["finish_date:desc"],
+          pagination: {
+            page: currentPage,
+            pageSize: 5,
+          },
         };
         if (activeFilter != CategoryFilterType.All) {
           query.filters = {
@@ -85,13 +97,16 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
           };
         }
 
-        const {items:filteredProjects} = await fetchApi<ProjectType[]>({
+        const { items: filteredProjects, pagination } = await fetchApi<
+          ProjectType[]
+        >({
           endpoint: "projects",
           query: query,
           wrappedByKey: "data",
           lang: lang,
         });
         setProjects(filteredProjects);
+        setPaginationInfo(pagination);
       } catch (err) {
         setError(`No se pudieron cargar los proyectos. ${err}`);
         console.error(err);
@@ -100,18 +115,37 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
       }
     };
     loadProjects();
-  }, [activeFilter]);
+  }, [activeFilter, currentPage]);
+
+  const updateUrlParams = (params: Record<string, string | null>) => {
+    const url = new URL(window.location.href);
+
+    Object.entries(params).forEach(([key, value]) => {
+      if (value === null) {
+        url.searchParams.delete(key);
+      } else {
+        url.searchParams.set(key, value);
+      }
+    });
+
+    window.history.replaceState(null, "", url.toString());
+  };
 
   const handleCategoryChange = (slug: CategoryFilterType) => {
-    const url = new URL(window.location.href);
     setActiveFilter(slug);
-    if (slug == CategoryFilterType.All) {
-      url.searchParams.delete("category");
-      window.history.replaceState(null, "", url.toString());
-      return;
-    }
-    url.searchParams.set("category", categoryFilterToString(slug));
-    window.history.replaceState(null, "", url.toString());
+    handlePageChange(1);
+    updateUrlParams({
+      page: null,
+      category:
+        slug === CategoryFilterType.All ? null : categoryFilterToString(slug),
+    });
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    updateUrlParams({
+      page: page === 1 ? null : page.toString(),
+    });
   };
 
   return (
@@ -155,12 +189,14 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} url={url} />
             ))}
-            {projects.length > 0 && projects.length < 3 && (
-              <div className="font-body space-y-3 py-10 text-center text-neutral-500">
-                <p className="text-2xl">(ᵕ—ᴗ—)</p>
-                <p>{t("projects.page.futureProjects")}</p>
-              </div>
-            )}
+            {projects.length > 0 &&
+              projects.length < 3 &&
+              (paginationInfo?.pageCount ?? 1) == 1 && (
+                <div className="font-body space-y-3 py-10 text-center text-neutral-500">
+                  <p className="text-2xl">(ᵕ—ᴗ—)</p>
+                  <p>{t("projects.page.futureProjects")}</p>
+                </div>
+              )}
           </div>
         )}
 
@@ -170,6 +206,15 @@ export const ProjectList: React.FC<BasicTranslateComponentProps> = ({
             <p>{t("projects.page.notFoundProjects")}</p>
           </div>
         )}
+        <div className="mt-4">
+          {paginationInfo && (paginationInfo?.pageCount ?? 1) > 1 && (
+            <Paginator
+              Pagination={paginationInfo}
+              url={url}
+              onChangePage={handlePageChange}
+            />
+          )}
+        </div>
       </div>
     </section>
   );
