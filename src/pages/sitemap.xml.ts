@@ -64,22 +64,22 @@ export const GET: APIRoute = async ({ site }) => {
 
   const dinamycUrl:SitemapUrl[]  = [
 
-    ...es_projects.map(project => ({
+    ...es_projects.items.map(project => ({
       loc: `${baseUrl}projects/${project?.slug}`,
       lastmod: project?.updatedAt.toISOString().split('T')[0],
     })),
 
-    ...en_projects.map(project => ({
+    ...en_projects.items.map(project => ({
       loc: `${baseUrl}en/projects/${project?.slug}`,
       lastmod: project?.updatedAt.toISOString().split('T')[0],
     })),
 
-    ...es_blogs.map(blog => ({
+    ...es_blogs.items.map(blog => ({
       loc: `${baseUrl}blog/${blog?.slug}`,
       lastmod: blog?.updatedAt.toISOString().split('T')[0],
     })),
         
-    ...en_blogs.map(blog => ({
+    ...en_blogs.items.map(blog => ({
       loc: `${baseUrl}en/blog/${blog?.slug}`,
       lastmod: blog?.updatedAt.toISOString().split('T')[0],
     })),
