@@ -210,7 +210,7 @@ export const BlogList: React.FC<BasicTranslateComponentProps> = ({ url }) => {
               </ButtonIcon>
             </div>
             {tags && tags.length > 0 && (
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {tags.map((tag) => (
                   <Badge
                     onClick={() => handleTagChange(tag.slug)}
