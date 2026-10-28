@@ -42,9 +42,9 @@ jobs:
       - name: Build Astro
         run: pnpm build
         env:
-          STRAPI_URL: ${{ vars.STRAPI_URL }}
-          CAP_URL: ${{ vars.CAP_URL }}
-          CAP_SITE: ${{ vars.CAP_SITE }}
-          EASTER_CODE: ${{ vars.EASTER_CODE }}
-          UMAMI_URL: ${{ vars.UMAMI_URL }}
-          UMAMI_CODE: ${{ vars.UMAMI_CODE }}
+          STRAPI_URL: https://strapi.example.com
+          CAP_URL: https://cap.example.com
+          CAP_SITE: ci-test-site
+          EASTER_CODE: ci-test-code
+          UMAMI_URL: https://umami.example.com
+          UMAMI_CODE: ci-test-code
