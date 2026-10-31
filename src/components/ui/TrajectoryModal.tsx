@@ -1,9 +1,10 @@
 import type { TrajectoryModalProps } from "@data/props";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import { STRAPI_URL } from "astro:env/client";
 import { marked } from "marked";
 import { Prose } from "@primitives/Prose";
 import { TbArrowNarrowRight } from "react-icons/tb";
+import StrapiImage from "@primitives/StrapiImage";
+import { ImageFormat } from "@data/enums";
 
 export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
   trajectory,
@@ -31,21 +32,21 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
   return (
     <div className="font-body">
       <div className="flex flex-col gap-2 md:gap-4">
-        <div className="flex gap-2 w-full items-center">
+        <div className="flex w-full items-center gap-2">
           <div className="bg-alert-d-300 aspect-square size-17 overflow-clip rounded-full shadow-md md:size-22">
-            <img
-              src={`${STRAPI_URL}${trajectory.thumbnail.url}`}
-              alt={trajectory.company}
-              draggable={false}
-              loading="lazy"
+            <StrapiImage
+              media={trajectory.thumbnail}
+              url={url}
+              className="aspect-square size-17 md:size-22"
+              context={trajectory.company}
             />
           </div>
           <h4 className="font-title text-primary-800 text-xl/6 font-semibold md:text-3xl">
             {trajectory.title}
           </h4>
         </div>
-        <div className="flex flex-col items-start justify-start w-full text-neutral-800">
-          <p className="text-base/tight ">{trajectory.company}</p>
+        <div className="flex w-full flex-col items-start justify-start text-neutral-800">
+          <p className="text-base/tight">{trajectory.company}</p>
           <p className="text-sm font-light">
             {trajectory.showEnd
               ? `${startDate} - ${endDate ?? t("trajectory.card.currently")}`
@@ -54,7 +55,7 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
         </div>
       </div>
       <div className="mt-4">
-        <h5 className="font-title text-lg text-primary-800 md:text-xl">
+        <h5 className="font-title text-primary-800 text-lg md:text-xl">
           {t("trajectory.modal.contributions")}
         </h5>
         {trajectory.successes && (
@@ -69,7 +70,7 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
       <div>
         {trajectory.projects?.length ? (
           <div className="flex flex-col gap-4">
-            <h5 className="font-title text-lg text-primary-800 md:text-xl">
+            <h5 className="font-title text-primary-800 text-lg md:text-xl">
               {t("trajectory.modal.projects")}
             </h5>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
@@ -87,7 +88,7 @@ export const TrajectoryModal: React.FC<TrajectoryModalProps> = ({
                       {project.company}
                     </span>
                   </div>
-                  <TbArrowNarrowRight className="text-2xl transition-transform group-hover:-rotate-45 text-neutral-800" />
+                  <TbArrowNarrowRight className="text-2xl text-neutral-800 transition-transform group-hover:-rotate-45" />
                 </a>
               ))}
             </div>
