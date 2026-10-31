@@ -29,8 +29,6 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
-        with:
-          version: 12.15.0
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -43,3 +41,10 @@ jobs:
 
       - name: Build Astro
         run: pnpm build
+        env:
+          STRAPI_URL: https://strapi.example.com
+          CAP_URL: https://cap.example.com
+          CAP_SITE: ci-test-site
+          EASTER_CODE: ci-test-code
+          UMAMI_URL: https://umami.example.com
+          UMAMI_CODE: ci-test-code
