@@ -7,7 +7,7 @@ export const Services: ServiceInfo[] = [
     title: "service.desc.develop.title",
     subtitle: "service.desc.develop.subtitle",
     description: "service.desc.develop.description",
-    img: "develop_v2_ilustration.png",
+    img: "develop_v2_ilustration.jpg",
     Foundation: FoundationType.Develop,
     tech: [
       { icon: "logos:react", title: "React (Javascript)" },
@@ -23,7 +23,7 @@ export const Services: ServiceInfo[] = [
     title: "service.desc.data.title",
     subtitle: "service.desc.data.subtitle",
     description: "service.desc.data.description",
-    img: "data_ilustration.png",
+    img: "data_ilustration.jpg",
     Foundation: FoundationType.Data,
     tech: [
       { icon: "logos:microsoft-power-bi", title: "Power BI" },
@@ -41,7 +41,7 @@ export const Services: ServiceInfo[] = [
     title: "service.desc.desing.title",
     subtitle: "service.desc.desing.subtitle",
     description: "service.desc.desing.description",
-    img: "desing_ilustration.png",
+    img: "desing_ilustration.jpg",
     Foundation: FoundationType.Desing,
     tech: [
       { icon: "logos:figma", title: "Figma" },
@@ -54,7 +54,7 @@ export const Services: ServiceInfo[] = [
     title: "service.desc.managment.title",
     subtitle: "service.desc.managment.subtitle",
     description: "service.desc.managment.description",
-    img: "managment_ilustration.png",
+    img: "managment_ilustration.jpg",
     Foundation: FoundationType.Managment,
     tech: [
       { icon: "logos:jira", title: "Jira" },
